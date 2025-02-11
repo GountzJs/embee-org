@@ -1,0 +1,19 @@
+{
+  "name": "embee-org",
+  "version": "1.0.0",
+  "description": "Central repository for managing Embeejayz's stream-related projects and tools.",
+  "scripts": {
+    "wb-recommend:dev": "nx run web-rewards:dev",
+    "ui-kit:build": "nx build @embeeorg/ui-kit"
+  },
+  "keywords": [],
+  "author": {
+    "name": "GountzJs",
+    "email": "tomasjdev@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nx": "20.4.2"
+  },
+  "nx": {}
+}

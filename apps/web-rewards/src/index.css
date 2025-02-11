@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scrollbar-gutter: stable;
+  margin: 0;
+  scrollbar-color: var(--ui-kit-primary-500) var(--ui-kit-neutral-950);
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: var(--ui-kit-neutral-900);
+  display: flex;
+  flex: 1;
+  height: 100%;
+  min-height: 100dvh;
+  width: 100%;
+}
+
+#root {
+  display: flex;
+  flex: 1;
+  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
+}

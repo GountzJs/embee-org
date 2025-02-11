@@ -1,0 +1,21 @@
+.btn {
+  display: inline-block;
+  background-color: var(--ui-kit-primary-700);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: none;
+  color: var(--ui-kit-neutral-100);
+  border-radius: 6px;
+  padding: 8px 24px;
+  transition: background-color 400ms ease-in-out;
+  font-family: var(--ui-kit-font-primary);
+  font-size: var(--ui-kit-size-lg);
+  font-weight: var(--ui-kit-font-weight-extrabold);
+  user-select: none;
+  &:not(:disabled):hover {
+    cursor: pointer;
+    background-color: var(--ui-kit-primary-800);
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
