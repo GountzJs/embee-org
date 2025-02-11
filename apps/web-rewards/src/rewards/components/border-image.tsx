@@ -1,8 +1,8 @@
 import { staticUrl } from '@/core/settings';
-import { BorderRank } from '@/rewards/models/enums/rank.enum';
+import { Rank } from '@/rewards/models/enums/rank.enum';
 
 interface Props {
-  rank: BorderRank;
+  rank: Rank;
   width?: number;
   height?: number;
 }
