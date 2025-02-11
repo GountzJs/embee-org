@@ -1,14 +1,14 @@
-import * as Navbar from "@/shared/components/navbar/navbar";
-import { useLocation } from "react-router";
+import * as Navbar from '@/shared/components/navbar/navbar';
+import { useLocation } from 'react-router';
 
-const homePath = "/";
+const homePath = '/';
 
-const rankingPath = "/ranking";
+const rankingPath = '/ranking';
 
 export function GlobalNavigation() {
   const location = useLocation();
 
-  const isHome = location.pathname === homePath || location.pathname === "";
+  const isHome = location.pathname === homePath || location.pathname === '';
 
   const isRanking = location.pathname === rankingPath;
 

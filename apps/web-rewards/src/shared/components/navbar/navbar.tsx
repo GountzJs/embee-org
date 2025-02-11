@@ -1,6 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
-import { Link, LinkProps } from "react-router";
-import styles from "./navbar.module.css";
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Link, LinkProps } from 'react-router';
+import styles from './navbar.module.css';
 
 interface BoxProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
@@ -20,8 +20,8 @@ export function Item({ children, selectable = false, ...props }: ItemProps) {
   return (
     <Link
       {...props}
-      className={`${styles.item} ${selectable && styles["item-active"]} ${
-        props.className || ""
+      className={`${styles.item} ${selectable && styles['item-active']} ${
+        props.className || ''
       }`}
     >
       {children}

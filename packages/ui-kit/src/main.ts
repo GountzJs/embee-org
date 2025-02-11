@@ -1,3 +1,3 @@
-import "./global.css";
-export * from "./buttons";
-export * from "./texts";
+import './global.css';
+export * from './buttons';
+export * from './texts';

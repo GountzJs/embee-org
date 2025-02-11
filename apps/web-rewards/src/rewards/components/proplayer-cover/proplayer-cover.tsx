@@ -1,5 +1,5 @@
-import { staticUrl } from "@/core/settings";
-import styles from "./proplayer-cover.module.css";
+import { staticUrl } from '@/core/settings';
+import styles from './proplayer-cover.module.css';
 
 interface Props {
   name: string;

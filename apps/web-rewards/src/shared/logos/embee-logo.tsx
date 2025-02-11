@@ -1,4 +1,4 @@
-import { staticUrl } from "@/core/settings";
+import { staticUrl } from '@/core/settings';
 
 interface Props {
   size?: number;
@@ -12,7 +12,7 @@ export function EmbeeLogo({ size = 50 }: Props) {
       height={size}
       width={size}
       alt="Embeejayz Avatar Icon"
-      style={{ borderRadius: "50%" }}
+      style={{ borderRadius: '50%' }}
     />
   );
 }

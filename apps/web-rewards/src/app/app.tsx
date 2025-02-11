@@ -1,7 +1,7 @@
-import RootLayout from "@/app/layout";
-import { HomePage, RankingPage } from "@/app/router";
-import { LoadPage } from "@/shared/components/load-page/load-page";
-import { Route, Routes } from "react-router";
+import RootLayout from '@/app/layout';
+import { HomePage, RankingPage } from '@/app/router';
+import { LoadPage } from '@/shared/components/load-page/load-page';
+import { Route, Routes } from 'react-router';
 
 function App() {
   return (

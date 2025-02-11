@@ -1,5 +1,5 @@
-import { EmbeeLogo } from "@/shared/logos/embee-logo";
-import styles from "./card-embee.module.css";
+import { EmbeeLogo } from '@/shared/logos/embee-logo';
+import styles from './card-embee.module.css';
 
 interface Props {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface Props {
 export function CardEmbee({ children }: Props) {
   return (
     <div className={styles.container}>
-      <div className={styles["embee-logo"]}>
+      <div className={styles['embee-logo']}>
         <EmbeeLogo size={50} />
       </div>
       {children}

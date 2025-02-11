@@ -1,4 +1,4 @@
-import { staticUrl } from "@/core/settings";
+import { staticUrl } from '@/core/settings';
 
 interface Props {
   height?: number;

@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+.nx/
+.vscode/
+*.env
+*.env.*
+LICENSE
+**/*.md
+pnpm-lock.yaml
+pnpm-workspace.yaml

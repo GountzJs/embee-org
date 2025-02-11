@@ -1,13 +1,13 @@
-import { ExampleBorder } from "@/rewards/components/example-border/example-border";
-import { CardEmbee } from "@/shared/components/card-embee/card-embee";
-import { MainPage } from "@/shared/components/main-page/main-page";
-import { Typography } from "@embeeorg/ui-kit";
-import styles from "./page.module.css";
+import { ExampleBorder } from '@/rewards/components/example-border/example-border';
+import { CardEmbee } from '@/shared/components/card-embee/card-embee';
+import { MainPage } from '@/shared/components/main-page/main-page';
+import { Typography } from '@embeeorg/ui-kit';
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (
-    <MainPage className={styles["main-container"]}>
-      <section className={styles["card-presentation"]}>
+    <MainPage className={styles['main-container']}>
+      <section className={styles['card-presentation']}>
         <CardEmbee>
           <Typography
             variant="h1"
@@ -26,14 +26,14 @@ export default function HomePage() {
             weight="regular"
           >
             Agradecemos cada pequeño apoyo a este proyecto, por lo que decidimos
-            crear coleccionables basados en el competitivo de{" "}
+            crear coleccionables basados en el competitivo de{' '}
             <strong>
               <i>League of Legends</i>
-            </strong>{" "}
-            y en el canal de{" "}
+            </strong>{' '}
+            y en el canal de{' '}
             <strong>
               <i>Embeejayz</i>
-            </strong>{" "}
+            </strong>{' '}
             para ustedes. ¡Esperamos que sean de su agrado y que continúen
             acompañándonos en las partidas de T1!
           </Typography>
@@ -48,7 +48,7 @@ export default function HomePage() {
       >
         Detalles de las recompensas
       </Typography>
-      <section className={styles["section-container"]}>
+      <section className={styles['section-container']}>
         <Typography
           variant="h3"
           family="primary"

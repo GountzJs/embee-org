@@ -5,7 +5,8 @@
   "scripts": {
     "wb-recommend:dev": "nx run web-rewards:dev",
     "ui-kit:build": "nx build @embeeorg/ui-kit",
-    "commit": "commit"
+    "commit": "commit",
+    "format": "prettier . --write"
   },
   "keywords": [],
   "author": {
@@ -17,7 +18,8 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@commitlint/prompt-cli": "^19.7.1",
-    "nx": "20.4.2"
+    "nx": "20.4.2",
+    "prettier": "3.5.0"
   },
   "nx": {}
 }
