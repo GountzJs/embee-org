@@ -4,7 +4,8 @@
   "description": "Central repository for managing Embeejayz's stream-related projects and tools.",
   "scripts": {
     "wb-recommend:dev": "nx run web-rewards:dev",
-    "ui-kit:build": "nx build @embeeorg/ui-kit"
+    "ui-kit:build": "nx build @embeeorg/ui-kit",
+    "commit": "commit"
   },
   "keywords": [],
   "author": {
@@ -13,6 +14,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@commitlint/prompt-cli": "^19.7.1",
     "nx": "20.4.2"
   },
   "nx": {}
