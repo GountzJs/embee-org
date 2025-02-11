@@ -22,9 +22,9 @@ We look forward to your involvement and contributions!
 | ----------------------------------- | ----------------------------------------------- |
 | [`web-rewards`](./apps/web-rewards) | Reward system for Embeejayz's Twitch community. |
 
-## Contributing
+## Rules for Contributing
 
-Please read our [contributions guide](./docs/CONTRIBUTIONS.md) for more information on how to contribute to this project.
+Please read our [contributions rules](./docs/RULES_FOR_CONTRIBUTING.md) for more information on how to contribute to this project.
 
 ## License
 
