@@ -4,6 +4,7 @@
   "description": "Central repository for managing Embeejayz's stream-related projects and tools.",
   "scripts": {
     "wb-recommend:dev": "nx run web-rewards:dev",
+    "wb-recommend:build": "nx build web-rewards",
     "ui-kit:build": "nx build @embeeorg/ui-kit",
     "commit": "commit",
     "format": "prettier . --write"
