@@ -8,7 +8,7 @@ export function BtnLogin() {
     url.searchParams.append('client_id', twitchClientId);
     url.searchParams.append(
       'redirect_uri',
-      'http://localhost:3000/auth/callback',
+      `${window.location.origin}/auth/callback`,
     );
     url.searchParams.append('scope', 'user:read:email');
     url.searchParams.append('response_type', 'token');
@@ -17,8 +17,10 @@ export function BtnLogin() {
 
   return (
     <BtnPrimary className={styles.container} onClick={handlerOnLogin}>
-      <TwitchSvg color="#fff" size={24} />
-      Ingresar
+      <span className={styles.detail}>
+        <TwitchSvg color="#fff" size={24} />
+        Ingresar
+      </span>
     </BtnPrimary>
   );
 }
