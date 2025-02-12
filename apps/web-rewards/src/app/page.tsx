@@ -49,16 +49,42 @@ export default function HomePage() {
         Detalles de las recompensas
       </Typography>
       <section className={styles['section-container']}>
-        <Typography
-          variant="h3"
-          family="primary"
-          color="primary-light"
-          size="4xl"
-          weight="extrabold"
-        >
-          Bordes
-        </Typography>
-        <ExampleBorder />
+        <div className={styles['border-detail-container']}>
+          <ExampleBorder />
+          <div className={styles['border-detail']}>
+            <Typography
+              variant="h3"
+              family="primary"
+              color="primary-light"
+              size="4xl"
+              weight="extrabold"
+            >
+              Bordes clasificatorios
+            </Typography>
+            <Typography
+              variant="p"
+              family="secondary"
+              color="secondary"
+              size="lg"
+              weight="semibold"
+            >
+              Un coleccionable con los distintos proplayers que han dejado su
+              huella en la escena competitiva, destacando sus mejores momentos
+              en las distintas competencias internacionales.
+            </Typography>
+            <Typography
+              variant="p"
+              family="secondary"
+              color="secondary"
+              size="lg"
+              weight="semibold"
+            >
+              Estos bordes se adaptan a tu avatar y usuario de Twitch, con
+              hechizos personalizables. ¿Qué esperas para buscar a tu ídolo en
+              tu momento favorito?
+            </Typography>
+          </div>
+        </div>
       </section>
     </MainPage>
   );

@@ -16,3 +16,21 @@
   top: 0;
   left: 0;
 }
+
+.username {
+  position: absolute;
+  bottom: 15.8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.avatar {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 18px;
+  left: 23px;
+  height: 68px;
+  width: 68px;
+}
