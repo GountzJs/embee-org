@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes, JSX } from 'react';
 import styles from './typography.module.css';
 
 interface Props
@@ -26,14 +26,17 @@ export function Typography({
   size = 'base',
   family = 'secondary',
   weight = 'normal',
+  className = '',
+  style = {},
 }: Props) {
-  const Element = variant;
+  const Element = variant as keyof JSX.IntrinsicElements;
 
   return (
     <Element
       className={`${styles.text} ${styles[`color-${color}`]} ${
         styles[`font-${family}`]
-      } ${styles[`font-size-${size}`]} ${styles[`font-weight-${weight}`]}`}
+      } ${styles[`font-size-${size}`]} ${styles[`font-weight-${weight}`]} ${className || ''}`}
+      style={style}
     >
       {children}
     </Element>
