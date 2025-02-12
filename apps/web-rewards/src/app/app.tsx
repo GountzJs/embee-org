@@ -1,5 +1,5 @@
 import RootLayout from '@/app/layout';
-import { HomePage, RankingPage } from '@/app/router';
+import { CallbackPage, HomePage, RankingPage } from '@/app/router';
 import { LoadPage } from '@/shared/components/load-page/load-page';
 import { Route, Routes } from 'react-router';
 
@@ -11,6 +11,10 @@ function App() {
         <Route
           path="/ranking"
           element={<LoadPage children={<RankingPage />} />}
+        />
+        <Route
+          path="/auth/callback"
+          element={<LoadPage children={<CallbackPage />} />}
         />
       </Route>
     </Routes>

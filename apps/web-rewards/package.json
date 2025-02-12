@@ -16,10 +16,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@embeeorg/ui-kit": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.1.5",
-    "@embeeorg/ui-kit": "workspace:*"
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
