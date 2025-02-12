@@ -40,6 +40,10 @@
   --ui-kit-neutral-900: oklch(0.21 0.034 264.665);
   --ui-kit-neutral-950: oklch(0.13 0.028 261.692);
 
+  /* Color Twitch */
+  --ui-kit-twitch: #9146ff;
+  --ui-kit-twitch-dark: #772ce8;
+
   /* Font Family */
   --ui-kit-font-primary: 'Mulish', serif;
   --ui-kit-font-secondary: 'Poppins', sans-serif;
