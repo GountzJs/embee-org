@@ -1,0 +1,27 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.13.1'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Deploy to Cloudflare Workers
+        run: pnpm sv-recommend:deploy
+        env:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
