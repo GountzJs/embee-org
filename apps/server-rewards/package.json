@@ -9,15 +9,11 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@libsql/client": "^0.14.0",
-    "dotenv": "^16.4.7",
-    "drizzle-orm": "^0.39.3",
-    "hono": "^4.6.20",
-    "uuid": "^11.0.5"
+    "@supabase/supabase-js": "^2.48.1",
+    "hono": "^4.6.20"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250204.0",
-    "drizzle-kit": "^0.30.4",
     "wrangler": "^3.108.1"
   }
 }
