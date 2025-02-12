@@ -1,10 +1,10 @@
 .container {
   align-items: center;
-  background-color: var(--ui-kit-twitch);
+  background-color: var(--ui-kit-twitch) !important;
   display: flex;
   justify-content: center;
   gap: 10px;
   &:not(:disabled):hover {
-    background-color: var(--ui-kit-twitch-dark);
+    background-color: var(--ui-kit-twitch-dark) !important;
   }
 }
