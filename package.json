@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Central repository for managing Embeejayz's stream-related projects and tools.",
   "scripts": {
-    "wb-recommend:dev": "nx run web-rewards:dev",
+    "sv-recommend:dev": "nx dev server-rewards",
+    "sv-recommend:deploy": "nx deploy server-rewards",
+    "wb-recommend:dev": "nx dev web-rewards",
     "wb-recommend:build": "nx build web-rewards",
     "ui-kit:build": "nx build @embeeorg/ui-kit",
     "commit": "commit",
