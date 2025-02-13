@@ -2,7 +2,7 @@ export enum Rank {
   Challenger = 'CHALLENGER',
   Master = 'MASTER',
   Diamond = 'DIAMOND',
-  Platinum = 'PLATINUM',
+  Platinium = 'PLATINIUM',
   Gold = 'GOLD',
   Silver = 'SILVER',
   Bronze = 'BRONZE',
