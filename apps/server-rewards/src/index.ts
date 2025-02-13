@@ -25,7 +25,7 @@ app.get('/ranking', async (c) => {
       FROM users u
       INNER JOIN user_borders ub ON u.id = ub.user_id
       GROUP BY u.id
-      ORDER BY quantityBorders DESC;
+      ORDER BY quantityBorders DESC, u.login ASC
     `);
     return c.json(
       {
