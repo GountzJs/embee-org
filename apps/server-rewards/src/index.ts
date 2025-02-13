@@ -41,7 +41,6 @@ app.get('/ranking', async (c) => {
       {},
     );
 
-    // Convertir el objeto de resultados en un array
     const usersCount = Object.values(result);
 
     return c.json(
@@ -51,9 +50,45 @@ app.get('/ranking', async (c) => {
       200,
     );
   } catch (err) {
-    console.log(err);
     return c.json({ message: 'Failed to fetch data' }, 500);
   }
+});
+
+app.get('/borders/:id', async (c) => {
+  const { id } = c.req.param();
+  const client = initClient({
+    SUPABASE_URL: c.env.SUPABASE_URL,
+    SUPABASE_KEY: c.env.SUPABASE_KEY,
+  });
+
+  const { data, error } = await client
+    .from('user_borders')
+    .select('borders!inner(id, url)')
+    .eq('user_id', id);
+
+  if (error) return c.json({ message: error.message }, 500);
+
+  const result = data.reduce((acc: { [key: string]: any }, { borders }) => {
+    const { id, url } = borders as unknown as any;
+
+    if (!acc[id]) {
+      acc[id] = {
+        id,
+        url,
+        quantity: 0,
+      };
+    }
+
+    acc[id].quantity += 1;
+    return acc;
+  }, {});
+
+  return c.json(
+    {
+      borders: Object.values(result),
+    },
+    200,
+  );
 });
 
 export default app;
