@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install wrangler
+        run: npm install -g wrangler
+
       - name: Set Supabase Secrets in Cloudflare Workers
         run: |
           echo "${{ secrets.SUPABASE_URL }}" | wrangler secret put SUPABASE_URL --env production
