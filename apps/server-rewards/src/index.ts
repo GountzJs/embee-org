@@ -123,13 +123,15 @@ app.post('/register', async (c) => {
     );
     if (!user.length) return c.json({ message: 'Unauthorized' }, 401);
 
-    await client.from('users').insert({
+    const { error } = await client.from('users').insert({
       twitch_ref: user[0].id,
       login: user[0].login,
       display_name: user[0].display_name,
       email: user[0].email,
       profile_image_url: user[0].profile_image_url,
     });
+
+    if (error) return c.json({ message: error.message }, 500);
 
     return c.json({ message: 'Registered successfully' }, 200);
   } catch {
