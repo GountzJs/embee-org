@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { initClient } from './db';
+import { BorderEntity } from './models/entities/border.type';
 import { RankingEntity } from './models/entities/ranking.type';
+import { BorderUser } from './models/type/border-user.type';
 import { UserRanking } from './models/type/user-ranking.type';
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
@@ -68,20 +70,23 @@ app.get('/borders/:id', async (c) => {
 
   if (error) return c.json({ message: error.message }, 500);
 
-  const result = data.reduce((acc: { [key: string]: any }, { borders }) => {
-    const { id, url } = borders as unknown as any;
+  const result = data.reduce(
+    (acc: { [key: string]: BorderUser }, { borders }) => {
+      const { id, url } = borders as unknown as BorderEntity;
 
-    if (!acc[id]) {
-      acc[id] = {
-        id,
-        url,
-        quantity: 0,
-      };
-    }
+      if (!acc[id]) {
+        acc[id] = {
+          id,
+          url,
+          quantity: 0,
+        };
+      }
 
-    acc[id].quantity += 1;
-    return acc;
-  }, {});
+      acc[id].quantity += 1;
+      return acc;
+    },
+    {},
+  );
 
   return c.json(
     {
