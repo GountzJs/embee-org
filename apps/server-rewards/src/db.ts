@@ -1,12 +1,15 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient as tursoCreateClient } from '@libsql/client/web';
 
-export function initClient(env: {
-  SUPABASE_URL: string;
-  SUPABASE_KEY: string;
+export function initTursoClient(env: {
+  TURSO_DATABASE_URL: string;
+  TURSO_AUTH_TOKEN: string;
 }) {
-  const url = env.SUPABASE_URL?.trim();
-  if (!url) throw new Error('SUPABASE_URL env var is not defined');
-  const key = env.SUPABASE_KEY?.trim();
-  if (!key) throw new Error('SUPABASE_KEY env var is not defined');
-  return createClient(url, key);
+  const url = env.TURSO_DATABASE_URL?.trim();
+  if (!url) throw new Error('TURSO_DATABASE_URL env var is not defined');
+  const token = env.TURSO_AUTH_TOKEN?.trim();
+  if (!token) throw new Error('TURSO_AUTH_TOKEN env var is not defined');
+  return tursoCreateClient({
+    url: env.TURSO_DATABASE_URL,
+    authToken: env.TURSO_AUTH_TOKEN,
+  });
 }

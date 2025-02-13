@@ -1,105 +1,73 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { initClient } from './db';
-import { BorderEntity } from './models/entities/border.type';
-import { RankingEntity } from './models/entities/ranking.type';
-import { BorderUser } from './models/type/border-user.type';
-import { UserRanking } from './models/type/user-ranking.type';
+import { v4 } from 'uuid';
+import { initTursoClient } from './db';
 import { getUserInfo } from './services/twitch';
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
-app.use('/*', cors({ origin: 'https://rewards.embeejayz.com' }));
+app.use('/*', cors({ origin: 'https://rewards.embeejayz.com/' }));
 
 app.get('/ranking', async (c) => {
-  const client = initClient({
-    SUPABASE_URL: c.env.SUPABASE_URL,
-    SUPABASE_KEY: c.env.SUPABASE_KEY,
+  const turso = initTursoClient({
+    TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
+    TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
   });
 
   try {
-    const { data, error } = await client
-      .from('user_borders')
-      .select(`users!inner(login, twitch_ref, profile_image_url, id)`);
-
-    if (error) return c.json({ message: error.message }, 500);
-
-    const result = data.reduce(
-      (acc: { [key: string]: UserRanking }, { users }) => {
-        const { login, twitch_ref, profile_image_url, id } =
-          users as unknown as RankingEntity;
-
-        const key = twitch_ref;
-
-        if (!acc[key]) {
-          acc[key] = {
-            id,
-            username: login,
-            twitchRef: twitch_ref,
-            avatar: profile_image_url,
-            quantityBorders: 0,
-          };
-        }
-
-        acc[key].quantityBorders += 1;
-        return acc;
-      },
-      {},
-    );
-
-    const usersCount = Object.values(result);
-
+    const { rows: ranking } = await turso.execute(`
+      SELECT 
+        u.id, 
+        u.login AS username, 
+        u.twitch_ref AS twitchRef, 
+        u.profile_image_url AS avatar, 
+        COUNT(ub.id) AS quantityBorders
+      FROM users u
+      INNER JOIN user_borders ub ON u.id = ub.user_id
+      GROUP BY u.id
+      ORDER BY quantityBorders DESC;
+    `);
     return c.json(
       {
-        ranking: usersCount.sort(
-          (a, b) => b.quantityBorders - a.quantityBorders,
-        ),
+        ranking,
       },
       200,
     );
-  } catch (err) {
+  } catch {
     return c.json({ message: 'Failed to fetch data' }, 500);
   }
 });
 
 app.get('/borders/:id', async (c) => {
   const { id } = c.req.param();
-  const client = initClient({
-    SUPABASE_URL: c.env.SUPABASE_URL,
-    SUPABASE_KEY: c.env.SUPABASE_KEY,
+  const turso = initTursoClient({
+    TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
+    TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
   });
-
-  const { data, error } = await client
-    .from('user_borders')
-    .select('borders!inner(id, url)')
-    .eq('user_id', id);
-
-  if (error) return c.json({ message: error.message }, 500);
-
-  const result = data.reduce(
-    (acc: { [key: string]: BorderUser }, { borders }) => {
-      const { id, url } = borders as unknown as BorderEntity;
-
-      if (!acc[id]) {
-        acc[id] = {
-          id,
-          url,
-          quantity: 0,
-        };
-      }
-
-      acc[id].quantity += 1;
-      return acc;
-    },
-    {},
-  );
-
-  return c.json(
-    {
-      borders: Object.values(result),
-    },
-    200,
-  );
+  try {
+    const { rows: borders } = await turso.execute({
+      sql: `
+      SELECT 
+        b.id, 
+        b.url,
+        b.special, 
+        ub.user_id,
+        COUNT(ub.id) AS quantity
+      FROM user_borders ub JOIN borders b ON ub.border_id = b.id 
+      WHERE ub.user_id = ?
+      GROUP BY b.id, ub.user_id
+      `,
+      args: [id],
+    });
+    return c.json(
+      {
+        borders,
+      },
+      200,
+    );
+  } catch {
+    return c.json({ message: 'Failed to fetch data' }, 500);
+  }
 });
 
 app.post('/register', async (c) => {
@@ -109,32 +77,31 @@ app.post('/register', async (c) => {
     return c.json({ message: 'Unauthorized' }, 401);
   }
 
-  const clientId = c.env.TWITCH_CLIENT_ID;
-
-  const client = initClient({
-    SUPABASE_URL: c.env.SUPABASE_URL,
-    SUPABASE_KEY: c.env.SUPABASE_KEY,
+  const turso = initTursoClient({
+    TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
+    TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
   });
 
   try {
     const { data: user } = await getUserInfo(
       authentication.replace('Bearer ', ''),
-      clientId,
+      c.env.TWITCH_CLIENT_ID,
     );
     if (!user.length) return c.json({ message: 'Unauthorized' }, 401);
-
-    const { error } = await client.from('users').insert({
-      twitch_ref: user[0].id,
-      login: user[0].login,
-      display_name: user[0].display_name,
-      email: user[0].email,
-      profile_image_url: user[0].profile_image_url,
+    await turso.execute({
+      sql: 'INSERT INTO users (id, twitch_ref, login, display_name, profile_image_url) VALUES (?, ?, ?, ?, ?)',
+      args: [
+        v4(),
+        user[0].id,
+        user[0].login,
+        user[0].display_name,
+        user[0].profile_image_url,
+      ],
     });
-
-    if (error) return c.json({ message: error.message }, 500);
-
-    return c.json({ message: 'Registered successfully' }, 200);
-  } catch {
+    return c.json({ message: 'Register success' }, 201);
+  } catch (err: any) {
+    if (err?.code === 'SQLITE_CONSTRAINT')
+      return c.json({ message: 'User already register' }, 200);
     return c.json({ message: 'Failed to register user' }, 500);
   }
 });
