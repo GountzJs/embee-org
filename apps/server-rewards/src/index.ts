@@ -14,19 +14,20 @@ app.get('/ranking', async (c) => {
   try {
     const { data, error } = await client
       .from('user_borders')
-      .select(`users!inner(login, twitch_ref, profile_image_url)`);
+      .select(`users!inner(login, twitch_ref, profile_image_url, id)`);
 
     if (error) return c.json({ message: error.message }, 500);
 
     const result = data.reduce(
       (acc: { [key: string]: UserRanking }, { users }) => {
-        const { login, twitch_ref, profile_image_url } =
+        const { login, twitch_ref, profile_image_url, id } =
           users as unknown as RankingEntity;
 
         const key = twitch_ref;
 
         if (!acc[key]) {
           acc[key] = {
+            id,
             username: login,
             twitchRef: twitch_ref,
             avatar: profile_image_url,
