@@ -1,0 +1,27 @@
+.container {
+  align-self: center;
+  border-radius: 6px;
+  background-color: var(--ui-kit-primary-700);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  text-decoration: none;
+  gap: 15px;
+  padding: 10px 26px;
+  width: 100%;
+}
+
+.icon-rank {
+  align-self: center;
+  justify-self: center;
+}
+
+.details-container {
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}

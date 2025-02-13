@@ -1,9 +1,11 @@
 import { useGetUserInfo } from '@/auth/hooks/use-get-user-info.ts';
+import { useRegisterHook } from '@/auth/hooks/use-register.hook';
 import { Typography } from '@embeeorg/ui-kit';
 import styles from './user-detail.module.css';
 
 export function UserDetail() {
   const { data, isLoading, error } = useGetUserInfo();
+  useRegisterHook();
 
   if (isLoading)
     return (

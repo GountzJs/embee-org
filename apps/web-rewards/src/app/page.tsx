@@ -2,6 +2,7 @@ import { ExampleBorder } from '@/rewards/components/example-border/example-borde
 import { CardEmbee } from '@/shared/components/card-embee/card-embee';
 import { MainPage } from '@/shared/components/main-page/main-page';
 import { Typography } from '@embeeorg/ui-kit';
+import { Link } from 'react-router';
 import styles from './page.module.css';
 
 export default function HomePage() {
@@ -79,10 +80,36 @@ export default function HomePage() {
               size="lg"
               weight="semibold"
             >
-              Estos bordes se adaptan a tu avatar y usuario de Twitch, con
-              hechizos personalizables. ¿Qué esperas para buscar a tu ídolo en
-              tu momento favorito?
+              Con ranking basado en la cantidad de repetidos que tengas, se
+              adaptan a tu avatar y usuario de Twitch, con hechizos
+              personalizables.
             </Typography>
+            <Typography
+              variant="p"
+              family="secondary"
+              color="secondary"
+              size="lg"
+              weight="extrabold"
+            >
+              ¿Qué esperas para buscar a tu ídolo?
+            </Typography>
+            <Link to={'https://www.twitch.tv/embeejayz'}>
+              <Typography
+                variant="p"
+                family="secondary"
+                color="white"
+                size="lg"
+                weight="extrabold"
+                style={{
+                  textDecoration: 'none',
+                  backgroundColor: 'var(--ui-kit-twitch)',
+                  padding: '8px 26px',
+                  borderRadius: '6px',
+                }}
+              >
+                Ven al stream
+              </Typography>
+            </Link>
           </div>
         </div>
       </section>

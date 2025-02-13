@@ -6,4 +6,5 @@ export enum Rank {
   Gold = 'GOLD',
   Silver = 'SILVER',
   Bronze = 'BRONZE',
+  Unranked = 'UNRANKED',
 }

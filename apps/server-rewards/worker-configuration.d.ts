@@ -3,4 +3,5 @@
 interface CloudflareBindings {
   SUPABASE_URL: string;
   SUPABASE_KEY: string;
+  TWITCH_CLIENT_ID: string;
 }

@@ -35,6 +35,7 @@ jobs:
           [vars]
           SUPABASE_URL = "${{ secrets.SUPABASE_URL }}"
           SUPABASE_KEY = "${{ secrets.SUPABASE_KEY }}"
+          TWITCH_CLIENT_ID = "${{ secrets.TWITCH_CLIENT_ID }}"
           EOF
 
       - name: Run nx deploy for server-rewards

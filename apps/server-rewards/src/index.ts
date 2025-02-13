@@ -1,11 +1,15 @@
 import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 import { initClient } from './db';
 import { BorderEntity } from './models/entities/border.type';
 import { RankingEntity } from './models/entities/ranking.type';
 import { BorderUser } from './models/type/border-user.type';
 import { UserRanking } from './models/type/user-ranking.type';
+import { getUserInfo } from './services/twitch';
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
+
+app.use('/*', cors({ origin: ['http://localhost:3000'] }));
 
 app.get('/ranking', async (c) => {
   const client = initClient({
@@ -47,7 +51,9 @@ app.get('/ranking', async (c) => {
 
     return c.json(
       {
-        ranking: usersCount,
+        ranking: usersCount.sort(
+          (a, b) => b.quantityBorders - a.quantityBorders,
+        ),
       },
       200,
     );
@@ -94,6 +100,55 @@ app.get('/borders/:id', async (c) => {
     },
     200,
   );
+});
+
+app.post('/register', async (c) => {
+  const authentication = c.req.header('Authorization');
+
+  if (!authentication || !authentication.startsWith('Bearer ')) {
+    return c.json({ message: 'Unauthorized' }, 401);
+  }
+
+  const clientId = c.env.TWITCH_CLIENT_ID;
+
+  const client = initClient({
+    SUPABASE_URL: c.env.SUPABASE_URL,
+    SUPABASE_KEY: c.env.SUPABASE_KEY,
+  });
+
+  try {
+    const { data: user } = await getUserInfo(
+      authentication.replace('Bearer ', ''),
+      clientId,
+    );
+    if (!user.length) return c.json({ message: 'Unauthorized' }, 401);
+
+    const { data, error } = await client
+      .from('users')
+      .select('id')
+      .eq('twitch_ref', user[0].id)
+      .single();
+
+    if (error) return c.json({ message: error.message }, 500);
+
+    if (data) {
+      return c.json({ message: 'Registered successfully' }, 200);
+    }
+
+    await client.from('users').insert([
+      {
+        twitch_ref: user[0].id,
+        login: user[0].login,
+        display_name: user[0].display_name,
+        email: user[0].email,
+        profile_image_url: user[0].profile_image_url,
+      },
+    ]);
+
+    return c.json({ message: 'Registered successfully' }, 200);
+  } catch {
+    return c.json({ message: 'Failed to register user' }, 500);
+  }
 });
 
 export default app;
