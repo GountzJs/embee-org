@@ -28,8 +28,8 @@ jobs:
 
       - name: Set Supabase Secrets in Cloudflare Workers
         run: |
-          echo "${{ secrets.SUPABASE_URL }}" | wrangler secret put SUPABASE_URL --env production
-          echo "${{ secrets.SUPABASE_KEY }}" | wrangler secret put SUPABASE_KEY --env production
+          echo "${{ secrets.SUPABASE_URL }}" | npx wrangler secret put SUPABASE_URL --env production
+          echo "${{ secrets.SUPABASE_KEY }}" | npx wrangler secret put SUPABASE_KEY --env production
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
