@@ -13,9 +13,16 @@ interface Props {
 
 export function UserRanking({ id, rank, username, quantityBorders }: Props) {
   return (
-    <Link to={`/user/${id}`} className={styles.container}>
+    <Link
+      to={`/user/${id}`}
+      className={`${styles.container} ${styles[`rank-${rank.toLowerCase()}`]}`}
+    >
       <div style={{ alignSelf: 'center', justifySelf: 'center' }}>
-        <IconRank rank={rank} width={80} height={80} />
+        {rank === Rank.Unranked ? (
+          <IconRank rank={rank} width={80} height={60} />
+        ) : (
+          <IconRank rank={rank} width={80} height={80} />
+        )}
       </div>
       <Typography
         variant="h4"
