@@ -10,6 +10,13 @@
   width: 100%;
 }
 
+@media screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .rank-challenger {
   background-image: linear-gradient(
     45deg,
@@ -60,6 +67,39 @@
     #855527ff 30%,
     #48100bff 60%,
     #a10501ff 100%
+  );
+}
+
+.rank-silver {
+  background-image: linear-gradient(
+    45deg,
+    #99ada6ff 0%,
+    #596e67ff 20%,
+    #344a43ff 40%,
+    #7c6126ff 90%,
+    #362e0cff 100%
+  );
+}
+
+.rank-bronze {
+  background-image: linear-gradient(
+    45deg,
+    #e3c771ff 0%,
+    #c68d36ff 5%,
+    #76300bff 40%,
+    #684f28ff 90%,
+    #4b3218ff 100%
+  );
+}
+
+.rank-unranked {
+  background-image: linear-gradient(
+    45deg,
+    #88795dff 0%,
+    #83c4c2ff 10%,
+    #425f64ff 20%,
+    #435558ff 50%,
+    #4b3218ff 100%
   );
 }
 
