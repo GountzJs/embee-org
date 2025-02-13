@@ -7,6 +7,6 @@ export function useRegisterHook() {
 
   useEffect(() => {
     if (!accessToken) return;
-    registerUser(accessToken);
+    registerUser(accessToken).catch((err) => console.log(err));
   }, [accessToken]);
 }
