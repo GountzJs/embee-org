@@ -23,6 +23,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Set Supabase Secrets in Cloudflare Workers
+        run: |
+          echo "${{ secrets.SUPABASE_URL }}" | wrangler secret put SUPABASE_URL --env production
+          echo "${{ secrets.SUPABASE_KEY }}" | wrangler secret put SUPABASE_KEY --env production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
       - name: Run nx deploy for server-rewards
         run: pnpm nx deploy server-rewards
         env:
