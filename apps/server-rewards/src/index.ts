@@ -6,7 +6,7 @@ import { getUserInfo } from './services/twitch';
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
-app.use('/*', cors({ origin: 'https://rewards.embeejayz.com/' }));
+app.use('/*', cors({ origin: 'https://rewards.embeejayz.com' }));
 
 app.get('/ranking', async (c) => {
   const turso = initTursoClient({
