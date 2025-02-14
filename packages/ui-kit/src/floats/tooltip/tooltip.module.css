@@ -1,0 +1,26 @@
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip {
+  background-color: var(--ui-kit-neutral-900);
+  color: var(--ui-kit-neutral-100);
+  display: inline-block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  font-family: var(--ui-kit-font-secondary);
+  font-weight: var(--ui-kit-font-weight-semibold);
+  font-size: var(--ui-kit-size-sm);
+  padding: 6px 12px;
+  border-radius: 4px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+.container:hover > .tooltip {
+  opacity: 1;
+}

@@ -1,8 +1,6 @@
 .container {
   background-color: var(--ui-kit-neutral-800);
-  padding-inline: 15px;
-  padding-bottom: 55px;
-  padding-top: 25px;
+  padding: 25px 15px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -22,6 +20,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 15px;
 }
 
 .nav-link {
@@ -31,4 +30,17 @@
   font-family: var(--ui-kit-font-secondary);
   font-weight: 700;
   text-shadow: 0 0 10px #000;
+}
+
+.collaborators-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.collaborators {
+  display: flex;
+  gap: 15px;
 }
