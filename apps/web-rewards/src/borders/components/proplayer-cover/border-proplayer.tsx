@@ -1,5 +1,5 @@
 import { staticUrl } from '@/core/settings';
-import styles from './border-propplayer.module.css';
+import styles from './border-proplayer.module.css';
 
 interface Props {
   url: string;
