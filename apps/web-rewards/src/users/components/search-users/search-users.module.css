@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  width: 500px;
+  max-width: 80%;
+}
+
+.item-option {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15%;
+}
+
+.avatar {
+  border-radius: 50%;
+}
