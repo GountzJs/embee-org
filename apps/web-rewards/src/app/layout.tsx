@@ -11,15 +11,6 @@ export default function RootLayout() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        {/* <div
-          style={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'flex-end',
-          }}
-        >
-          {isAuthenticated ? <UserDetail /> : <BtnLogin />}
-        </div> */}
         <div className={styles['decorator-container']}>
           <SktT1Logo />
           <EmbeeWorldsLogo />
