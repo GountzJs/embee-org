@@ -141,6 +141,56 @@
   bottom: 14.6%;
 }
 
+/* Summoners Styles */
+.summoners-container {
+  align-items: flex-end;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.summoners-challenger {
+  bottom: 4.7%;
+  left: 30.2%;
+  gap: 8px;
+}
+
+.summoners-master {
+  bottom: 3.5%;
+  left: 30%;
+  gap: 8px;
+}
+
+.summoners-diamond {
+  bottom: 3.3%;
+  left: 30%;
+  gap: 8px;
+}
+
+.summoners-platinium {
+  bottom: 3.3%;
+  left: 30.5%;
+  gap: 8px;
+}
+
+.summoners-gold {
+  bottom: 3.3%;
+  left: 31%;
+  gap: 7.4px;
+}
+
+.summoners-silver {
+  bottom: 3.1%;
+  left: 30.3%;
+  gap: 7px;
+}
+
+.summoners-bronze {
+  bottom: 3.3%;
+  left: 30.9%;
+  gap: 7px;
+}
+
 /* Avatar Styles */
 
 .avatar {

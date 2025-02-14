@@ -1,6 +1,5 @@
 import { useBordersUserHook } from '@/rewards/hooks/use-borders-user.hook';
 import { Rank } from '@/rewards/models/enums/rank.enum';
-// import { quantityBorderToRank } from '@/rewards/utils/quantity-border-to-rank';
 import { quantityBorderToRank } from '@/rewards/utils/quantity-border-to-rank';
 import { useParams } from 'react-router';
 import { BorderRank } from '../border-rank/border-rank';

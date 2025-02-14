@@ -3,16 +3,17 @@ import { SummonerSpell } from '@/rewards/models/enums/summoner-spell.enum';
 
 interface Props {
   spell: SummonerSpell;
-  size?: number;
+  width?: number;
+  height?: number;
 }
 
-export function IconSummonerSpell({ spell, size = 40 }: Props) {
+export function IconSummonerSpell({ spell, width = 40, height = 40 }: Props) {
   return (
     <img
       src={`${staticUrl}/summoner-spell/${spell}.jpg`}
       loading="lazy"
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       alt={`Icon spell ${spell}`}
     />
   );
