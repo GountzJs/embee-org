@@ -1,7 +1,7 @@
 import { ExampleBorder } from '@/borders/components/example-border/example-border';
 import { CardEmbee } from '@/shared/components/card-embee/card-embee';
 import { MainPage } from '@/shared/components/main-page/main-page';
-import { Typography } from '@embeeorg/ui-kit';
+import { TwitchSvg, Typography } from '@embeeorg/ui-kit';
 import { Link } from 'react-router';
 import styles from './page.module.css';
 
@@ -111,13 +111,17 @@ export default function HomePage() {
                 size="lg"
                 weight="extrabold"
                 style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
                   textDecoration: 'none',
                   backgroundColor: 'var(--ui-kit-twitch)',
                   padding: '8px 26px',
                   borderRadius: '6px',
                 }}
               >
-                Ven al stream
+                <TwitchSvg size={30} />
+                Embeejayz
               </Typography>
             </Link>
           </div>

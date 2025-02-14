@@ -5,3 +5,10 @@
   height: 100%;
   width: 100%;
 }
+
+.item-option {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15%;
+}
