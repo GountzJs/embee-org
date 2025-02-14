@@ -1,4 +1,4 @@
-import { ListRanking } from '@/rewards/components/list-ranking/list-ranking';
+import { ListRanking } from '@/ranking/components/list-ranking/list-ranking';
 import styles from './page.module.css';
 
 export default function RankingPage() {

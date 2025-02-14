@@ -1,4 +1,4 @@
-import { ExampleBorder } from '@/rewards/components/example-border/example-border';
+import { ExampleBorder } from '@/borders/components/example-border/example-border';
 import { CardEmbee } from '@/shared/components/card-embee/card-embee';
 import { MainPage } from '@/shared/components/main-page/main-page';
 import { Typography } from '@embeeorg/ui-kit';

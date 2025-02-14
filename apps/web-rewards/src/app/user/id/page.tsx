@@ -1,4 +1,4 @@
-import { ListBorders } from '@/rewards/components/list-borders/list-borders';
+import { ListBorders } from '@/borders/components/list-borders/list-borders';
 import styles from './page.module.css';
 
 export default function UserIdPage() {
