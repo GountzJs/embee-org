@@ -1,5 +1,20 @@
 {
   "name": "server-rewards",
+  "private": true,
+  "version": "0.0.0",
+  "keywords": [
+    "twitch",
+    "stream",
+    "api",
+    "workers",
+    "embeejayz",
+    "rewards"
+  ],
+  "author": {
+    "name": "GountzJs",
+    "email": "tomasjdev@gmail.com"
+  },
+  "description": "Reward system for Embeejayz's Twitch community.",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",

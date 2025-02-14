@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Central repository for managing Embeejayz's stream-related projects and tools.",
   "scripts": {
+    "bot": "nx start bot-rewards",
     "sv-recommend:dev": "nx dev server-rewards",
     "sv-recommend:deploy": "nx deploy server-rewards",
     "wb-recommend:dev": "nx dev web-rewards",
@@ -11,7 +12,11 @@
     "commit": "commit",
     "format": "prettier . --write"
   },
-  "keywords": [],
+  "keywords": [
+    "twitch",
+    "embeejayz",
+    "stream"
+  ],
   "author": {
     "name": "GountzJs",
     "email": "tomasjdev@gmail.com"

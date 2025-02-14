@@ -1,0 +1,33 @@
+{
+  "name": "bot-rewards",
+  "version": "1.0.0",
+  "description": "Bot twitch rewards for Embeejayz's Twitch community.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/main.js",
+    "dev": "nodemon index.js",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "keywords": [
+    "twitch",
+    "bot",
+    "embeejayz",
+    "rewards"
+  ],
+  "author": {
+    "name": "GountzJs",
+    "email": "tomasjdev@gmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "tmi.js": "^1.8.5",
+    "uuid": "^11.0.5"
+  }
+}
