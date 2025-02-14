@@ -1,6 +1,7 @@
 import { BtnLogin } from '@/auth/components/btn-login/btn-login';
 import { UserDetail } from '@/auth/components/user-detail/user-detail';
 import { useSessionStore } from '@/auth/store/session.store';
+import { Footer } from '@/shared/components/footer/footer';
 import { GlobalNavigation } from '@/shared/components/global-navigation/global-navigation';
 import { EmbeeWorldsLogo } from '@/shared/logos/embee-worlds-logo';
 import { SktT1Logo } from '@/shared/logos/skt-t1-logo';
@@ -41,6 +42,7 @@ export default function RootLayout() {
         <GlobalNavigation />
       </header>
       <Outlet />
+      <Footer />
     </div>
   );
 }

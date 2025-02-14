@@ -103,7 +103,7 @@ export default function HomePage() {
             >
               ¿Qué esperas para buscar a tu ídolo?
             </Typography>
-            <Link to={'https://www.twitch.tv/embeejayz'}>
+            <Link to={'https://www.twitch.tv/embeejayz'} target="_blank">
               <Typography
                 variant="p"
                 family="secondary"
