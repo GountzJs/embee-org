@@ -71,7 +71,7 @@ export default function HomePage() {
             >
               Un coleccionable con los distintos proplayers que han dejado su
               huella en la escena competitiva, destacando sus mejores momentos
-              en las distintas competencias internacionales.
+              en diversas competencias internacionales y locales.
             </Typography>
             <Typography
               variant="p"
@@ -80,9 +80,19 @@ export default function HomePage() {
               size="lg"
               weight="semibold"
             >
-              Con ranking basado en la cantidad de repetidos que tengas, se
-              adaptan a tu avatar y usuario de Twitch, con hechizos
-              personalizables.
+              Con un ranking basado en la cantidad de cartas repetidas que
+              tengas, se adapta a tu avatar y usuario de Twitch, además de
+              incluir hechizos personalizables.
+            </Typography>
+            <Typography
+              variant="p"
+              family="secondary"
+              color="secondary"
+              size="lg"
+              weight="semibold"
+            >
+              ✨ Ven al stream durante los partidos de T1, ¡entregaremos
+              recompensas únicas en vivo!
             </Typography>
             <Typography
               variant="p"
