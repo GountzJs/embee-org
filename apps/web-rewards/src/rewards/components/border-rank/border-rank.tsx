@@ -6,16 +6,16 @@ import styles from './border-rank.module.css';
 
 interface Props {
   rank: Rank;
-  name: string;
+  url: string;
   username: string;
   avatarUrl: string;
 }
 
-export function BorderRank({ rank, name, username, avatarUrl }: Props) {
+export function BorderRank({ rank, url, username, avatarUrl }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles['proplayer-container']}>
-        <ProplayerCover name={name} width={280} height={445} />
+        <ProplayerCover url={url} width={280} height={445} />
       </div>
       <div className={styles['border-container']}>
         <BorderImage rank={rank} />

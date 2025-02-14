@@ -5,3 +5,9 @@
   height: 100%;
   width: 100%;
 }
+
+.borders-section {
+  display: inline-block;
+  margin: auto;
+  width: 70%;
+}
