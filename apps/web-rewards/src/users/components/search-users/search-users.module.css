@@ -9,6 +9,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 15%;
+  width: 100%;
 }
 
 .avatar {
