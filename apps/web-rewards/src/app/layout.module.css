@@ -1,6 +1,7 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr auto;
   flex: 1;
   height: 100%;
   width: 100%;
