@@ -8,7 +8,7 @@ export function ExampleBorder() {
       username={'Embeejayz'}
       rank={Rank.Challenger}
       avatarUrl={`${staticUrl}/images/embee/avatar-2.png`}
-      url="/images/proplayers/faker-silence.jpg"
+      url="/images/proplayers/faker.png"
     />
   );
 }
