@@ -19,17 +19,15 @@ app.get('/users/:id', async (c) => {
   const { rows } = await turso.execute({
     sql: `
       WITH RankedUser AS (
-        SELECT
-          u.id,
-          u.login AS username,
-          u.twitch_ref AS twitchRef,
-          u.profile_image_url AS avatar,
-          COUNT(ub.id) AS quantityBorders,
-          RANK() OVER (ORDER BY COUNT(ub.id) DESC, u.login ASC) AS rank_position
-        FROM users u
-        INNER JOIN user_borders ub ON u.id = ub.user_id
-        WHERE u.id = ?
-        GROUP BY u.id
+          SELECT
+              u.id,
+              u.login AS username,
+              u.profile_image_url AS avatar,
+              COUNT(ub.id) AS quantityBorders,
+              RANK() OVER (ORDER BY COUNT(ub.id) DESC, u.login ASC) AS rank_position
+          FROM users u
+          LEFT JOIN user_borders ub ON u.id = ub.user_id
+          GROUP BY u.id
       )
       SELECT
           id,
@@ -46,7 +44,8 @@ app.get('/users/:id', async (c) => {
               WHEN rank_position = 7 THEN 'BRONZE'
               ELSE 'UNRANKED'
           END AS rank
-      FROM RankedUser;
+      FROM RankedUser
+      WHERE id = ?;
     `,
     args: [id],
   });
