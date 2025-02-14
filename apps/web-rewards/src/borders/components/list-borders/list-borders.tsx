@@ -1,12 +1,14 @@
 import { useBordersUserHook } from '@/borders/hooks/use-borders-user.hook';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { quantityBorderToRank } from '@/ranking/utils/quantity-border-to-rank';
-import { useParams } from 'react-router';
 import { BorderRank } from '../border-rank/border-rank';
 import styles from './list-borders.module.css';
 
-export function ListBorders() {
-  const { id } = useParams();
+interface Props {
+  id: string;
+}
+
+export function ListBorders({ id }: Props) {
   const { data, isLoading, error } = useBordersUserHook({ id });
 
   if (isLoading) return <div>Buscando bordes...</div>;

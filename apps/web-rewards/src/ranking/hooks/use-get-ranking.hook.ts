@@ -1,6 +1,6 @@
 import { getRanking } from '@/ranking/services/ranking';
 import { useEffect, useState } from 'react';
-import { UserRankEntity } from '../models/entities/user-rank.entity';
+import { UserRankEntity } from '../../users/models/entities/user-rank.entity';
 
 export function useGetRanking() {
   const [data, setData] = useState<UserRankEntity[] | null>(null);
