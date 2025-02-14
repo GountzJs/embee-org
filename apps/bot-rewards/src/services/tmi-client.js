@@ -1,30 +1,37 @@
 import tmi from 'tmi.js';
-import { debug } from '../core/settings.js';
+import {
+  debug,
+  twitchAuthToken,
+  twitchChannel,
+  twitchUsername,
+} from '../core/settings.js';
 
 export class TmiClient {
   #client;
   #isConnected;
 
-  constructor({ identity, channels }) {
+  constructor() {
     this.#isConnected = false;
-    this.#initClient({ identity, channels });
+    this.#initClient();
   }
 
-  #initClient({ identity, channels }) {
+  #initClient() {
     const options = {
       connection: { reconnect: true },
-      channels,
+      channels: [twitchChannel],
       debugger: debug,
     };
-    if (identity) options.identity = identity;
-    this.#client = new tmi.Client({
-      connection: { reconnect: true },
-      channels,
-    });
+    options.identity = {
+      username: twitchUsername,
+      password: `oauth:${twitchAuthToken}`,
+    };
+    this.#client = new tmi.Client(options);
   }
 
   connect() {
-    return this.#client.connect().then(() => (this.#isConnected = true));
+    return this.#client.connect().then(() => {
+      this.#isConnected = true;
+    });
   }
 
   disconnect() {
@@ -34,6 +41,10 @@ export class TmiClient {
 
   on(key, callback) {
     return this.#client.on(key, callback);
+  }
+
+  say(channel, message) {
+    return this.#client.say(channel, message);
   }
 
   get isConnected() {

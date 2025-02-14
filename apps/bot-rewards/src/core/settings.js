@@ -8,6 +8,8 @@ export const {
   TURSO_DATABASE_URL: tursoDatabaseUrl = '',
   TWITCH_CLIENT_ID: twitchClientId = '',
   TWITCH_AUTH_TOKEN: twitchAuthToken = '',
+  TWITCH_USERNAME: twitchUsername = '',
   TWITCH_CHANNEL: twitchChannel = '',
   TWITCH_API_URL: twitchApiUrl = '',
+  BORDER_SPECIAL: borderSpecial = '',
 } = env;
