@@ -1,12 +1,13 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { v4 } from 'uuid';
+import { origins } from './consts/origin';
 import { initTursoClient } from './db';
 import { getUserInfo } from './services/twitch';
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
-app.use('/*', cors({ origin: 'https://rewards.embeejayz.com' }));
+app.use('/*', cors({ origin: origins }));
 
 app.get('/ranking', async (c) => {
   const turso = initTursoClient({
