@@ -51,6 +51,7 @@ app.get('/borders/:id', async (c) => {
           b.id, 
           b.url,
           b.special,
+          b.name,
           us.login AS username,
           us.profile_image_url AS avatar,
           COUNT(ub.id) AS quantity
