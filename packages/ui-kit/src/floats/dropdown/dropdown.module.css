@@ -1,0 +1,44 @@
+.box {
+  background-color: var(--ui-kit-neutral-100);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  gap: 2px;
+  padding: 4px;
+  transition: all 200ms ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
+.box-show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.item-option {
+  background: transparent;
+  border: none;
+  color: var(--ui-kit-neutral-900);
+  font-family: var(--ui-kit-font-primary);
+  font-weight: var(--ui-kit-font-weight-semibold);
+  font-size: 16px;
+  padding: 8px 4px;
+  cursor: pointer;
+  width: 100%;
+  &:hover {
+    background-color: var(--ui-kit-neutral-200);
+  }
+}
+
+.notification {
+  color: var(--ui-kit-primary-500);
+  font-family: var(--ui-kit-font-primary);
+  font-weight: var(--ui-kit-font-weight-bold);
+  font-size: 14px;
+  padding: 8px 4px;
+  width: 100%;
+}
