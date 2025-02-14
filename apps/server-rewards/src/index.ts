@@ -48,24 +48,32 @@ app.get('/borders/:id', async (c) => {
     const { rows: borders } = await turso.execute({
       sql: `
       SELECT 
-        b.id, 
-        b.url,
-        b.special, 
-        ub.user_id,
-        COUNT(ub.id) AS quantity
-      FROM user_borders ub JOIN borders b ON ub.border_id = b.id 
+          b.id, 
+          b.url,
+          b.special,
+          us.login AS username,
+          us.profile_image_url AS avatar,
+          COUNT(ub.id) AS quantity
+      FROM user_borders ub 
+      JOIN borders b ON ub.border_id = b.id 
+      JOIN users us ON ub.user_id = us.id
       WHERE ub.user_id = ?
-      GROUP BY b.id, ub.user_id
+      GROUP BY b.id, ub.user_id;
+
       `,
       args: [id],
     });
     return c.json(
       {
-        borders,
+        borders: borders.map((border) => ({
+          ...border,
+          special: Boolean(border.special),
+        })),
       },
       200,
     );
-  } catch {
+  } catch (err) {
+    console.log(err);
     return c.json({ message: 'Failed to fetch data' }, 500);
   }
 });
