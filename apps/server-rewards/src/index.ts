@@ -4,10 +4,67 @@ import { v4 } from 'uuid';
 import { origins } from './consts/origin';
 import { initTursoClient } from './db';
 import { getUserInfo } from './services/twitch';
+import { validateTwitchName } from './validates/twitch-name';
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
 app.use('/*', cors({ origin: origins }));
+
+// app.get('/users/id', async (c) => {
+//   const query = `
+//     WITH RankedUser AS (
+//     SELECT
+//       u.id AS user_id,
+//       u.login AS username,
+//       u.twitch_ref AS twitchRef,
+//       u.profile_image_url AS avatar,
+//       COUNT(ub.id) AS quantityBorders,
+//       RANK() OVER (ORDER BY COUNT(ub.id) DESC, u.login ASC) AS rank_position
+//     FROM users u
+//     INNER JOIN user_borders ub ON u.id = ub.user_id
+//     WHERE u.id = ?  -- Aquí es donde pasas el ID del usuario que buscas
+//     GROUP BY u.id
+//     )
+//     SELECT
+//         user_id,
+//         username,
+//         avatar,
+//         quantityBorders,
+//         CASE
+//             WHEN rank_position = 1 THEN 'CHALLENGER'
+//             WHEN rank_position = 2 THEN 'MASTER'
+//             WHEN rank_position = 3 THEN 'DIAMOND'
+//             WHEN rank_position = 4 THEN 'PLATINIUM'
+//             WHEN rank_position = 5 THEN 'GOLD'
+//             WHEN rank_position = 6 THEN 'SILVER'
+//             WHEN rank_position = 7 THEN 'BRONZE'
+//             ELSE 'UNRANKED'
+//         END AS rank
+//     FROM RankedUser;
+//   `;
+//   return c.json({ message: 'Method not implement' }, 404);
+// });
+
+app.get('/users', async (c) => {
+  const { username } = c.req.query();
+  if ((!username || username.length < 3) && !validateTwitchName(username))
+    return c.json({ message: 'Username invalid or too short' }, 400);
+
+  const turso = initTursoClient({
+    TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
+    TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
+  });
+
+  try {
+    const { rows } = await turso.execute({
+      sql: 'SELECT id, login as username, profile_image_url as avatar FROM users WHERE login LIKE ?',
+      args: [`%${username}%`],
+    });
+    return c.json({ users: rows }, 200);
+  } catch {
+    return c.json({ message: 'Generic error, try later' }, 500);
+  }
+});
 
 app.get('/ranking', async (c) => {
   const turso = initTursoClient({
@@ -26,7 +83,7 @@ app.get('/ranking', async (c) => {
       FROM users u
       INNER JOIN user_borders ub ON u.id = ub.user_id
       GROUP BY u.id
-      ORDER BY quantityBorders DESC, u.login ASC
+      ORDER BY quantityBorders DESC, u.login ASC LIMIT 8
     `);
     return c.json(
       {
@@ -48,7 +105,7 @@ app.get('/borders/:id', async (c) => {
   try {
     const { rows: borders } = await turso.execute({
       sql: `
-      SELECT 
+        SELECT 
           b.id, 
           b.url,
           b.special,
@@ -56,12 +113,11 @@ app.get('/borders/:id', async (c) => {
           us.login AS username,
           us.profile_image_url AS avatar,
           COUNT(ub.id) AS quantity
-      FROM user_borders ub 
-      JOIN borders b ON ub.border_id = b.id 
-      JOIN users us ON ub.user_id = us.id
-      WHERE ub.user_id = ?
-      GROUP BY b.id, ub.user_id;
-
+        FROM user_borders ub 
+        JOIN borders b ON ub.border_id = b.id 
+        JOIN users us ON ub.user_id = us.id
+        WHERE ub.user_id = ?
+        GROUP BY b.id, ub.user_id;
       `,
       args: [id],
     });
