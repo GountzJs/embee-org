@@ -1,6 +1,3 @@
-import { BtnLogin } from '@/auth/components/btn-login/btn-login';
-import { UserDetail } from '@/auth/components/user-detail/user-detail';
-import { useSessionStore } from '@/auth/store/session.store';
 import { Footer } from '@/shared/components/footer/footer';
 import { GlobalNavigation } from '@/shared/components/global-navigation/global-navigation';
 import { EmbeeWorldsLogo } from '@/shared/logos/embee-worlds-logo';
@@ -11,12 +8,10 @@ import { Outlet } from 'react-router';
 import styles from './layout.module.css';
 
 export default function RootLayout() {
-  const isAuthenticated = useSessionStore((state) => state.isAuthenticated);
-
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div
+        {/* <div
           style={{
             display: 'flex',
             width: '100%',
@@ -24,7 +19,7 @@ export default function RootLayout() {
           }}
         >
           {isAuthenticated ? <UserDetail /> : <BtnLogin />}
-        </div>
+        </div> */}
         <div className={styles['decorator-container']}>
           <SktT1Logo />
           <EmbeeWorldsLogo />
