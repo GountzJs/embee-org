@@ -1,4 +1,5 @@
 import { IconRank } from '@/ranking/components/icon-rank/icon-rank';
+import { Rank } from '@/ranking/models/enums/rank.enum';
 import { useGetProfileHook } from '@/users/hooks/use-get-profile.hook';
 import { Typography } from '@embeeorg/ui-kit';
 import { Navigate } from 'react-router';
@@ -34,7 +35,12 @@ export function UserProfile({ id }: Props) {
         >
           {data?.username}
         </Typography>
-        <IconRank rank={data?.rank} width={80} height={80} />
+
+        <IconRank
+          rank={data?.rank}
+          width={80}
+          height={Rank.Unranked ? 65 : 80}
+        />
       </div>
       <div className={styles.detail}>
         <Typography
