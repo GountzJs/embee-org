@@ -239,7 +239,7 @@ export function BorderRank({ rank, url, username, avatarUrl, name }: Props) {
         <div
           className={`${styles['proplayer-container']} ${styles['proplayer-silver']}`}
         >
-          <ProplayerCover url={url} width={300} height={465} />
+          <ProplayerCover url={url} width={305} height={465} />
         </div>
         <div
           className={`${styles['card-name-container']} ${styles['card-name-silver']}`}
