@@ -10,40 +10,50 @@ const app = new Hono<{ Bindings: CloudflareBindings }>();
 
 app.use('/*', cors({ origin: origins }));
 
-// app.get('/users/id', async (c) => {
-//   const query = `
-//     WITH RankedUser AS (
-//     SELECT
-//       u.id AS user_id,
-//       u.login AS username,
-//       u.twitch_ref AS twitchRef,
-//       u.profile_image_url AS avatar,
-//       COUNT(ub.id) AS quantityBorders,
-//       RANK() OVER (ORDER BY COUNT(ub.id) DESC, u.login ASC) AS rank_position
-//     FROM users u
-//     INNER JOIN user_borders ub ON u.id = ub.user_id
-//     WHERE u.id = ?  -- Aquí es donde pasas el ID del usuario que buscas
-//     GROUP BY u.id
-//     )
-//     SELECT
-//         user_id,
-//         username,
-//         avatar,
-//         quantityBorders,
-//         CASE
-//             WHEN rank_position = 1 THEN 'CHALLENGER'
-//             WHEN rank_position = 2 THEN 'MASTER'
-//             WHEN rank_position = 3 THEN 'DIAMOND'
-//             WHEN rank_position = 4 THEN 'PLATINIUM'
-//             WHEN rank_position = 5 THEN 'GOLD'
-//             WHEN rank_position = 6 THEN 'SILVER'
-//             WHEN rank_position = 7 THEN 'BRONZE'
-//             ELSE 'UNRANKED'
-//         END AS rank
-//     FROM RankedUser;
-//   `;
-//   return c.json({ message: 'Method not implement' }, 404);
-// });
+app.get('/users/:id', async (c) => {
+  const { id } = c.req.param();
+  const turso = initTursoClient({
+    TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
+    TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
+  });
+  const { rows } = await turso.execute({
+    sql: `
+      WITH RankedUser AS (
+        SELECT
+          u.id,
+          u.login AS username,
+          u.twitch_ref AS twitchRef,
+          u.profile_image_url AS avatar,
+          COUNT(ub.id) AS quantityBorders,
+          RANK() OVER (ORDER BY COUNT(ub.id) DESC, u.login ASC) AS rank_position
+        FROM users u
+        INNER JOIN user_borders ub ON u.id = ub.user_id
+        WHERE u.id = ?
+        GROUP BY u.id
+      )
+      SELECT
+          id,
+          username,
+          avatar,
+          quantityBorders,
+          CASE
+              WHEN rank_position = 1 THEN 'CHALLENGER'
+              WHEN rank_position = 2 THEN 'MASTER'
+              WHEN rank_position = 3 THEN 'DIAMOND'
+              WHEN rank_position = 4 THEN 'PLATINIUM'
+              WHEN rank_position = 5 THEN 'GOLD'
+              WHEN rank_position = 6 THEN 'SILVER'
+              WHEN rank_position = 7 THEN 'BRONZE'
+              ELSE 'UNRANKED'
+          END AS rank
+      FROM RankedUser;
+    `,
+    args: [id],
+  });
+  const user = rows[0];
+  if (!user) return c.json({ message: 'User not found' }, 404);
+  return c.json({ user }, 200);
+});
 
 app.get('/users', async (c) => {
   const { username } = c.req.query();
