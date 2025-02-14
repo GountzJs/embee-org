@@ -7,6 +7,7 @@ export function ExampleBorder() {
     <BorderRank
       username={'Embeejayz'}
       rank={Rank.Challenger}
+      name={'Faker'}
       avatarUrl={`${staticUrl}/images/embee/avatar-2.png`}
       url="/images/proplayers/faker.png"
     />

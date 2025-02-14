@@ -1,13 +1,15 @@
 .container {
-  align-items: center;
-  display: flex;
   justify-content: center;
+  display: flex;
   height: 100%;
   width: 100%;
+  padding: 25px;
 }
 
 .borders-section {
-  display: inline-block;
-  margin: auto;
-  width: 70%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
 }

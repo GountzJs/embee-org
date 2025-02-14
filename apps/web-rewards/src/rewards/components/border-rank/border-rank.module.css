@@ -5,10 +5,98 @@
   height: 594px;
 }
 
+/* Card Name Styles */
+
+.card-name-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: rgb(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  position: absolute;
+  padding: 10px 10px;
+  width: 90%;
+}
+
+.card-name-challenger {
+  bottom: 20%;
+  left: 20px;
+}
+
+.card-name-master {
+  bottom: 19%;
+  left: 20px;
+}
+
+.card-name-diamond {
+  bottom: 19%;
+  left: 20px;
+}
+
+.card-name-platinium {
+  bottom: 19%;
+  left: 20px;
+  width: 92%;
+}
+
+.card-name-gold {
+  bottom: 19%;
+  left: 22px;
+}
+
+.card-name-silver {
+  bottom: 19%;
+  left: 22px;
+}
+
+.card-name-bronze {
+  bottom: 19%;
+  left: 22px;
+}
+
+.card-name {
+  text-shadow: 0 0 5px #000;
+}
+
+/* Proplayer Styles */
+
 .proplayer-container {
   position: absolute;
+}
+
+.proplayer-challenger {
   top: 30px;
   left: 30px;
+}
+
+.proplayer-master {
+  top: 17px;
+  left: 12px;
+}
+
+.proplayer-diamond {
+  top: 17px;
+  left: 11px;
+}
+
+.proplayer-platinium {
+  top: 17px;
+  left: 12px;
+}
+
+.proplayer-gold {
+  top: 15px;
+  left: 22px;
+}
+
+.proplayer-silver {
+  top: 15px;
+  left: 22px;
+}
+
+.proplayer-bronze {
+  top: 15px;
+  left: 22px;
 }
 
 .border-container {
@@ -17,20 +105,96 @@
   left: 0;
 }
 
+/* Username Styles */
+
 .username {
   position: absolute;
-  bottom: 15.8%;
   left: 50%;
   transform: translateX(-50%);
 }
+
+.username-challenger {
+  bottom: 15.8%;
+}
+
+.username-master {
+  bottom: 14.6%;
+}
+
+.username-diamond {
+  bottom: 14.7%;
+}
+
+.username-platinium {
+  bottom: 14.4%;
+}
+
+.username-gold {
+  bottom: 14.5%;
+}
+
+.username-silver {
+  bottom: 14.3%;
+}
+
+.username-bronze {
+  bottom: 14.6%;
+}
+
+/* Avatar Styles */
 
 .avatar {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
+}
+
+.avatar-challenger {
   bottom: 18px;
-  left: 23px;
+  left: 22.5px;
   height: 68px;
   width: 68px;
+}
+
+.avatar-master {
+  bottom: 8px;
+  left: 20.8px;
+  height: 70px;
+  width: 70px;
+}
+
+.avatar-diamond {
+  bottom: 10px;
+  left: 20.5px;
+  height: 70px;
+  width: 70px;
+}
+
+.avatar-platinium {
+  bottom: 7px;
+  left: 20.5px;
+  height: 70px;
+  width: 70px;
+}
+
+.avatar-gold {
+  bottom: 9px;
+  left: 23px;
+  height: 71px;
+  width: 71px;
+}
+
+.avatar-silver {
+  bottom: 7px;
+  left: 20px;
+  height: 71px;
+  width: 71px;
+}
+
+.avatar-bronze {
+  bottom: 9px;
+  left: 21px;
+  height: 71px;
+  width: 71px;
 }

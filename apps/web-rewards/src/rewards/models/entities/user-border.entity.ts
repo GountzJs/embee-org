@@ -5,4 +5,5 @@ export interface UserBorderEntity {
   username: string;
   avatar: string;
   quantity: number;
+  name: string;
 }
