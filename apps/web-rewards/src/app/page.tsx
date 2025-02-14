@@ -67,7 +67,7 @@ export default function HomePage() {
               family="secondary"
               color="secondary"
               size="lg"
-              weight="semibold"
+              weight="regular"
             >
               Un coleccionable con los distintos proplayers que han dejado su
               huella en la escena competitiva, destacando sus mejores momentos
@@ -78,7 +78,7 @@ export default function HomePage() {
               family="secondary"
               color="secondary"
               size="lg"
-              weight="semibold"
+              weight="regular"
             >
               Con un ranking basado en la cantidad de cartas repetidas que
               tengas, se adapta a tu avatar y usuario de Twitch, además de
@@ -89,7 +89,7 @@ export default function HomePage() {
               family="secondary"
               color="secondary"
               size="lg"
-              weight="semibold"
+              weight="regular"
             >
               ✨ Ven al stream durante los partidos de T1, ¡entregaremos
               recompensas únicas en vivo!
@@ -99,7 +99,7 @@ export default function HomePage() {
               family="secondary"
               color="secondary"
               size="lg"
-              weight="extrabold"
+              weight="semibold"
             >
               ¿Qué esperas para buscar a tu ídolo?
             </Typography>
