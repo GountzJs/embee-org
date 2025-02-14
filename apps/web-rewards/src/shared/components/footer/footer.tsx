@@ -93,7 +93,7 @@ export function Footer() {
             textShadow: '0 0 10px #000',
           }}
         >
-          Colaboradores
+          Colaboradores:
         </Typography>
         <div className={styles['collaborators']}>
           <Collaborator
