@@ -20,7 +20,9 @@ We look forward to your involvement and contributions!
 
 | App                                 | Description                                     |
 | ----------------------------------- | ----------------------------------------------- |
-| [`web-rewards`](./apps/web-rewards) | Reward system for Embeejayz's Twitch community. |
+| [`web-rewards`](./apps/web-rewards) | UI Reward system for Embeejayz's Twitch community. |
+| [`server-rewards`](./apps/server-rewards) | Server Reward system for Embeejayz's Twitch community. |
+| [`bot-rewards`](./apps/bot-rewards) | Bot Reward system for Embeejayz's Twitch community. |
 
 ## Rules for Contributing
 
@@ -38,7 +40,9 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 - Nx (Build system)
 - React
 - Typescript
+- Javascript
 - Vite
 - ESLint
 - Prettier
 - Commitlint
+- Hono
