@@ -17,7 +17,7 @@ export default function HomePage() {
             size="3xl"
             weight="extrabold"
           >
-            Recompensas coleccionables
+            Recompensa coleccionable
           </Typography>
           <Typography
             variant="p"
@@ -47,7 +47,7 @@ export default function HomePage() {
         size="4xl"
         weight="extrabold"
       >
-        Detalles de las recompensas
+        Detalles de las recompensa
       </Typography>
       <section className={styles['section-container']}>
         <div className={styles['border-detail-container']}>
@@ -91,8 +91,8 @@ export default function HomePage() {
               size="lg"
               weight="regular"
             >
-              ✨ Ven al stream durante los partidos de T1, ¡entregaremos
-              recompensas únicas en vivo!
+              ✨ Ven al stream durante los partidos de T1, ¡entregaremos bordes
+              únicos en vivo!
             </Typography>
             <Typography
               variant="p"

@@ -23,7 +23,7 @@ export default function RootLayout() {
           weight="extrabold"
           size="4xl"
         >
-          Recompensas del canal
+          Recompensa del canal
         </Typography>
         <GlobalNavigation />
       </header>

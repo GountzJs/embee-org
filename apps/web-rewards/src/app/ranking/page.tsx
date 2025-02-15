@@ -14,7 +14,7 @@ export default function RankingPage() {
           size="xl"
           weight="extrabold"
         >
-          Ingrese su nombre de usuario para ver las recompensas canjeadas
+          Ingrese su nombre de usuario para ver sus bordes canjeadas
         </Typography>
         <SearchUsers />
       </section>
