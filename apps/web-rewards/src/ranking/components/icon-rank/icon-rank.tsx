@@ -1,7 +1,11 @@
 import { staticUrl } from '@/core/settings';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 
-interface Props {
+interface Props
+  extends React.DetailedHTMLProps<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  > {
   rank: Rank;
   width?: number;
   height?: number;

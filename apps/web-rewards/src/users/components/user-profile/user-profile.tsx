@@ -37,9 +37,10 @@ export function UserProfile({ id }: Props) {
         </Typography>
 
         <IconRank
+          className={Rank.Unranked && styles['icon-unranked']}
           rank={data?.rank}
           width={80}
-          height={Rank.Unranked ? 65 : 80}
+          height={80}
         />
       </div>
       <div className={styles.detail}>

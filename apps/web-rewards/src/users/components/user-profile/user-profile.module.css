@@ -17,3 +17,8 @@
 .avatar {
   border-radius: 50%;
 }
+
+.icon-unranked {
+  height: 80px;
+  width: 65px;
+}
