@@ -1,11 +1,19 @@
-interface Props extends React.SVGProps<SVGSVGElement> {
+interface Props {
   color?: string;
   size?: number;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-export const LensSvg = ({ color = '#fff', size = 40, ...props }: Props) => (
+export const LensSvg = ({
+  color = '#fff',
+  size = 40,
+  style = {},
+  className = '',
+}: Props) => (
   <svg
-    {...props}
+    style={style}
+    className={className}
     fill={color}
     width={size}
     height={size}
