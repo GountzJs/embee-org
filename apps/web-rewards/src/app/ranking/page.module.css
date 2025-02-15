@@ -10,6 +10,12 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 25px;
   width: 100%;
   padding: 45px 15px;
+}
+
+.title-page {
+  margin-bottom: 25px;
 }
