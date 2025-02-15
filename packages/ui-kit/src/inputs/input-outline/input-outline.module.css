@@ -5,6 +5,7 @@
   color: var(--ui-kit-neutral-100);
   outline: 2px solid var(--ui-kit-neutral-100);
   padding: 16px;
+  padding-left: 32px;
   border-radius: 4px;
   font-weight: var(--ui-kit-font-weight-regular);
   transition: all 200ms ease-in-out;
@@ -14,10 +15,10 @@
     font-weight: var(--ui-kit-font-weight-semibold);
   }
   &:focus::placeholder {
-    color: var(--ui-kit-primary-700);
+    color: var(--ui-kit-secondary-400);
   }
   &:focus {
-    color: var(--ui-kit-primary-700);
-    outline: 2px solid var(--ui-kit-primary-700);
+    color: var(--ui-kit-secondary-400);
+    outline: 2px solid var(--ui-kit-secondary-400);
   }
 }
