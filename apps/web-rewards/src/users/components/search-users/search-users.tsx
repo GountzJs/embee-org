@@ -1,5 +1,5 @@
 import { useSearchUsers } from '@/users/hooks/use-search-users.hook';
-import { Dropdown, InputOutline } from '@embeeorg/ui-kit';
+import { Dropdown, InputOutline, LensSvg } from '@embeeorg/ui-kit';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styles from './search-users.module.css';
@@ -9,6 +9,7 @@ export function SearchUsers() {
   const { error, data, isLoading } = useSearchUsers({ username: search });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+  const [isTouched, setIsTouched] = useState<boolean>(false);
 
   const getError = (): string | undefined => {
     if (search.length < 3)
@@ -18,18 +19,33 @@ export function SearchUsers() {
     if (error) return error;
     return undefined;
   };
+
   return (
     <form
       className={styles.container}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <InputOutline
-        placeholder="Buscar por nombre de usuario"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <Dropdown.Box isOpen={isOpen} error={getError()} isLoading={isLoading}>
+      <div style={{ width: '100%', position: 'relative' }}>
+        <LensSvg
+          size={25}
+          className={styles['icon-search']}
+          color={isTouched ? 'var(--ui-kit-secondary-400)' : 'white'}
+        />
+        <InputOutline
+          className={styles['input-search']}
+          placeholder="Buscar"
+          value={search}
+          onFocus={() => setIsTouched(true)}
+          onBlur={() => setIsTouched(false)}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+      <Dropdown.Box
+        isOpen={isOpen || isTouched}
+        error={getError()}
+        isLoading={isLoading}
+      >
         {data.map(({ id, username, avatar }) => (
           <Dropdown.Item
             key={id}
