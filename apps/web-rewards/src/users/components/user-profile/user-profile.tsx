@@ -35,13 +35,11 @@ export function UserProfile({ id }: Props) {
         >
           {data?.username}
         </Typography>
-
-        <IconRank
-          className={Rank.Unranked && styles['icon-unranked']}
-          rank={data?.rank}
-          width={80}
-          height={80}
-        />
+        {Rank.Unranked ? (
+          <IconRank rank={data?.rank} width={80} height={65} />
+        ) : (
+          <IconRank rank={data?.rank} width={80} height={80} />
+        )}
       </div>
       <div className={styles.detail}>
         <Typography
