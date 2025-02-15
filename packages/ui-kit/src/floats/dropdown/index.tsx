@@ -34,13 +34,16 @@ interface ItemProps
     HTMLButtonElement
   > {
   children: React.ReactNode;
+  style?: React.CSSProperties;
+  ref?: React.Ref<HTMLButtonElement>;
 }
 
-const Item = ({ children, ...props }: ItemProps) => {
+const Item = ({ children, style = {}, ...props }: ItemProps) => {
   return (
     <button
       {...props}
       className={`${styles['item-option']} ${props?.className || ''}`}
+      style={style}
     >
       {children}
     </button>
