@@ -51,3 +51,7 @@ export class TmiClient {
     return this.#isConnected;
   }
 }
+
+const client = new TmiClient();
+
+export default client;
