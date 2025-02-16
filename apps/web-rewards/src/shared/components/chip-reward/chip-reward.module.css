@@ -4,5 +4,5 @@
   gap: 10px;
   flex-direction: column;
   max-width: 450px;
-  width: 100%;
+  width: fit-content;
 }
