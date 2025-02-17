@@ -6,7 +6,9 @@ import styles from './search-users.module.css';
 
 export function SearchUsers() {
   const [search, setSearch] = useState<string>('');
-  const { error, data, isLoading } = useSearchUsers({ username: search });
+  const { error, data, isLoading } = useSearchUsers({
+    username: search,
+  });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const [isTouched, setIsTouched] = useState<boolean>(false);

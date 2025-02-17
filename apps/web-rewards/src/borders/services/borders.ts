@@ -1,10 +1,25 @@
 import { UserBorderEntity } from '@/borders/models/entities/user-border.entity';
 import { rewardsApiUrl } from '@/core/settings';
+import { Pagination } from '../models/interfaces/pagination.interface';
 
-export const getBordersByUserId = async (
-  userId: string,
-): Promise<{ borders: UserBorderEntity[] }> => {
-  const res = await fetch(`${rewardsApiUrl}/api/borders/${userId}`, {
+type BordersByUsersIdProps = {
+  id: string;
+  page: number;
+  filterByName?: string;
+};
+
+export const getBordersByUserId = async ({
+  id,
+  page,
+  filterByName,
+}: BordersByUsersIdProps): Promise<{
+  borders: UserBorderEntity[];
+  pagination: Pagination;
+}> => {
+  const url = new URL(`${rewardsApiUrl}/api/borders/${id}`);
+  url.searchParams.append('page', page.toString());
+  if (filterByName) url.searchParams.append('filterByName', filterByName);
+  const res = await fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

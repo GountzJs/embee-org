@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { UserSearchEntity } from '../components/models/entities/user-search.entity';
+import { UserSearchEntity } from '../models/entities/user-search.entity';
 import { getUserByUsername } from '../services/users';
 
 interface Props {
