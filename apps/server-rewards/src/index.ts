@@ -1,16 +1,14 @@
-import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { v4 } from 'uuid';
+import { app } from './app';
 import { origins } from './consts/origin';
 import { initTursoClient } from './db';
 import { getUserInfo } from './services/twitch';
 import { validateTwitchName } from './validates/twitch-name';
 
-const app = new Hono<{ Bindings: CloudflareBindings }>();
+app.use('/api/*', cors({ origin: origins }));
 
-app.use('/*', cors({ origin: origins }));
-
-app.get('/users/:id', async (c) => {
+app.get('/api/users/:id', async (c) => {
   const { id } = c.req.param();
   const turso = initTursoClient({
     TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
@@ -54,7 +52,7 @@ app.get('/users/:id', async (c) => {
   return c.json({ user }, 200);
 });
 
-app.get('/users', async (c) => {
+app.get('/api/users', async (c) => {
   const { username } = c.req.query();
   if ((!username || username.length < 3) && !validateTwitchName(username))
     return c.json({ message: 'Username invalid or too short' }, 400);
@@ -75,7 +73,7 @@ app.get('/users', async (c) => {
   }
 });
 
-app.get('/ranking', async (c) => {
+app.get('/api/ranking', async (c) => {
   const turso = initTursoClient({
     TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
     TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
@@ -105,7 +103,7 @@ app.get('/ranking', async (c) => {
   }
 });
 
-app.get('/borders/:id', async (c) => {
+app.get('/api/borders/:id', async (c) => {
   const { id } = c.req.param();
   const turso = initTursoClient({
     TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
@@ -145,7 +143,7 @@ app.get('/borders/:id', async (c) => {
   }
 });
 
-app.post('/register', async (c) => {
+app.post('/api/register', async (c) => {
   const authentication = c.req.header('Authorization');
 
   if (!authentication || !authentication.startsWith('Bearer ')) {
