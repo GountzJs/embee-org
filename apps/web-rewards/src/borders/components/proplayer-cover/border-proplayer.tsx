@@ -9,13 +9,12 @@ interface Props {
 
 export function BorderProplayer({ url, width = 100, height = 100 }: Props) {
   return (
-    <div
+    <img
       className={styles.container}
-      style={{
-        backgroundImage: `url(${staticUrl}${url})`,
-        width,
-        height,
-      }}
-    ></div>
+      src={`${staticUrl}${url}`}
+      width={width}
+      height={height}
+      loading="lazy"
+    />
   );
 }
