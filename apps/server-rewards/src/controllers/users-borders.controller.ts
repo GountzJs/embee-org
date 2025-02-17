@@ -41,16 +41,21 @@ export class UsersBordersController {
 
   getBordersByUserId = async (c: GetBordersByUserIdContext) => {
     const { id } = c.req.param();
+    const { page, filterByName } = c.req.query();
+    const pageNumber = Number(page);
     const client = initTursoClient({
       TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
       TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
     });
     try {
-      const borders = await this.userBordersRepository.getBordersByUserId({
+      const res = await this.userBordersRepository.getBordersByUserId({
         client,
         userId: id,
+        page: isNaN(pageNumber) || 0 ? 1 : pageNumber,
+        pageSize: 8,
+        filterByName,
       });
-      return c.json({ borders }, 200);
+      return c.json(res, 200);
     } catch {
       return c.json({ message: 'Generic error, try later' }, 500);
     }

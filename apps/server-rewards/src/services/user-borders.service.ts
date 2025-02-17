@@ -1,4 +1,5 @@
 import { Client } from '@libsql/client';
+import { BorderByUserIdReq } from '../models/interfaces/border-by-user-id.interface';
 import { UserBordersRepository } from '../repositories/user-borders.repository';
 
 export class UsersBordersService {
@@ -14,14 +15,17 @@ export class UsersBordersService {
   async getBordersByUserId({
     client,
     userId,
-  }: {
-    client: Client;
-    userId: string;
-  }) {
-    const borders = await this.userBordersRepository.getBorderByUserId(
+    page,
+    pageSize,
+    filterByName,
+  }: BorderByUserIdReq) {
+    const borders = await this.userBordersRepository.getBorderByUserId({
       client,
       userId,
-    );
+      page,
+      pageSize,
+      filterByName,
+    });
     return borders;
   }
 }
