@@ -23,7 +23,6 @@ export const getUserById = async (
   id: string,
 ): Promise<{ user: UserProfileEntity }> => {
   const url = new URL(`${rewardsApiUrl}/users/${id}`);
-  url.searchParams.append('id', id);
   const res = await fetch(url.toString(), {
     method: 'GET',
     headers: {
