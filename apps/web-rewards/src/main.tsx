@@ -11,6 +11,14 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+if ('caches' in window) {
+  caches.keys().then((cacheNames) => {
+    cacheNames.forEach((cacheName) => {
+      caches.delete(cacheName);
+    });
+  });
+}
+
 const root = document.getElementById('root') as HTMLElement;
 
 createRoot(root).render(
