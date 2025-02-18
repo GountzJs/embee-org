@@ -123,7 +123,11 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
                 <Typography
                   variant="p"
                   family="secondary"
-                  color="white"
+                  color={
+                    values.orderBy === BordersOrderBy.Rank
+                      ? 'primary-light'
+                      : 'white'
+                  }
                   size="lg"
                   weight="normal"
                 >
@@ -142,7 +146,11 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
                 <Typography
                   variant="p"
                   family="secondary"
-                  color="white"
+                  color={
+                    values.orderBy === BordersOrderBy.CreatedAt
+                      ? 'primary-light'
+                      : 'white'
+                  }
                   size="lg"
                   weight="normal"
                 >
@@ -173,7 +181,7 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
                 <ChevronSvg
                   color={
                     values.sort === BorderSort.Desc
-                      ? 'var(--ui-kit-primary-400)'
+                      ? 'var(--ui-kit-primary-500)'
                       : 'white'
                   }
                   size={26}
@@ -190,7 +198,7 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
                 <ChevronSvg
                   color={
                     values.sort === BorderSort.Asc
-                      ? 'var(--ui-kit-primary-400)'
+                      ? 'var(--ui-kit-primary-500)'
                       : 'white'
                   }
                   size={26}
