@@ -6,7 +6,7 @@ import { InfiniteScrollObserver } from '@/shared/components/infinite-scroll/infi
 import { Typography } from '@embeeorg/ui-kit';
 import { useState } from 'react';
 import { BorderRank } from '../border-rank/border-rank';
-import { FormSearch } from '../form-search/form-search';
+import { FormSearch } from './form-search/form-search';
 import styles from './list-borders.module.css';
 
 interface Props {

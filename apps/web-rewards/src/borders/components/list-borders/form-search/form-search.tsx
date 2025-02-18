@@ -47,7 +47,7 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
             <div className={styles['input-search-container']}>
               <LensSvg
                 className={styles['icon-search']}
-                color={getColorLens(Boolean(touched.search && errors.search))}
+                color={getColorLens(Boolean(errors.search))}
                 size={26}
               />
               <InputOutline
@@ -55,7 +55,7 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
                 name="search"
                 className={styles['input-search']}
                 placeholder="Buscar por nombre"
-                error={Boolean(touched.search && errors.search)}
+                error={Boolean(errors.search)}
                 value={values.search}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
