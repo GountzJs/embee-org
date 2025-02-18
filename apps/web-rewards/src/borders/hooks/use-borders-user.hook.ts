@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getBordersByUserId } from '@/borders/services/borders';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { BorderSort } from '../models/enums/border-sort';
+import { BordersOrderBy } from '../models/enums/borders-order-by.enum';
 
 interface Props {
   id: string;
   filterByName?: string;
+  orderBy: BordersOrderBy;
+  sort: BorderSort;
 }
 
-export function useBordersUserHook({ id, filterByName }: Props) {
+export function useBordersUserHook({ id, filterByName, orderBy, sort }: Props) {
   const {
     isLoading,
     isError,
@@ -17,12 +21,14 @@ export function useBordersUserHook({ id, filterByName }: Props) {
     hasNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ['borders', filterByName],
+    queryKey: ['borders', filterByName, orderBy, sort],
     queryFn: async ({ pageParam = 1 }) => {
       const result = await getBordersByUserId({
         id,
         page: pageParam,
         filterByName,
+        orderBy,
+        sort,
       });
       return {
         ...result,

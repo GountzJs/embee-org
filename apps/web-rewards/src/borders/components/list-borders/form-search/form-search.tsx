@@ -1,3 +1,5 @@
+import { BorderSort } from '@/borders/models/enums/border-sort';
+import { BordersOrderBy } from '@/borders/models/enums/borders-order-by.enum';
 import {
   BtnPrimary,
   InputOutline,
@@ -5,13 +7,15 @@ import {
   Typography,
   XSvg,
 } from '@embeeorg/ui-kit';
-import { Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import styles from './form-search.module.css';
 import { SearchSchema } from './validations';
 
 type FormValues = {
   search: string;
+  orderBy: BordersOrderBy;
+  sort: BorderSort;
 };
 
 interface Props {
@@ -23,8 +27,15 @@ interface Props {
 export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
-  const handleOnSubmit = ({ search }: { search: string }) =>
-    changeFilters({ search });
+  const handleOnSubmit = ({
+    search,
+    orderBy,
+    sort,
+  }: {
+    search: string;
+    orderBy: BordersOrderBy;
+    sort: BorderSort;
+  }) => changeFilters({ search, orderBy, sort });
 
   const getColorLens = (isError: boolean): string => {
     if (isError && isFocused) return 'var(--ui-kit-primary-700)';
@@ -37,11 +48,13 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
     <Formik
       initialValues={{
         search: '',
+        orderBy: BordersOrderBy.Rank,
+        sort: BorderSort.Desc,
       }}
       validationSchema={SearchSchema}
       onSubmit={handleOnSubmit}
     >
-      {({ values, handleChange, handleSubmit, errors, touched }) => (
+      {({ values, handleChange, handleSubmit, errors }) => (
         <Form className={styles['form-search']} onSubmit={handleSubmit}>
           <div className={styles['input-detail-container']}>
             <div className={styles['input-search-container']}>
@@ -56,6 +69,7 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
                 className={styles['input-search']}
                 placeholder="Buscar por nombre"
                 error={Boolean(errors.search)}
+                autoComplete="off"
                 value={values.search}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
@@ -83,6 +97,109 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
             >
               {errors.search}
             </Typography>
+          </div>
+          <div className={styles['radio-btn-container']}>
+            <Typography
+              variant="h3"
+              family="primary"
+              color="white"
+              size="3xl"
+              weight="bold"
+            >
+              Ordenar por:
+            </Typography>
+
+            <div className={styles['radio-btn-section']}>
+              <label>
+                <Field
+                  type="radio"
+                  name="orderBy"
+                  value={BordersOrderBy.Rank}
+                  className={styles['radio-btn']}
+                  onChange={handleChange}
+                  style={{ marginRight: 10 }}
+                />
+                <Typography
+                  variant="p"
+                  family="secondary"
+                  color="white"
+                  size="lg"
+                  weight="normal"
+                >
+                  Rango
+                </Typography>
+              </label>
+              <label>
+                <Field
+                  type="radio"
+                  name="orderBy"
+                  value={BordersOrderBy.CreatedAt}
+                  className={styles['radio-btn']}
+                  onChange={handleChange}
+                  style={{ marginRight: 10 }}
+                />
+                <Typography
+                  variant="p"
+                  family="secondary"
+                  color="white"
+                  size="lg"
+                  weight="normal"
+                >
+                  Fecha
+                </Typography>
+              </label>
+            </div>
+
+            <Typography
+              variant="h3"
+              family="primary"
+              color="white"
+              size="3xl"
+              weight="bold"
+            >
+              Dirección del orden:
+            </Typography>
+
+            <div className={styles['radio-btn-section']}>
+              <label>
+                <Field
+                  type="radio"
+                  name="sort"
+                  value={BorderSort.Desc}
+                  className={styles['radio-btn']}
+                  onChange={handleChange}
+                  style={{ marginRight: 10 }}
+                />
+                <Typography
+                  variant="p"
+                  family="secondary"
+                  color="white"
+                  size="lg"
+                  weight="normal"
+                >
+                  Descendente
+                </Typography>
+              </label>
+              <label>
+                <Field
+                  type="radio"
+                  name="sort"
+                  value={BorderSort.Asc}
+                  className={styles['radio-btn']}
+                  onChange={handleChange}
+                  style={{ marginRight: 10 }}
+                />
+                <Typography
+                  variant="p"
+                  family="secondary"
+                  color="white"
+                  size="lg"
+                  weight="normal"
+                >
+                  Ascendente
+                </Typography>
+              </label>
+            </div>
           </div>
           <BtnPrimary type="submit">Buscar</BtnPrimary>
         </Form>

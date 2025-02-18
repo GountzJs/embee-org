@@ -1,5 +1,6 @@
 import { useBordersUserHook } from '@/borders/hooks/use-borders-user.hook';
-import { UserBorderEntity } from '@/borders/models/entities/user-border.entity';
+import { BorderSort } from '@/borders/models/enums/border-sort';
+import { BordersOrderBy } from '@/borders/models/enums/borders-order-by.enum';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { quantityBorderToRank } from '@/ranking/utils/quantity-border-to-rank';
 import { InfiniteScrollObserver } from '@/shared/components/infinite-scroll/infinite-scroll';
@@ -14,34 +15,50 @@ interface Props {
 }
 
 export function ListBorders({ id }: Props) {
-  const [search, setSearch] = useState<string>('');
+  const [filters, setFilters] = useState({
+    search: '',
+    orderBy: BordersOrderBy.Rank,
+    sort: BorderSort.Desc,
+  });
   const { isLoading, isError, data, isFetching, hasNextPage, fetchNextPage } =
     useBordersUserHook({
       id,
-      filterByName: search,
+      filterByName: filters.search,
+      orderBy: filters.orderBy,
+      sort: filters.sort,
     });
 
   const borders = data?.pages?.flatMap((page) => page.borders) || [];
 
   if (isError) return <div>Error: Falló la weá</div>;
 
-  const callbackSort = (a: UserBorderEntity, b: UserBorderEntity) => {
-    if (a.special === b.special) return b.quantity - a.quantity;
-
-    return a.special ? -1 : 1;
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleOnSubmit = ({ search }: { search: string }) => {
-    setSearch(search);
+  const handleOnSubmit = ({
+    search,
+    orderBy,
+    sort,
+  }: {
+    search: string;
+    orderBy: BordersOrderBy;
+    sort: BorderSort;
+  }) => {
+    setFilters({
+      search,
+      orderBy,
+      sort,
+    });
   };
 
   return (
     <div className={styles.container}>
       <FormSearch
         changeFilters={handleOnSubmit}
-        removeSearch={() => setSearch('')}
-        isActive={search.length > 3}
+        removeSearch={() =>
+          setFilters({
+            search: '',
+            orderBy: BordersOrderBy.Rank,
+            sort: BorderSort.Desc,
+          })
+        }
       />
       {borders?.length === 0 && (
         <div className={styles['not-found-container']}>
@@ -58,9 +75,8 @@ export function ListBorders({ id }: Props) {
         </div>
       )}
       <ul>
-        {borders
-          ?.sort(callbackSort)
-          ?.map(({ id, url, special, quantity, username, avatar, name }) => (
+        {borders?.map(
+          ({ id, url, special, quantity, username, avatar, name }) => (
             <li key={id} className={styles['list-item']}>
               <BorderRank
                 key={id}
@@ -73,7 +89,8 @@ export function ListBorders({ id }: Props) {
                 avatarUrl={avatar}
               />
             </li>
-          ))}
+          ),
+        )}
       </ul>
       {isLoading && <div>Buscando bordes...</div>}
       <InfiniteScrollObserver
