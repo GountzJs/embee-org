@@ -1,23 +1,17 @@
 import { getRanking } from '@/ranking/services/ranking';
-import { useEffect, useState } from 'react';
-import { UserRankEntity } from '../../users/models/entities/user-rank.entity';
+import { useQuery } from '@tanstack/react-query';
 
 export function useGetRanking() {
-  const [data, setData] = useState<UserRankEntity[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    getRanking()
-      .then(({ ranking }) => setData(ranking))
-      .catch((err) => setError(err))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, isFetching, error } = useQuery({
+    queryKey: ['ranking'],
+    queryFn: () => getRanking(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
 
   return {
     data,
     error,
-    isLoading,
+    isLoading: isFetching,
   };
 }

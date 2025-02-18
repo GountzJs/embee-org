@@ -7,7 +7,7 @@ interface Props {
 
 export function useSearchUsers({ username }: Props) {
   const { data, isFetching, error } = useQuery({
-    queryKey: ['ranking', username],
+    queryKey: ['search-users', username],
     queryFn: () => getUserByUsername(username),
     enabled: username.length >= 3,
     retry: false,
