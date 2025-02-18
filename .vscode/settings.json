@@ -14,5 +14,11 @@
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "conventionalCommits.scopes": [
+    "web-rewards",
+    "server-rewards",
+    "bot-rewards",
+    "workspace"
+  ]
 }
