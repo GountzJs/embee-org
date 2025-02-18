@@ -48,8 +48,8 @@ export function BorderDetail() {
             size="lg"
             weight="regular"
           >
-            ✨ Ven al stream durante los partidos de T1, ¡entregaremos bordes
-            únicos en vivo!
+            ✨ Ven al stream durante las retransmisiones del competitivo,
+            ¡entregaremos bordes únicos en vivo! ✨
           </Typography>
           <Typography
             variant="p"
