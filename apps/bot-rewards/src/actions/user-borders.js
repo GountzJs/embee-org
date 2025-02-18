@@ -11,7 +11,7 @@ export class UserBordersActions {
       const userId = await UserController.createIfNotExists({
         login: username,
       });
-      const borderId = await BorderService.getIdRandom();
+      const borderId = await BorderService.getIdRandom({ id: userId });
       await UserBordersService.create({ userId, borderId });
       console.log(
         `🤖 Se le ha asignado un borde aletorio al usuario [@${username}].`,
@@ -25,7 +25,7 @@ export class UserBordersActions {
       client.say(
         twitchChannel,
         sanitizeMessage(
-          `❌ [@${username}]: No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
+          `❌ @${username}: No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
         ),
       );
     }
@@ -36,9 +36,14 @@ export class UserBordersActions {
       const userId = await UserController.createIfNotExists({
         login: username,
       });
-      const bordersId = await BorderService.getIdsRandoms({ limit: quantity });
+      const bordersId = await BorderService.getIdsRandoms({
+        limit: quantity,
+        id: userId,
+      });
       await UserBordersService.createMany({ userId, bordersId });
-      console.log(`🤖 Se le ha asignado un borde al usuario [@${username}].`);
+      console.log(
+        `🤖 Se le ha asignado ${quantity} al usuario [@${username}].`,
+      );
       client.say(
         twitchChannel,
         sanitizeMessage(
@@ -81,7 +86,9 @@ export class UserBordersActions {
       console.log(`🤖 Se le ha asignado un borde al usuario [@${username}].`);
       client.say(
         twitchChannel,
-        sanitizeMessage(`🤖 @${username} Se ha asignado su borde aletorio.`),
+        sanitizeMessage(
+          `🤖 @${username} Se ha asignado el borde especial del día.`,
+        ),
       );
     } catch (err) {
       console.log(err?.message);

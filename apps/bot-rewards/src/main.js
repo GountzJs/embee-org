@@ -23,15 +23,15 @@ const messagesCallbacks = async (channel, tag, msg, self) => {
   const isMod = tag['mod'];
   if ((isCreator || isMod) && msg === '!enable-day') {
     isActiveBorderSpecial = true;
-    client.say(channel, '🤖 Se activó el borde especial del día.');
+    client.say(twitchChannel, '🤖 Se activó el borde especial del día.');
   }
 
   if (isActiveBorderSpecial && msg === '!disable-day') {
     isActiveBorderSpecial = false;
-    client.say(channel, '🤖 Se desactivo el borde especial del día.');
+    client.say(twitchChannel, '🤖 Se desactivo el borde especial del día.');
   }
 
-  if (isActiveBorderSpecial && msg.toLowerCase().startsWith('!reward')) {
+  if (isActiveBorderSpecial && msg.toLowerCase() === '!reward') {
     const username = tag['username'];
     await UserBordersActions.assingSpecialBorder({ username });
   }
@@ -67,6 +67,15 @@ const messagesCallbacks = async (channel, tag, msg, self) => {
       .trim();
     await UserBordersActions.assingRandomByUsername({ username: login });
     return;
+  }
+
+  if ((isCreator || isMod) && msg.toLowerCase() === '!gountzbot') {
+    client.say(
+      twitchChannel,
+      sanitizeMessage(
+        `🤖 Hola @${twitchChannel.replace('#', '')}! estoy aquí listo para canjear las recompensas`,
+      ),
+    );
   }
 };
 

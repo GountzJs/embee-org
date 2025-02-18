@@ -18,7 +18,7 @@ export class TmiClient {
   #initClient() {
     const options = {
       connection: { reconnect: true },
-      channels: [twitchChannel],
+      channels: [twitchChannel, `#${twitchUsername}`],
       debugger: debug,
     };
     options.identity = {

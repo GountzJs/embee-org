@@ -1,20 +1,21 @@
 import { BorderRepository } from './border.repository.js';
 
 export class BorderService {
-  static async getIdRandom() {
+  static async getIdRandom({ id }) {
     try {
-      const { id } = await BorderRepository.getRandomBorder();
-      return id;
-    } catch {
+      const { id: userId } = await BorderRepository.getRandomBorder({ id });
+      return userId;
+    } catch (err) {
+      console.log(err);
       throw new Error(
         '[CODE:9900] Algo salió mal al generar el borde aletorio.',
       );
     }
   }
 
-  static async getIdsRandoms({ limit }) {
+  static async getIdsRandoms({ limit, id }) {
     try {
-      const ids = await BorderRepository.getRandomBorders({ limit });
+      const ids = await BorderRepository.getRandomBorders({ limit, id });
       return ids;
     } catch {
       throw new Error(
