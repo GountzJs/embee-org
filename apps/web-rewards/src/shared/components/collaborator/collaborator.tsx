@@ -15,8 +15,8 @@ export function Collaborator({ url, username, imgUrl }: Props) {
         <img
           src={`/${imgUrl}.png`}
           className={styles.avatar}
-          width={40}
-          height={40}
+          width={50}
+          height={50}
           alt={`Avatar ${username}`}
         />
       </Link>

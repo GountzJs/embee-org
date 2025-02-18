@@ -1,7 +1,7 @@
+import { Collaborator } from '@/shared/components/collaborator/collaborator';
 import { EmbeeLogo } from '@/shared/logos/embee-logo';
 import { Typography } from '@embeeorg/ui-kit';
 import { Link } from 'react-router';
-import { Collaborator } from '../collaborator/collaborator';
 import styles from './footer.module.css';
 
 export function Footer() {

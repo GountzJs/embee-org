@@ -1,5 +1,5 @@
-import { Footer } from '@/shared/components/footer/footer';
-import { GlobalNavigation } from '@/shared/components/global-navigation/global-navigation';
+import { Footer } from '@/app/_sections/footer/footer';
+import { GlobalNavigation } from '@/app/_sections/global-navigation/global-navigation';
 import { EmbeeWorldsLogo } from '@/shared/logos/embee-worlds-logo';
 import { SktT1Logo } from '@/shared/logos/skt-t1-logo';
 import { T1Logo } from '@/shared/logos/t1-logo';
