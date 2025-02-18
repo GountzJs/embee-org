@@ -11,6 +11,8 @@ interface Props {
 
 export function UserProfile({ id }: Props) {
   const { data, isLoading, error } = useGetProfileHook({ id });
+  const user = data?.user;
+  const { username, avatar, rank, quantityBorders } = user || { undefined };
 
   if (isLoading || !data) return <div>Cargando perfil...</div>;
 
@@ -19,9 +21,9 @@ export function UserProfile({ id }: Props) {
   return (
     <div className={styles.container}>
       <img
-        src={data?.avatar}
+        src={avatar}
         className={styles.avatar}
-        alt={data?.username}
+        alt={username}
         width={100}
         height={100}
       />
@@ -33,13 +35,15 @@ export function UserProfile({ id }: Props) {
           family="primary"
           weight="extrabold"
         >
-          {data?.username}
+          {username}
         </Typography>
-        <IconRank
-          rank={data?.rank}
-          width={80}
-          height={data?.rank === Rank.Unranked ? 65 : 80}
-        />
+        {rank && (
+          <IconRank
+            rank={rank}
+            width={80}
+            height={rank === Rank.Unranked ? 65 : 80}
+          />
+        )}
       </div>
       <div className={styles.detail}>
         <Typography
@@ -58,7 +62,7 @@ export function UserProfile({ id }: Props) {
           family="primary"
           weight="extrabold"
         >
-          {data?.quantityBorders}
+          {quantityBorders}
         </Typography>
       </div>
     </div>

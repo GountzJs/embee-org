@@ -1,5 +1,4 @@
-import { UserProfileEntity } from '@/users/models/entities/user-profile.entity';
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { getUserById } from '../services/users';
 
 interface Props {
@@ -7,23 +6,17 @@ interface Props {
 }
 
 export function useGetProfileHook({ id }: Props) {
-  const [data, setData] = useState<UserProfileEntity | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (id) {
-      setLoading(true);
-      getUserById(id)
-        .then(({ user }) => setData(user))
-        .catch(() => setError('User not found'))
-        .finally(() => setLoading(false));
-    }
-  }, [id]);
+  const { data, isFetching, error } = useQuery({
+    queryKey: ['get-profile', id],
+    queryFn: () => getUserById(id),
+    enabled: !!id,
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
 
   return {
     data,
     error,
-    isLoading,
+    isLoading: isFetching,
   };
 }
