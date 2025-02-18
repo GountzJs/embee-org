@@ -2,6 +2,7 @@ import { BorderSort } from '@/borders/models/enums/border-sort';
 import { BordersOrderBy } from '@/borders/models/enums/borders-order-by.enum';
 import {
   BtnPrimary,
+  ChevronSvg,
   InputOutline,
   LensSvg,
   Typography,
@@ -161,43 +162,40 @@ export function FormSearch({ changeFilters, isActive, removeSearch }: Props) {
             </Typography>
 
             <div className={styles['radio-btn-section']}>
-              <label>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
                 <Field
                   type="radio"
                   name="sort"
                   value={BorderSort.Desc}
                   className={styles['radio-btn']}
                   onChange={handleChange}
-                  style={{ marginRight: 10 }}
                 />
-                <Typography
-                  variant="p"
-                  family="secondary"
-                  color="white"
-                  size="lg"
-                  weight="normal"
-                >
-                  Descendente
-                </Typography>
+                <ChevronSvg
+                  color={
+                    values.sort === BorderSort.Desc
+                      ? 'var(--ui-kit-primary-400)'
+                      : 'white'
+                  }
+                  size={26}
+                />
               </label>
-              <label>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
                 <Field
                   type="radio"
                   name="sort"
                   value={BorderSort.Asc}
                   className={styles['radio-btn']}
                   onChange={handleChange}
-                  style={{ marginRight: 10 }}
                 />
-                <Typography
-                  variant="p"
-                  family="secondary"
-                  color="white"
-                  size="lg"
-                  weight="normal"
-                >
-                  Ascendente
-                </Typography>
+                <ChevronSvg
+                  color={
+                    values.sort === BorderSort.Asc
+                      ? 'var(--ui-kit-primary-400)'
+                      : 'white'
+                  }
+                  size={26}
+                  style={{ transform: 'rotate(180deg)' }}
+                />
               </label>
             </div>
           </div>
