@@ -22,3 +22,19 @@
     outline: 2px solid var(--ui-kit-secondary-400);
   }
 }
+
+.error {
+  outline: 2px solid var(--ui-kit-primary-400);
+  color: var(--ui-kit-primary-400);
+  &::placeholder {
+    color: var(--ui-kit-primary-500);
+    font-weight: var(--ui-kit-font-weight-semibold);
+  }
+  &:focus::placeholder {
+    color: var(--ui-kit-primary-700);
+  }
+  &:focus {
+    color: var(--ui-kit-primary-700);
+    outline: 2px solid var(--ui-kit-primary-700);
+  }
+}

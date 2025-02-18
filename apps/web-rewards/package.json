@@ -18,10 +18,12 @@
   "dependencies": {
     "@embeeorg/ui-kit": "workspace:*",
     "@tanstack/react-query": "^5.66.3",
+    "formik": "^2.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.1.5",
     "vite-plugin-pwa": "^0.21.1",
+    "yup": "^1.6.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

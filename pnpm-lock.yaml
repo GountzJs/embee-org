@@ -73,6 +73,9 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.66.3
         version: 5.66.3(react@19.0.0)
+      formik:
+        specifier: ^2.4.6
+        version: 2.4.6(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -85,6 +88,9 @@ importers:
       vite-plugin-pwa:
         specifier: ^0.21.1
         version: 0.21.1(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
+      yup:
+        specifier: ^1.6.1
+        version: 1.6.1
       zustand:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
@@ -1735,6 +1741,9 @@ packages:
   '@types/gensync@1.0.4':
     resolution: {integrity: sha512-C3YYeRQWp2fmq9OryX+FoDy8nXS6scQ7dPptD8LnFDAUNcKWJjXQKDNJD3HVm+kOUsXhTOkpi69vI4EuAr95bA==}
 
+  '@types/hoist-non-react-statics@3.3.6':
+    resolution: {integrity: sha512-lPByRJUer/iN/xa4qpyL0qmL11DqNW81iU/IG1S3uvRUq4oKagz8VCxZjiWkumgt66YT3vOdDgZ0o32sGKtCEw==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -2203,6 +2212,10 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
+  deepmerge@2.2.1:
+    resolution: {integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==}
+    engines: {node: '>=0.10.0'}
+
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
@@ -2490,6 +2503,11 @@ packages:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
     engines: {node: '>=12.20.0'}
 
+  formik@2.4.6:
+    resolution: {integrity: sha512-A+2EI7U7aG296q2TLGvNapDNTZp1khVt5Vk0Q/fyfSROss0V/V6+txt2aJnwEos44IxTCW/LYAi/zgWzlevj+g==}
+    peerDependencies:
+      react: '>=16.8.0'
+
   front-matter@4.0.2:
     resolution: {integrity: sha512-I8ZuJ/qG92NWX8i5x1Y8qyj3vizhXS31OxjKDu3LKP+7/qBgfIKValiZIEwoVoJKUHlhWtYrktkxV1XsX+pPlg==}
 
@@ -2632,6 +2650,9 @@ packages:
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
+
+  hoist-non-react-statics@3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
   hono@4.7.0:
     resolution: {integrity: sha512-hV97aIR4WYbG30k234sD9B3VNr1ZWdQRmrVF76LKFlmI7O9Yo70mG9+mFwyQ6Sjrz4wH71GfnBxv6CPjcx3QNw==}
@@ -2962,6 +2983,9 @@ packages:
   locate-path@7.2.0:
     resolution: {integrity: sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
 
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
@@ -3298,6 +3322,9 @@ packages:
   promise-limit@2.7.0:
     resolution: {integrity: sha512-7nJ6v5lnJsXwGprnGXga4wx6d1POjvi5Qmf1ivTRxTjH4Z/9Czja/UCMLVmB9N93GeWOU93XaFaEt6jbuoagNw==}
 
+  property-expr@2.0.6:
+    resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==}
+
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
@@ -3318,6 +3345,12 @@ packages:
     resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
     peerDependencies:
       react: ^19.0.0
+
+  react-fast-compare@2.0.4:
+    resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
+
+  react-is@16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
@@ -3657,6 +3690,12 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
+  tiny-case@1.0.3:
+    resolution: {integrity: sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==}
+
+  tiny-warning@1.0.3:
+    resolution: {integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==}
+
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
@@ -3679,6 +3718,9 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
+
+  toposort@2.0.2:
+    resolution: {integrity: sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==}
 
   touch@3.1.1:
     resolution: {integrity: sha512-r0eojU4bI8MnHr8c5bNo7lJDdI2qXlWWJk6a9EAFG7vbhTjElYhBVS3/miuE0uOuoLdb8Mc/rVfsmm6eo5o9GA==}
@@ -3717,6 +3759,10 @@ packages:
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
+
+  type-fest@2.19.0:
+    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
+    engines: {node: '>=12.20'}
 
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
@@ -4056,6 +4102,9 @@ packages:
 
   youch@3.2.3:
     resolution: {integrity: sha512-ZBcWz/uzZaQVdCvfV4uk616Bbpf2ee+F/AvuKDR5EwX/Y4v06xWdtMluqTD7+KlZdM93lLm9gMZYo0sKBS0pgw==}
+
+  yup@1.6.1:
+    resolution: {integrity: sha512-JED8pB50qbA4FOkDol0bYF/p60qSEDQqBD0/qeIrUCG1KbPBIQ776fCUNb9ldbPcSTxA69g/47XTo4TqWiuXOA==}
 
   zod@3.22.3:
     resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
@@ -5627,6 +5676,11 @@ snapshots:
 
   '@types/gensync@1.0.4': {}
 
+  '@types/hoist-non-react-statics@3.3.6':
+    dependencies:
+      '@types/react': 19.0.8
+      hoist-non-react-statics: 3.3.2
+
   '@types/json-schema@7.0.15': {}
 
   '@types/node@22.13.1':
@@ -6155,6 +6209,8 @@ snapshots:
 
   deep-is@0.1.4: {}
 
+  deepmerge@2.2.1: {}
+
   deepmerge@4.3.1: {}
 
   defaults@1.0.4:
@@ -6531,6 +6587,18 @@ snapshots:
     dependencies:
       fetch-blob: 3.2.0
 
+  formik@2.4.6(react@19.0.0):
+    dependencies:
+      '@types/hoist-non-react-statics': 3.3.6
+      deepmerge: 2.2.1
+      hoist-non-react-statics: 3.3.2
+      lodash: 4.17.21
+      lodash-es: 4.17.21
+      react: 19.0.0
+      react-fast-compare: 2.0.4
+      tiny-warning: 1.0.3
+      tslib: 2.8.1
+
   front-matter@4.0.2:
     dependencies:
       js-yaml: 3.14.1
@@ -6674,6 +6742,10 @@ snapshots:
       function-bind: 1.1.2
 
   he@1.2.0: {}
+
+  hoist-non-react-statics@3.3.2:
+    dependencies:
+      react-is: 16.13.1
 
   hono@4.7.0: {}
 
@@ -6979,6 +7051,8 @@ snapshots:
   locate-path@7.2.0:
     dependencies:
       p-locate: 6.0.0
+
+  lodash-es@4.17.21: {}
 
   lodash.camelcase@4.3.0: {}
 
@@ -7342,6 +7416,8 @@ snapshots:
 
   promise-limit@2.7.0: {}
 
+  property-expr@2.0.6: {}
+
   proxy-from-env@1.1.0: {}
 
   pstree.remy@1.1.8: {}
@@ -7358,6 +7434,10 @@ snapshots:
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+
+  react-fast-compare@2.0.4: {}
+
+  react-is@16.13.1: {}
 
   react-is@18.3.1: {}
 
@@ -7778,6 +7858,10 @@ snapshots:
 
   through@2.3.8: {}
 
+  tiny-case@1.0.3: {}
+
+  tiny-warning@1.0.3: {}
+
   tinyexec@0.3.2: {}
 
   tinyglobby@0.2.10:
@@ -7803,6 +7887,8 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
+
+  toposort@2.0.2: {}
 
   touch@3.1.1: {}
 
@@ -7833,6 +7919,8 @@ snapshots:
   type-fest@0.16.0: {}
 
   type-fest@0.21.3: {}
+
+  type-fest@2.19.0: {}
 
   typed-array-buffer@1.0.3:
     dependencies:
@@ -8243,6 +8331,13 @@ snapshots:
       cookie: 0.5.0
       mustache: 4.2.0
       stacktracey: 2.1.8
+
+  yup@1.6.1:
+    dependencies:
+      property-expr: 2.0.6
+      tiny-case: 1.0.3
+      toposort: 2.0.2
+      type-fest: 2.19.0
 
   zod@3.22.3: {}
 
