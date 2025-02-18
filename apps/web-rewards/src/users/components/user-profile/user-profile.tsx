@@ -2,7 +2,7 @@ import { IconRank } from '@/ranking/components/icon-rank/icon-rank';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { useGetProfileHook } from '@/users/hooks/use-get-profile.hook';
 import { Typography } from '@embeeorg/ui-kit';
-import { Navigate } from 'react-router';
+import { Link, Navigate } from 'react-router';
 import styles from './user-profile.module.css';
 
 interface Props {
@@ -20,6 +20,9 @@ export function UserProfile({ id }: Props) {
 
   return (
     <div className={styles.container}>
+      <Link to="/ranking" className={styles['nav-link']}>
+        Volver
+      </Link>
       <img
         src={avatar}
         className={styles.avatar}

@@ -3,28 +3,3 @@
   padding: 25px;
   gap: 25px;
 }
-
-.card-presentation {
-  width: 800px;
-  max-width: 90%;
-}
-
-.section-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.border-detail-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-}
-
-.border-detail {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 600px;
-}
