@@ -22,9 +22,7 @@
 }
 
 .borders-section {
-  align-items: center;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   width: fit-content;
 }
