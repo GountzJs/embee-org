@@ -3,14 +3,10 @@ import { UserBorderEntity } from '@/borders/models/entities/user-border.entity';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { quantityBorderToRank } from '@/ranking/utils/quantity-border-to-rank';
 import { InfiniteScrollObserver } from '@/shared/components/infinite-scroll/infinite-scroll';
-import {
-  BtnPrimary,
-  InputOutline,
-  LensSvg,
-  Typography,
-} from '@embeeorg/ui-kit';
+import { Typography } from '@embeeorg/ui-kit';
 import { useState } from 'react';
 import { BorderRank } from '../border-rank/border-rank';
+import { FormSearch } from '../form-search/form-search';
 import styles from './list-borders.module.css';
 
 interface Props {
@@ -18,7 +14,6 @@ interface Props {
 }
 
 export function ListBorders({ id }: Props) {
-  const [form, setForm] = useState({ search: '' });
   const [search, setSearch] = useState<string>('');
   const { isLoading, isError, data, isFetching, hasNextPage, fetchNextPage } =
     useBordersUserHook({
@@ -28,8 +23,6 @@ export function ListBorders({ id }: Props) {
 
   const borders = data?.pages?.flatMap((page) => page.borders) || [];
 
-  const [isTouched, setIsTouched] = useState<boolean>(false);
-
   if (isError) return <div>Error: Falló la weá</div>;
 
   const callbackSort = (a: UserBorderEntity, b: UserBorderEntity) => {
@@ -38,42 +31,18 @@ export function ListBorders({ id }: Props) {
     return a.special ? -1 : 1;
   };
 
-  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSearch(form.search);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleOnSubmit = ({ search }: { search: string }) => {
+    setSearch(search);
   };
 
   return (
     <div className={styles.container}>
-      <form
-        style={{
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-          gap: 25,
-          width: '100%',
-        }}
-        onSubmit={handleOnSubmit}
-      >
-        <div className={styles['input-search-container']}>
-          <LensSvg
-            className={styles['icon-search']}
-            color={isTouched ? 'var(--ui-kit-secondary-400)' : 'white'}
-            size={26}
-          />
-          <InputOutline
-            className={styles['input-search']}
-            placeholder="Buscar por nombre"
-            onFocus={() => setIsTouched(true)}
-            onBlur={() => setIsTouched(false)}
-            value={form.search}
-            onChange={(e) => setForm({ search: e.target.value })}
-          />
-        </div>
-        <BtnPrimary type="submit" disabled={form.search.length < 3}>
-          Buscar
-        </BtnPrimary>
-      </form>
+      <FormSearch
+        changeFilters={handleOnSubmit}
+        removeSearch={() => setSearch('')}
+        isActive={search.length > 3}
+      />
       {borders?.length === 0 && (
         <div className={styles['not-found-container']}>
           <Typography
