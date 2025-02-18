@@ -1,3 +1,4 @@
+import { useDebounceUsersHook } from '@/users/hooks/use-debounce-users.hook';
 import { useSearchUsers } from '@/users/hooks/use-search-users.hook';
 import { Dropdown, InputOutline, LensSvg } from '@embeeorg/ui-kit';
 import { useState } from 'react';
@@ -6,19 +7,26 @@ import styles from './search-users.module.css';
 
 export function SearchUsers() {
   const [search, setSearch] = useState<string>('');
+  const { value, isBouncing } = useDebounceUsersHook({ value: search });
   const { error, data, isLoading } = useSearchUsers({
-    username: search,
+    username: value,
   });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const [isTouched, setIsTouched] = useState<boolean>(false);
+  const users = data?.users || [];
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
 
   const getError = (): string | undefined => {
-    if (search.length < 3)
+    if (isBouncing) return 'Buscando usuarios...';
+    if (users.length === 0 && search.length < 3)
       return 'Ingrese al menos 3 carácteres para iniciar la búsqueda';
-    if (data.length === 0)
+    if (users.length === 0 && search.length >= 3)
       return 'No se han encontrado usuarios con el nombre de usuario ingresado.';
-    if (error) return error;
+    if (error) return error.message;
     return undefined;
   };
 
@@ -40,15 +48,16 @@ export function SearchUsers() {
           value={search}
           onFocus={() => setIsTouched(true)}
           onBlur={() => setIsTouched(false)}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleSearchChange}
         />
       </div>
+
       <Dropdown.Box
         isOpen={isOpen || isTouched}
         error={getError()}
         isLoading={isLoading}
       >
-        {data.map(({ id, username, avatar }) => (
+        {users.map(({ id, username, avatar }) => (
           <Dropdown.Item
             key={id}
             className={styles['item-option']}

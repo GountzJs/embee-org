@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getBordersByUserId } from '@/borders/services/borders';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { BorderSort } from '../models/enums/border-sort';
@@ -42,6 +41,8 @@ export function useBordersUserHook({ id, filterByName, orderBy, sort }: Props) {
     getNextPageParam: (lastPage) =>
       lastPage.nextCursor ? lastPage.pagination.page + 1 : undefined,
     initialPageParam: 1,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
   return {
