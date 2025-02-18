@@ -19,6 +19,7 @@
     "web-rewards",
     "server-rewards",
     "bot-rewards",
-    "workspace"
+    "workspace",
+    "ui-kit"
   ]
 }
