@@ -26,11 +26,11 @@ export function ListBorders({ id, orderBy, sort, search }: Props) {
 
   const borders = data?.pages?.flatMap((page) => page.borders) || [];
 
-  if (isError) return <div>Error: Falló la weá</div>;
+  if (isError && !isLoading) return <div>Error: Falló la weá</div>;
 
   return (
     <div className={styles.container}>
-      {borders?.length === 0 && (
+      {!isLoading && borders?.length === 0 && (
         <div className={styles['not-found-container']}>
           <Typography
             variant="h2"
