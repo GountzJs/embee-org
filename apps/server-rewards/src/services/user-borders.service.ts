@@ -18,6 +18,8 @@ export class UsersBordersService {
     page,
     pageSize,
     filterByName,
+    orderBy,
+    sort,
   }: BorderByUserIdReq) {
     const borders = await this.userBordersRepository.getBorderByUserId({
       client,
@@ -25,6 +27,8 @@ export class UsersBordersService {
       page,
       pageSize,
       filterByName,
+      orderBy,
+      sort,
     });
     return borders;
   }
