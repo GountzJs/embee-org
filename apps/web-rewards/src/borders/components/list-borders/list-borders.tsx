@@ -5,61 +5,31 @@ import { Rank } from '@/ranking/models/enums/rank.enum';
 import { quantityBorderToRank } from '@/ranking/utils/quantity-border-to-rank';
 import { InfiniteScrollObserver } from '@/shared/components/infinite-scroll/infinite-scroll';
 import { Typography } from '@embeeorg/ui-kit';
-import { useState } from 'react';
 import { BorderRank } from '../border-rank/border-rank';
-import { FormSearch } from './form-search/form-search';
 import styles from './list-borders.module.css';
 
 interface Props {
   id: string;
+  orderBy: BordersOrderBy;
+  sort: BorderSort;
+  search: string;
 }
 
-export function ListBorders({ id }: Props) {
-  const [filters, setFilters] = useState({
-    search: '',
-    orderBy: BordersOrderBy.Rank,
-    sort: BorderSort.Desc,
-  });
+export function ListBorders({ id, orderBy, sort, search }: Props) {
   const { isLoading, isError, data, isFetching, hasNextPage, fetchNextPage } =
     useBordersUserHook({
       id,
-      filterByName: filters.search,
-      orderBy: filters.orderBy,
-      sort: filters.sort,
+      filterByName: search,
+      orderBy: orderBy,
+      sort: sort,
     });
 
   const borders = data?.pages?.flatMap((page) => page.borders) || [];
 
   if (isError) return <div>Error: Falló la weá</div>;
 
-  const handleOnSubmit = ({
-    search,
-    orderBy,
-    sort,
-  }: {
-    search: string;
-    orderBy: BordersOrderBy;
-    sort: BorderSort;
-  }) => {
-    setFilters({
-      search,
-      orderBy,
-      sort,
-    });
-  };
-
   return (
     <div className={styles.container}>
-      <FormSearch
-        changeFilters={handleOnSubmit}
-        removeSearch={() =>
-          setFilters({
-            search: '',
-            orderBy: BordersOrderBy.Rank,
-            sort: BorderSort.Desc,
-          })
-        }
-      />
       {borders?.length === 0 && (
         <div className={styles['not-found-container']}>
           <Typography

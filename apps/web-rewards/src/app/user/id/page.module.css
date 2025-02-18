@@ -7,13 +7,18 @@
 }
 
 .profile-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: var(--ui-kit-neutral-800);
   border-radius: 10px;
   outline: 2px var(--ui-kit-secondary-400) solid;
   padding: 25px;
+  gap: 25px;
   height: fit-content;
-  min-width: 400px;
-  max-width: 550px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .borders-section {
@@ -22,4 +27,12 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 80%;
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
