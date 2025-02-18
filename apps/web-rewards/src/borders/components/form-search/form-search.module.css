@@ -1,8 +1,15 @@
+.form-search {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  gap: 25px;
+  width: 100%;
+}
+
 .input-search-container {
   position: relative;
   height: fit-content;
-  width: 80%;
-  max-width: 450px;
   width: 100%;
 }
 
@@ -34,4 +41,13 @@
   &:not(:disabled):hover {
     background-color: transparent;
   }
+}
+
+.input-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  max-width: 450px;
+  width: 100%;
 }
