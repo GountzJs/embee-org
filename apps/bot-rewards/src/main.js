@@ -1,6 +1,7 @@
 import { UserBordersActions } from './actions/user-borders.js';
 import { twitchChannel } from './core/settings.js';
 import client from './twitch/tmi-client.js';
+import { sanitizeMessage } from './twitch/utils.js';
 
 let isActiveBorderSpecial = false;
 
