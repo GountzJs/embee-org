@@ -1,7 +1,7 @@
 import { IconRank } from '@/ranking/components/icon-rank/icon-rank';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { useGetProfileHook } from '@/users/hooks/use-get-profile.hook';
-import { Typography } from '@embeeorg/ui-kit';
+import { DotsSpinner, Typography } from '@embeeorg/ui-kit';
 import { Link, Navigate } from 'react-router';
 import styles from './user-profile.module.css';
 
@@ -14,7 +14,12 @@ export function UserProfile({ id }: Props) {
   const user = data?.user;
   const { username, avatar, rank, quantityBorders } = user || { undefined };
 
-  if (isLoading || !data) return <div>Cargando perfil...</div>;
+  if (isLoading || !data)
+    return (
+      <div className={styles.container}>
+        <DotsSpinner size={100} />
+      </div>
+    );
 
   if (error) return <Navigate to="/" replace />;
 

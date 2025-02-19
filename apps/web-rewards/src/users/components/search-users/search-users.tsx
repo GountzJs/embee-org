@@ -61,7 +61,9 @@ export function SearchUsers() {
           <Dropdown.Item
             key={id}
             className={styles['item-option']}
-            onClick={() => navigate(`/user/${id.replace('?', '')}`)}
+            onClick={() =>
+              navigate(`/user/${id.replace('?', '')}`, { replace: true })
+            }
           >
             <img
               className={styles.avatar}

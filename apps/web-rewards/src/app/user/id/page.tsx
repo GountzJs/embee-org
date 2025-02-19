@@ -3,6 +3,7 @@ import { ListBorders } from '@/borders/components/list-borders/list-borders';
 import { BorderSort } from '@/borders/models/enums/border-sort';
 import { BordersOrderBy } from '@/borders/models/enums/borders-order-by.enum';
 import { UserProfile } from '@/users/components/user-profile/user-profile';
+import { DotsSpinner } from '@embeeorg/ui-kit';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import styles from './page.module.css';
@@ -15,7 +16,12 @@ export default function UserIdPage() {
     sort: BorderSort.Desc,
   });
 
-  if (!id) return <p>Recuperando datos...</p>;
+  if (!id)
+    return (
+      <div className={styles.container}>
+        <DotsSpinner size={100} />
+      </div>
+    );
 
   const handleChangeFilters = ({
     search,

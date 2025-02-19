@@ -1,5 +1,6 @@
 import { useGetRanking } from '@/ranking/hooks/use-get-ranking.hook';
 import { getRankByIndex } from '@/ranking/utils/get-rank-by-index';
+import { DotsSpinner } from '@embeeorg/ui-kit';
 import { UserRanking } from '../user-ranking/user-ranking';
 import styles from './list-ranking.module.css';
 
@@ -7,7 +8,7 @@ export function ListRanking() {
   const { data, error, isLoading } = useGetRanking();
   const ranking = data?.ranking || [];
 
-  if (isLoading) return <div>Cargando...</div>;
+  if (isLoading) return <DotsSpinner size={100} />;
 
   if (error) return <div>Error: {error.message}</div>;
 

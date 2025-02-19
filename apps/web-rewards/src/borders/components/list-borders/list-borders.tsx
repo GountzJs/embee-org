@@ -4,7 +4,7 @@ import { BordersOrderBy } from '@/borders/models/enums/borders-order-by.enum';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { quantityBorderToRank } from '@/ranking/utils/quantity-border-to-rank';
 import { InfiniteScrollObserver } from '@/shared/components/infinite-scroll/infinite-scroll';
-import { Typography } from '@embeeorg/ui-kit';
+import { DotsSpinner, Typography } from '@embeeorg/ui-kit';
 import { BorderRank } from '../border-rank/border-rank';
 import styles from './list-borders.module.css';
 
@@ -30,6 +30,7 @@ export function ListBorders({ id, orderBy, sort, search }: Props) {
 
   return (
     <div className={styles.container}>
+      {isLoading && <DotsSpinner size={100} />}
       {!isLoading && borders?.length === 0 && (
         <div className={styles['not-found-container']}>
           <Typography
