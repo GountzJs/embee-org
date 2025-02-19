@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './dots-spinners.module.css';
+import styles from './dots-spinner.module.css';
 
 interface Props {
   size?: number;

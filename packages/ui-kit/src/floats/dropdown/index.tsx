@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { CircleSpinner } from '../../spinners';
 import styles from './dropdown.module.css';
 
 interface BoxProps {
@@ -18,7 +19,18 @@ const Box = ({
   return (
     <div className={`${styles.box} ${isOpen && styles['box-show']}`}>
       {isLoading && (
-        <div className={styles.notification}>Buscando usuarios...</div>
+        <div
+          className={styles.notification}
+          style={{
+            display: 'flex',
+            width: '100%',
+            padding: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <CircleSpinner color="var(--ui-kit-primary-500)" size={40} />
+        </div>
       )}
       {!isLoading && error && (
         <div className={styles.notification}>{error}</div>
