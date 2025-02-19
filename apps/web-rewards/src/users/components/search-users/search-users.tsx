@@ -21,7 +21,6 @@ export function SearchUsers() {
   };
 
   const getError = (): string | undefined => {
-    if (isBouncing) return 'Buscando usuarios...';
     if (users.length === 0 && search.length < 3)
       return 'Ingrese al menos 3 carácteres para iniciar la búsqueda';
     if (users.length === 0 && search.length >= 3)
@@ -55,7 +54,7 @@ export function SearchUsers() {
       <Dropdown.Box
         isOpen={isOpen || isTouched}
         error={getError()}
-        isLoading={isLoading}
+        isLoading={isLoading || isBouncing}
       >
         {users.map(({ id, username, avatar }) => (
           <Dropdown.Item
