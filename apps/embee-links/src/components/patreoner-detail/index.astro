@@ -1,0 +1,50 @@
+---
+interface Props {
+  name: string;
+  url: string;
+}
+
+const { name, url } = Astro.props;
+---
+
+<a href={url} target="_blank">
+  <p>{name}</p>
+</a>
+
+<style>
+  a {
+    align-items: flex-end;
+    background-image: url("https://embee-org.github.io/embee-statics/gifs/shaco-animation.gif");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 10px;
+    aspect-ratio: 253/80;
+    padding: 10px;
+    height: 100px;
+    width: 350px;
+  }
+  a:hover {
+    opacity: 0.8;
+  }
+  p {
+    background-color: #000;
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+  }
+</style>

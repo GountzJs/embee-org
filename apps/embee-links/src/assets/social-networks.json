@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "name": "Twitch",
+      "icon": "twitch.svg",
+      "negativeColor": "#FFF",
+      "url": "https://twitch.tv/embeejayz",
+      "color": "#9146FF"
+    },
+    {
+      "name": "Youtube",
+      "icon": "youtube.svg",
+      "negativeColor": "#FFF",
+      "url": "https://www.youtube.com/@embeejay69",
+      "color": "#D31405ff"
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram.svg",
+      "negativeColor": "#FFF",
+      "url": "https://www.instagram.com/embeejayz/",
+      "color": "linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5)"
+    },
+    {
+      "name": "Twitter",
+      "icon": "x-social.png",
+      "negativeColor": "#FFF",
+      "url": "https://twitter.com/EmBeeJay_",
+      "color": "#000"
+    },
+    {
+      "name": "Discord",
+      "icon": "discord.svg",
+      "negativeColor": "#FFF",
+      "url": "https://discord.gg/c4CzFbaEtH",
+      "color": "#7289DA"
+    }
+  ]
+}

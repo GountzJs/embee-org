@@ -1,0 +1,4 @@
+{
+	"stylelint.validate": ["astro"],
+	"git.ignoreLimitWarning": true
+}

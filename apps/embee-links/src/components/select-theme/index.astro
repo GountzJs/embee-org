@@ -1,0 +1,157 @@
+---
+import { SystemIcon, SunIcon, MoonIcon } from "@components/svgs";
+---
+
+<div class="form-container">
+  <button type="button" class="btn-detail">
+    <p class="detail-theme"></p>
+  </button>
+  <div class="dropdown-container">
+    <button type="button" class="btn-theme btn-system">
+      <SystemIcon color="var(--primary)" width={20} height={20} />
+      Sistema
+    </button>
+    <button type="button" class="btn-theme btn-light">
+      <SunIcon color="var(--primary)" width={20} height={20} />
+      Claro
+    </button>
+    <button type="button" class="btn-theme btn-dark">
+      <MoonIcon color="var(--primary)" width={20} height={20} />
+      Oscuro
+    </button>
+  </div>
+</div>
+
+<style>
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .form-container {
+    align-items: center;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+  }
+  .dropdown-container {
+    background: var(--bg-color);
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 8px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 5px;
+    gap: 10px;
+    z-index: 1;
+  }
+  .dropdown-active {
+    display: flex;
+  }
+  .detail-theme {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    width: 100px;
+  }
+  .btn-theme {
+    align-items: center;
+    display: flex;
+    opacity: 0.8;
+    padding: 5px;
+    gap: 10px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    &:hover {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script is:inline>
+  const linkTheme = document.querySelector("#theme-stylesheet");
+  const detailTheme = document.querySelector(".detail-theme");
+  const btnSystem = document.querySelector(".btn-system");
+  const btnLight = document.querySelector(".btn-light");
+  const btnDark = document.querySelector(".btn-dark");
+  const btnDetail = document.querySelector(".btn-detail");
+  const dropdownContainer = document.querySelector(".dropdown-container");
+  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const DEFAULT_THEME = localStorage.getItem("theme");
+  let THEME_SELECTED = "Sistema";
+
+  btnDetail.addEventListener("click", () => {
+    dropdownContainer.classList.toggle("dropdown-active");
+  });
+
+  const setTheme = (theme) => {
+    if (theme === "system") {
+      activeSystemMode();
+    } else if (theme === "light") {
+      activeLightMode();
+    } else {
+      activeDarkMode();
+    }
+    dropdownContainer.classList.remove("dropdown-active");
+  };
+
+  const activeDarkMode = () => {
+    THEME_SELECTED = "Oscuro";
+    detailTheme.innerHTML = "";
+    detailTheme.appendChild(btnDark.firstElementChild.cloneNode(true));
+    detailTheme.appendChild(document.createTextNode(THEME_SELECTED));
+    linkTheme.href = "/styles/dark-color.css";
+    localStorage.setItem("theme", "dark");
+  };
+
+  const activeLightMode = () => {
+    THEME_SELECTED = "Claro";
+    detailTheme.innerHTML = "";
+    detailTheme.appendChild(btnLight.firstElementChild.cloneNode(true));
+    detailTheme.appendChild(document.createTextNode(THEME_SELECTED));
+    linkTheme.href = "/styles/light-color.css";
+    localStorage.setItem("theme", "light");
+  };
+
+  const activeSystemMode = () => {
+    THEME_SELECTED = "Sistema";
+    detailTheme.innerHTML = "";
+    detailTheme.appendChild(btnSystem.firstElementChild.cloneNode(true));
+    detailTheme.appendChild(document.createTextNode(THEME_SELECTED));
+    linkTheme.href = isDarkMode
+      ? "/styles/dark-color.css"
+      : "/styles/light-color.css";
+    localStorage.removeItem("theme");
+  };
+
+  btnDark.addEventListener("click", () => setTheme("dark"));
+
+  btnSystem.addEventListener("click", () => setTheme("system"));
+
+  btnLight.addEventListener("click", () => setTheme("light"));
+
+  if (DEFAULT_THEME === "light") {
+    activeLightMode();
+  } else if (DEFAULT_THEME === "dark") {
+    activeDarkMode();
+  } else {
+    activeSystemMode();
+  }
+</script>

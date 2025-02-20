@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  name: string;
+  url: string;
+  lettersUrl: string;
+  color: string;
+}
+
+const { url, lettersUrl, name, color } = Astro.props;
+---
+
+<a href={url} target="_blank" style={`background: ${color}`}>
+  <Image
+    class="img-letters"
+    src={lettersUrl}
+    width={260}
+    height={104}
+    alt={`Letras ${name}`}
+  />
+  <slot />
+</a>
+
+<style>
+  a {
+    box-shadow:
+      rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    align-items: center;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    font-weight: 900;
+    font-size: 26px;
+    height: 90px;
+    width: 550px;
+    max-width: 80%;
+  }
+
+  .img-letters {
+    margin-left: 24px;
+  }
+</style>

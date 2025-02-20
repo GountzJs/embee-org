@@ -1,0 +1,65 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/noto-serif";
+import { Footer } from "@pages/_Sections/footer";
+import { Header } from "@pages/_Sections/header";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      name="description"
+      content="Embeejayz información de redes sociales y contenido"
+    />
+    <meta
+      name="keywords"
+      content="embeejayz, twitch, twitter, patreon, t1, skt, skt t1, faker, league of legends, lol"
+    />
+    <meta name="author" content="Gountzjs" />
+    <meta property="og:image" content="/avatar-embee.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Embeejayz redes sociales" />
+    <meta
+      property="og:description"
+      content="Embeejayz información de redes sociales y contenido"
+    />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="Embeejayz" />
+    <link
+      id="theme-stylesheet"
+      rel="stylesheet"
+      href="/styles/light-color.css"
+    />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @import "@styles/global.css";
+</style>
+
+<style>
+  body {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: auto 1fr auto;
+    height: 100dvh;
+    min-height: 100dvh;
+    width: 100dvw;
+  }
+</style>

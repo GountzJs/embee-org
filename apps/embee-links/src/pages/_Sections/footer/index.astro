@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+---
+
+<footer>
+  <p>Hecho con</p>
+  <Image
+    src="https://embee-org.github.io/embee-statics/images/ahri.png"
+    width={55}
+    height={55.5}
+    alt="Corazón ahri"
+  />
+  <p>por</p>
+  <a href="https://github.com/GountzJs" target="_blank">Gountzjs</a>
+  <p>y</p>
+  <a href="https://www.instagram.com/su1zide/" target="_blank"> Suicide </a>
+</footer>
+
+<style>
+  footer {
+    align-items: center;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    padding: 20px 15px;
+    gap: 5px;
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+  }
+  img {
+    aspect-ratio: 16/9;
+    margin-inline: 5px;
+  }
+</style>

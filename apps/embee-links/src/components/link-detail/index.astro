@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  icon: string;
+  name: string;
+  url: string;
+  color: string;
+  negativeColor: string;
+}
+
+const { icon, name, url, color, negativeColor = "#fff" } = Astro.props;
+---
+
+<a href={url} target="_blank" style={`background: ${color}`}>
+  <div class="icon-container" style={`background-color: ${negativeColor}`}>
+    <Image
+      src={`https://embee-org.github.io/embee-statics/icons/${icon}`}
+      loading={"eager"}
+      alt={`${name} icono`}
+      width={30}
+      height={30}
+    />
+  </div>
+  <p style={`color: ${negativeColor}`}>
+    {name}
+  </p>
+</a>
+
+<style>
+  a {
+    border-radius: 8px;
+    user-select: none;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 8px 15px;
+    height: fit-content;
+    text-decoration: none;
+    gap: 55px;
+    width: 550px;
+    max-width: 80dvw;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  p {
+    font-weight: 800;
+    font-size: 24px;
+    height: 100%;
+    width: 100%;
+  }
+  .icon-container {
+    align-self: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+</style>

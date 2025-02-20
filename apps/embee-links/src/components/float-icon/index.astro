@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  url: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  width: number;
+  height: number;
+  color: string;
+}
+
+const { top, left, right, bottom, url, width, height, color } = Astro.props;
+
+let style = ``;
+
+if (top) style += `top: ${top};`;
+
+if (left) style += `left: ${left};`;
+
+if (right) style += `right: ${right};`;
+
+if (bottom) style += `bottom: ${bottom};`;
+
+style += `width: ${width}px; height: ${height}px;`;
+
+style += `filter: drop-shadow(2px 2px 5px ${color});`;
+---
+
+<div class="floating" style={style}>
+  <Image
+    loading={"eager"}
+    src={url}
+    height={height}
+    width={width}
+    alt="Logo flotante"
+  />
+</div>
+
+<style>
+  div {
+    position: absolute;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .floating {
+    position: absolute;
+    height: 60px;
+    width: 105px;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @media screen and (max-width: 625px) {
+    .floating {
+      display: none;
+    }
+  }
+</style>

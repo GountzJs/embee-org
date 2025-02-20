@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div>
+  <Image
+    class="avatar"
+    src="https://embee-org.github.io/embee-statics/images/embee/avatar.jpg"
+    loading={"eager"}
+    height={150}
+    width={150}
+    alt="Embeejayz Avatar"
+  />
+  <h2>Embeejayz</h2>
+  <p>Amante del Competitivo (Pero sobre todo de Faker y T1)</p>
+</div>
+
+<style>
+  div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+  }
+  .avatar {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: 30px;
+  }
+  p {
+    text-align: center;
+    margin: 0;
+    width: 450px;
+    max-width: 80%;
+  }
+</style>

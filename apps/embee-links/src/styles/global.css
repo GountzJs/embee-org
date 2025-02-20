@@ -1,0 +1,29 @@
+@import "@styles/fonts.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+  width: 100%;
+  max-width: 100dvw;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,112 @@
+---
+import { BaseLayout } from "@layouts/base-layout";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout title="Página no encontrada">
+  <main>
+    <audio id="alistar-vaquita" autoplay loop preload="auto">
+      <source
+        src="https://embee-org.github.io/embee-statics/mp3/alistar-vaquita.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <article>
+      <h3>404</h3>
+      <h1>Página no encontrada</h1>
+      <p>
+        No pudimos encontrar la página que busca, intentelo en otro momento.
+      </p>
+      <a href="/">Ir al inicio</a>
+      <Image
+        class="alistar-vaquita"
+        src="https://embee-org.github.io/embee-statics/gifs/alistar-vaquita.gif"
+        height={100}
+        width={100}
+        alt="Shaco image"
+        style="display: none;"
+      />
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    gap: 45px;
+    height: 100%;
+    width: 100%;
+  }
+  article {
+    align-items: center;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  article h3 {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 900;
+    transform: scaleX(2);
+  }
+
+  a {
+    background-color: var(--primary);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 200ms ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 900;
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .alistar-vaquita {
+    position: absolute;
+    border-radius: 8px;
+    left: 5%;
+    bottom: 5%;
+  }
+</style>
+
+<script>
+  const soundAlistar = document.querySelector(
+    "#alistar-vaquita",
+  ) as HTMLAudioElement;
+  const imageAlistar = document.querySelector(
+    ".alistar-vaquita",
+  ) as HTMLImageElement;
+
+  soundAlistar.onplay = () => {
+    imageAlistar.style.display = "block";
+  };
+
+  document.body.addEventListener("click", () => {
+    soundAlistar.play();
+  });
+</script>

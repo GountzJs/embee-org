@@ -1,0 +1,21 @@
+---
+interface Props {
+  styleInline?: string;
+}
+
+const { styleInline } = Astro.props;
+---
+
+<section style={styleInline}>
+  <slot />
+</section>
+
+<style>
+  section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    width: 100%;
+  }
+</style>

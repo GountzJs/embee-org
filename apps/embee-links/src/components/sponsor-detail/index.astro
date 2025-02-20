@@ -1,0 +1,49 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  image: string;
+}
+
+const { url, image } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  style={`background-image: url('https://embee-org.github.io/embee-statics/sponsors/${image}')`}
+>
+</a>
+
+<style>
+  a {
+    align-items: flex-end;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 10px;
+    aspect-ratio: 253/80;
+    padding: 10px;
+    height: 100px;
+    width: 350px;
+  }
+  a:hover {
+    opacity: 0.8;
+  }
+  p {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 800;
+    padding: 4px;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+  }
+</style>
