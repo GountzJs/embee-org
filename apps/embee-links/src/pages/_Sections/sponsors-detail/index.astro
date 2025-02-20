@@ -2,26 +2,12 @@
 import { PatreonerDetail } from "@components/patreoner-detail";
 import { SectionPage } from "@components/section-page";
 import { getPatreons } from "@services/getPatreons";
-import { getSponsors } from "@services/getSponsors";
-
-const sponsors = getSponsors();
 const patreons = getPatreons();
 ---
 
 <SectionPage styleInline="gap: 25px">
-  <h2>
-    Este proyecto es posible gracias a ustedes y a nuestros patrocinadores:
-  </h2>
+  <h2>Este proyecto es posible gracias a nuestros patreons:</h2>
   <div class="sponsors">
-    <!-- {
-      sponsors.map((sponsor) => (
-        <SponsorDetail
-          name={sponsor.name}
-          url={sponsor.url}
-          image={sponsor.logo}
-        />
-      ))
-    } -->
     {
       patreons.map((patreon) => (
         <PatreonerDetail name={patreon.name} url={patreon.url} />
