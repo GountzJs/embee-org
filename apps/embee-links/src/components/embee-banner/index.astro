@@ -15,9 +15,11 @@ const { url, lettersUrl, name, color } = Astro.props;
   <Image
     class="img-letters"
     src={lettersUrl}
+    loading={"lazy"}
     width={260}
     height={104}
     alt={`Letras ${name}`}
+    id="dynamic-image"
   />
   <slot />
 </a>
@@ -44,3 +46,29 @@ const { url, lettersUrl, name, color } = Astro.props;
     margin-left: 24px;
   }
 </style>
+
+<script>
+  const imageElement = document.getElementById("dynamic-image");
+  const linkContainer = document.getElementById("link-container");
+
+  if (imageElement && linkContainer) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (imageElement instanceof HTMLImageElement) {
+              imageElement.loading = "eager";
+            }
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(linkContainer);
+  }
+</script>
