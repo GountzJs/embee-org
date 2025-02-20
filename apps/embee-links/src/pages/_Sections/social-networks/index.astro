@@ -1,7 +1,7 @@
 ---
 import { EmbeeBanner } from "@components/embee-banner";
 import { SectionPage } from "@components/section-page";
-import { Image } from "astro:assets";
+import { BannerImg } from "./banner-img";
 ---
 
 <SectionPage styleInline="gap: 100px">
@@ -11,12 +11,14 @@ import { Image } from "astro:assets";
     name="discord"
     color="linear-gradient(#2eabff, #1b8ff9 40%, #145eb9 90%)"
   >
-    <Image
-      class="embee-img embee-discord"
-      src="https://embee-org.github.io/embee-statics/images/embee/discord.png"
+    <BannerImg
+      url="https://embee-org.github.io/embee-statics/images/embee/discord.png"
+      styles={{
+        transform: "translate(-40px, 10%)",
+        height: "auto",
+        width: "35%",
+      }}
       alt={`Embeejayz discord`}
-      height={180}
-      width={180}
     />
   </EmbeeBanner>
   <EmbeeBanner
@@ -25,12 +27,14 @@ import { Image } from "astro:assets";
     name="twitch"
     color="linear-gradient(#b085ff, #9146ff 40%, #8d30f7 90%)"
   >
-    <Image
-      class="embee-img embee-twitch"
-      src="https://embee-org.github.io/embee-statics/images/embee/shaco.png"
-      alt={`Embeejayz twitch`}
-      height={180}
-      width={180}
+    <BannerImg
+      url="https://embee-org.github.io/embee-statics/images/embee/shaco.png"
+      styles={{
+        transform: "translate(-35px, 0)",
+        height: "auto",
+        width: "30%",
+      }}
+      alt="Embeejayz twitch"
     />
   </EmbeeBanner>
   <EmbeeBanner
@@ -39,12 +43,14 @@ import { Image } from "astro:assets";
     name="youtube"
     color="linear-gradient(-180deg, #f71c0b, #D31405ff 60%, #ac1408 90%)"
   >
-    <Image
-      class="embee-img embee-youtube"
-      src="https://embee-org.github.io/embee-statics/images/embee/computer.png"
-      alt={`Embeejayz youtube`}
-      height={170}
-      width={170}
+    <BannerImg
+      url="https://embee-org.github.io/embee-statics/images/embee/computer.png"
+      styles={{
+        transform: "translate(-40px, 15%)",
+        height: "auto",
+        width: "32%",
+      }}
+      alt="Embeejayz youtube"
     />
   </EmbeeBanner>
   <EmbeeBanner
@@ -53,12 +59,14 @@ import { Image } from "astro:assets";
     name="instagram"
     color="linear-gradient(30deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5)"
   >
-    <Image
-      class="embee-img embee-instagram"
-      src="https://embee-org.github.io/embee-statics/images/embee/facha.png"
-      alt={`Embeejayz youtube`}
-      height={170}
-      width={170}
+    <BannerImg
+      url="https://embee-org.github.io/embee-statics/images/embee/facha.png"
+      styles={{
+        transform: "translate(-55px, 0)",
+        height: "auto",
+        width: "30%",
+      }}
+      alt="Embeejayz instagram"
     />
   </EmbeeBanner>
   <EmbeeBanner
@@ -67,50 +75,14 @@ import { Image } from "astro:assets";
     name="twitter"
     color="linear-gradient(#454545, #3d3d3d 40%, #000000 90%)"
   >
-    <Image
-      class="embee-img embee-twitter"
-      src="https://embee-org.github.io/embee-statics/images/embee/x.png"
-      alt={`Embeejayz twitter`}
-      height={180}
-      width={180}
+    <BannerImg
+      url="https://embee-org.github.io/embee-statics/images/embee/x.png"
+      styles={{
+        transform: "translate(-55px, 0)",
+        height: "auto",
+        width: "35%",
+      }}
+      alt="Embeejayz twitter"
     />
   </EmbeeBanner>
 </SectionPage>
-
-<style>
-  .embee-img {
-    position: absolute;
-    aspect-ratio: 1/1;
-    bottom: 0;
-    left: 0;
-  }
-  .embee-discord {
-    transform: translate(-40px, 10%);
-    height: auto;
-    width: 35%;
-  }
-
-  .embee-youtube {
-    transform: translate(-40px, 15%);
-    height: auto;
-    width: 32%;
-  }
-
-  .embee-instagram {
-    transform: translate(-55px, 0);
-    height: auto;
-    width: 30%;
-  }
-
-  .embee-twitter {
-    transform: translate(-55px, 0);
-    height: auto;
-    width: 35%;
-  }
-
-  .embee-twitch {
-    transform: translate(-35px, 0);
-    height: auto;
-    width: 30%;
-  }
-</style>
