@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Central repository for managing Embeejayz's stream-related projects and tools.",
   "scripts": {
+    "links:dev": "nx dev embee-links",
+    "links:build": "nx build embee-links",
     "bot": "nx start bot-rewards",
     "bot:dev": "nx dev bot-rewards",
     "sv-recommend:dev": "nx dev server-rewards",
