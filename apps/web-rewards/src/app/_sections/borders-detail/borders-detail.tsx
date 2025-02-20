@@ -117,8 +117,8 @@ export function BorderDetail() {
             <ChipReward
               url="/match.png"
               detail="Por participar en las retransmisiones del competitivo con el comando !reward"
-              width={200}
-              height={100}
+              width={220}
+              height={90}
             />
           </div>
         </div>
