@@ -2,6 +2,7 @@ import { FormSearch } from '@/borders/components/list-borders/form-search/form-s
 import { ListBorders } from '@/borders/components/list-borders/list-borders';
 import { BorderSort } from '@/borders/models/enums/border-sort';
 import { BordersOrderBy } from '@/borders/models/enums/borders-order-by.enum';
+import { useScrollTopHook } from '@/shared/hooks/use-scroll-top.hook';
 import { UserProfile } from '@/users/components/user-profile/user-profile';
 import { DotsSpinner } from '@embeeorg/ui-kit';
 import { useState } from 'react';
@@ -15,6 +16,7 @@ export default function UserIdPage() {
     orderBy: BordersOrderBy.Rank,
     sort: BorderSort.Desc,
   });
+  useScrollTopHook();
 
   if (!id)
     return (

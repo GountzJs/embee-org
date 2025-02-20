@@ -1,9 +1,12 @@
 import { ListRanking } from '@/ranking/components/list-ranking/list-ranking';
+import { useScrollTopHook } from '@/shared/hooks/use-scroll-top.hook';
 import { SearchUsers } from '@/users/components/search-users/search-users';
 import { Typography } from '@embeeorg/ui-kit';
 import styles from './page.module.css';
 
 export default function RankingPage() {
+  useScrollTopHook();
+
   return (
     <main className={styles.container}>
       <section className={styles['section-container']}>
@@ -14,7 +17,7 @@ export default function RankingPage() {
           size="xl"
           weight="extrabold"
         >
-          Ingrese su nombre de usuario para ver sus bordes canjeadas
+          Ingrese su nombre de usuario para ver sus bordes canjeados
         </Typography>
         <SearchUsers />
       </section>

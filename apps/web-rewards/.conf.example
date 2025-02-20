@@ -1,0 +1,3 @@
+VITE_STATIC_URL=https://embee-org.github.io/embee-statics
+VITE_REWARDS_API_URL=http://localhost:8080
+NODE_ENV=development
