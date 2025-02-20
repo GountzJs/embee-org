@@ -1,0 +1,37 @@
+---
+import { SectionPage } from "@components/section-page";
+import { Tooltip } from "@components/tooltip";
+import { Image } from "astro:assets";
+---
+
+<SectionPage styleInline="gap: 60px">
+  <h2>Puedes ayudarnos visitando y participando de otros proyectos</h2>
+  <Tooltip message="Recompensas Twitch">
+    <a href="https://rewards.embeejayz.com" class="nav-link" target="_blank">
+      <Image
+        class="proyect-img"
+        src="/rewards-embee.png"
+        alt="Embee Rewards"
+        loading={"lazy"}
+        height={220}
+        width={500}
+      />
+    </a>
+  </Tooltip>
+</SectionPage>
+
+<style>
+  h2 {
+    font-size: 24px;
+  }
+  .proyect-img {
+    border-radius: 10px;
+  }
+  .nav-link {
+    text-decoration: none;
+    transition: opacity 400ms ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+</style>
