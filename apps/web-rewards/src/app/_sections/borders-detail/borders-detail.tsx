@@ -109,13 +109,13 @@ export function BorderDetail() {
           </Typography>
           <div className={styles['chip-rewards']}>
             <ChipReward
-              url="/recompensa-border.png"
+              url="/rewards-border.png"
               detail="Con puntos del canal"
               height={140}
               width={100}
             />
             <ChipReward
-              url="/recompensa-match.png"
+              url="/rewards-match.png"
               detail="Por participar en las retransmisiones del competitivo con el comando !reward"
               width={220}
               height={90}
