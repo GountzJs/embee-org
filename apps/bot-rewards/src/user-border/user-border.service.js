@@ -19,7 +19,6 @@ export class UserBordersService {
         bordersId,
       });
     } catch (err) {
-      console.log(err);
       throw new Error('[CODE:9900] Algo salió mal al crear el borde aletorio.');
     }
   }

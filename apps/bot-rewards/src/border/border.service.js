@@ -6,7 +6,6 @@ export class BorderService {
       const { id: userId } = await BorderRepository.getRandomBorder({ id });
       return userId;
     } catch (err) {
-      console.log(err);
       throw new Error(
         '[CODE:9900] Algo salió mal al generar el borde aletorio.',
       );
