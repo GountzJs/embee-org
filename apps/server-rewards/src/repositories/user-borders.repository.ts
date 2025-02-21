@@ -1,4 +1,5 @@
 import { Client } from '@libsql/client';
+import { BorderIdEntity } from '../models/entities/border-by-id.type';
 import { BordersOrderBy } from '../models/enums/borders-order-by.enum';
 import { BorderByUserIdReq } from '../models/interfaces/border-by-user-id.interface';
 
@@ -99,7 +100,7 @@ export class UserBordersRepository {
 
     const { rows } = await client.execute({ sql, args });
     return {
-      borders: rows,
+      borders: rows as unknown as BorderIdEntity[],
       pagination: {
         page,
         pageSize,

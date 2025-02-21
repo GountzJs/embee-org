@@ -1,4 +1,5 @@
 import { Client } from '@libsql/client';
+import { borderByIdAdapter } from '../adapters/border-by-id.adapter';
 import { BorderByUserIdReq } from '../models/interfaces/border-by-user-id.interface';
 import { UserBordersRepository } from '../repositories/user-borders.repository';
 
@@ -21,15 +22,19 @@ export class UsersBordersService {
     orderBy,
     sort,
   }: BorderByUserIdReq) {
-    const borders = await this.userBordersRepository.getBorderByUserId({
-      client,
-      userId,
-      page,
-      pageSize,
-      filterByName,
-      orderBy,
-      sort,
-    });
-    return borders;
+    const { borders, pagination } =
+      await this.userBordersRepository.getBorderByUserId({
+        client,
+        userId,
+        page,
+        pageSize,
+        filterByName,
+        orderBy,
+        sort,
+      });
+    return {
+      borders: borders.map((border) => borderByIdAdapter(border)),
+      pagination,
+    };
   }
 }
