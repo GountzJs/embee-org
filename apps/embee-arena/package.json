@@ -1,0 +1,22 @@
+{
+  "name": "web-games",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "@types/tmi.js": "1.8.6",
+    "phaser": "3.87.0",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.1"
+  },
+  "dependencies": {
+    "tmi.js": "1.8.5"
+  },
+  "packageManager": "pnpm@9.12.2"
+}
