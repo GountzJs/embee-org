@@ -14,14 +14,11 @@ export class UserBordersRepository {
           COUNT(ub.id) AS quantityBorders
       FROM users u
       INNER JOIN user_borders ub ON u.id = ub.user_id
-      WHERE u.is_staff = 0 AND u.login <> ?
+      WHERE u.is_staff = 0
       GROUP BY u.id
       ORDER BY quantityBorders DESC, u.login ASC LIMIT 8
     `;
-    const { rows } = await client.execute({
-      sql: query,
-      args: ['embeejayz'],
-    });
+    const { rows } = await client.execute(query);
     return rows;
   }
 
