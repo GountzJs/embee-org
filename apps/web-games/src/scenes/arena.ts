@@ -54,7 +54,7 @@ export class ArenaScene extends Phaser.Scene {
       backgroundColor: getContrastingColor(color),
       color,
       padding: { x: 4, y: 2 },
-      font: '14px Pixelify Sans bold',
+      font: '16px Pixelify Sans bold',
       align: 'center',
     });
 
