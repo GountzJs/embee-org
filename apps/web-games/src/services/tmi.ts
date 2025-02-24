@@ -1,4 +1,3 @@
-import { twitchChannel } from '@consts/channel';
 import { Client, Options } from 'tmi.js';
 
 export class TmiService {
@@ -6,7 +5,7 @@ export class TmiService {
 
   constructor() {
     this.client = {
-      channels: [twitchChannel],
+      channels: ['embeejayz'],
     };
   }
 
