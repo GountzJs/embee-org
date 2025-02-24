@@ -1,5 +1,6 @@
 import { getPlayerSprite } from '@consts/player-sprite';
 import { TmiService } from '@services/tmi';
+import { getContrastingColor } from '@utils/contract-color';
 import Phaser from 'phaser';
 import { initArenaAnimations } from '../animations/arena-animations';
 import { initArenaSprites } from '../sprites/arena-sprites';
@@ -49,14 +50,13 @@ export class ArenaScene extends Phaser.Scene {
       .setGravityY(300)
       .setVelocityX(randomVelocity);
 
-    const text = this.add
-      .text(0, 0, username, {
-        font: '18px Arial extrabold',
-        color,
-        padding: { x: 0, y: 0 },
-      })
-      .setBackgroundColor('rgba(0,0,0,0.5)')
-      .setShadow(0, 0, '#fff', 10);
+    const text = this.add.text(0, 0, username, {
+      backgroundColor: getContrastingColor(color),
+      color,
+      padding: { x: 4, y: 2 },
+      font: '14px Pixelify Sans bold',
+      align: 'center',
+    });
 
     const timer = setTimeout(() => {
       this.removePlayer(username);
