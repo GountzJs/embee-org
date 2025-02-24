@@ -20,17 +20,15 @@ export function ListBorders({ id, orderBy, sort, search }: Props) {
     useBordersUserHook({
       id,
       filterByName: search,
-      orderBy: orderBy,
-      sort: sort,
+      orderBy,
+      sort,
     });
-
   const borders = data?.pages?.flatMap((page) => page.borders) || [];
 
   if (isError && !isLoading) return <div>Error: Falló la weá</div>;
 
   return (
     <div className={styles.container}>
-      {isLoading && <DotsSpinner size={100} />}
       {!isLoading && borders?.length === 0 && (
         <div className={styles['not-found-container']}>
           <Typography
@@ -50,7 +48,6 @@ export function ListBorders({ id, orderBy, sort, search }: Props) {
           ({ id, url, special, quantity, username, avatar, name }) => (
             <li key={id} className={styles['list-item']}>
               <BorderRank
-                key={id}
                 name={name}
                 rank={
                   special ? Rank.Challenger : quantityBorderToRank(quantity)
@@ -63,7 +60,7 @@ export function ListBorders({ id, orderBy, sort, search }: Props) {
           ),
         )}
       </ul>
-      {isLoading && <div>Buscando bordes...</div>}
+      {isLoading && <DotsSpinner size={100} />}
       <InfiniteScrollObserver
         onIntersect={() => fetchNextPage()}
         isLoading={isFetching}
