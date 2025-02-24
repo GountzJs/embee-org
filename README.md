@@ -20,9 +20,11 @@ We look forward to your involvement and contributions!
 
 | App                                 | Description                                     |
 | ----------------------------------- | ----------------------------------------------- |
-| [`web-rewards`](./apps/web-rewards) | UI Reward system for Embeejayz's Twitch community. |
-| [`server-rewards`](./apps/server-rewards) | Server Reward system for Embeejayz's Twitch community. |
 | [`bot-rewards`](./apps/bot-rewards) | Bot Reward system for Embeejayz's Twitch community. |
+| [`embee-links`](./apps/embee-links) | Embeejayz's Red social links. |
+| [`server-rewards`](./apps/server-rewards) | Server Reward system for Embeejayz's Twitch community. |
+| [`web-games`](./apps/web-games) | Web Arena for Embeejayz's Twitch community. |
+| [`web-rewards`](./apps/web-rewards) | UI Reward system for Embeejayz's Twitch community. |
 
 ## Rules for Contributing
 
@@ -46,3 +48,5 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 - Prettier
 - Commitlint
 - Hono
+- Astro (Static site generator)
+- Phaser (Game engine)
