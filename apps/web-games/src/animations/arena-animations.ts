@@ -32,4 +32,15 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 8,
   });
+
+  anims.create({
+    key: 'kalista-walk',
+    frames: [
+      { key: 'kalista', frame: 0 },
+      { key: 'kalista', frame: 1 },
+      { key: 'kalista', frame: 2 },
+    ],
+    repeat: -1,
+    frameRate: 6,
+  });
 }
