@@ -8,8 +8,6 @@ export function ListRanking() {
   const { data, error, isLoading } = useGetRanking();
   const ranking = data?.ranking || [];
 
-  if (isLoading) return <DotsSpinner size={100} />;
-
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -23,6 +21,7 @@ export function ListRanking() {
           quantityBorders={quantityBorders}
         />
       ))}
+      {isLoading && <DotsSpinner size={100} />}
     </div>
   );
 }

@@ -14,9 +14,12 @@ export function UserProfile({ id }: Props) {
   const user = data?.user;
   const { username, avatar, rank, quantityBorders } = user || { undefined };
 
-  if (isLoading || !data)
+  if (isLoading)
     return (
       <div className={styles.container}>
+        <Link to="/ranking" className={styles['nav-link']}>
+          Volver
+        </Link>
         <DotsSpinner size={100} />
       </div>
     );
