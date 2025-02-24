@@ -46,28 +46,6 @@ importers:
         specifier: ^3.1.9
         version: 3.1.9
 
-  apps/embee-arena:
-    dependencies:
-      tmi.js:
-        specifier: 1.8.5
-        version: 1.8.5
-    devDependencies:
-      '@types/node':
-        specifier: 22.10.1
-        version: 22.10.1
-      '@types/tmi.js':
-        specifier: 1.8.6
-        version: 1.8.6
-      phaser:
-        specifier: 3.87.0
-        version: 3.87.0
-      typescript:
-        specifier: ~5.6.2
-        version: 5.6.3
-      vite:
-        specifier: ^6.0.1
-        version: 6.1.1(@types/node@22.10.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)
-
   apps/embee-links:
     dependencies:
       '@astrojs/check':
@@ -141,6 +119,28 @@ importers:
       wrangler:
         specifier: ^3.108.1
         version: 3.109.2(@cloudflare/workers-types@4.20250214.0)
+
+  apps/web-games:
+    dependencies:
+      tmi.js:
+        specifier: 1.8.5
+        version: 1.8.5
+    devDependencies:
+      '@types/node':
+        specifier: 22.10.1
+        version: 22.10.1
+      '@types/tmi.js':
+        specifier: 1.8.6
+        version: 1.8.6
+      phaser:
+        specifier: 3.87.0
+        version: 3.87.0
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^6.0.1
+        version: 6.1.1(@types/node@22.10.1)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)
 
   apps/web-rewards:
     dependencies:
@@ -3974,7 +3974,6 @@ packages:
 
   libsql@0.4.7:
     resolution: {integrity: sha512-T9eIRCs6b0J1SHKYIvD8+KCJMcWZ900iZyxdnSCdqxN12Z1ijzT+jY5nrk72Jw4B0HGzms2NgpryArlJqvc3Lw==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lines-and-columns@1.2.4:
