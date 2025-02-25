@@ -54,4 +54,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 4,
   });
+
+  anims.create({
+    key: 'anivia-walk',
+    frames: [
+      { key: 'anivia', frame: 0 },
+      { key: 'anivia', frame: 1 },
+      { key: 'anivia', frame: 2 },
+      { key: 'anivia', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }

@@ -8,6 +8,8 @@ export const getPlayerSprite = (username: string) => {
       return 'kalista';
     case 'QLuuA':
       return 'galio';
+    case 'matintosh':
+      return 'anivia';
     default:
       return 'shaco';
   }

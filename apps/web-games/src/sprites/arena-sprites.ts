@@ -27,4 +27,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('anivia', '/sprites/anivia/anivia.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }
