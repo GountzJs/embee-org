@@ -1,5 +1,6 @@
 import { UserBorderEntity } from '@/borders/models/entities/user-border.entity';
-import { rewardsApiUrl } from '@/core/settings';
+
+import { rewardsApiUrl } from '@/core/client-settings';
 import { BorderSort } from '../models/enums/border-sort';
 import { BordersOrderBy } from '../models/enums/borders-order-by.enum';
 import { Pagination } from '../models/interfaces/pagination.interface';
