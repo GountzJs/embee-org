@@ -1,4 +1,5 @@
 import { Collaborator } from '@/shared/components/collaborator';
+import { EmbeeLogo } from '@/shared/components/embee-logo';
 import Link from 'next/link';
 import styles from './footer.module.css';
 
@@ -42,13 +43,14 @@ export function Footer() {
           gracias!
         </p>
       </div>
-      {/* <Link
+      <Link
         href="https://links.embeejayz.com"
         target="_blank"
-        className={styles['nav-link']}
+        className={styles['embee-link']}
+        aria-label="Embeejayz's social networks"
       >
-        <EmbeeLogo /> Embeejayz
-      </Link> */}
+        <EmbeeLogo size={40} /> Embeejayz
+      </Link>
       <div className={styles['collaborators-container']}>
         <p>Colaboradores:</p>
         <div className={styles['collaborators']}>

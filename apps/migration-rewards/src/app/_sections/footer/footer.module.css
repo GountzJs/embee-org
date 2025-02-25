@@ -15,7 +15,7 @@
 .detail {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .detail p {
@@ -39,6 +39,20 @@
   &:hover {
     color: var(--ui-kit-primary-500);
   }
+}
+
+.embee-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: var(--ui-kit-font-primary);
+  text-decoration: none;
+  color: var(--ui-kit-neutral-100);
+  font-weight: 600;
+  font-size: 16px;
+  gap: 15px;
+  margin: 10px;
+  padding: 0;
 }
 
 .collaborators-container {
