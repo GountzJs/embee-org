@@ -21,10 +21,10 @@
   color: var(--ui-kit-secondary-400);
   font-size: 22px;
   font-weight: 600;
+  margin: 0;
   gap: 15px;
   width: 100%;
   max-width: 800px;
-  margin: 0;
 }
 
 .border-title {

@@ -23,6 +23,8 @@ const ButtonLeft = ({
 
   return (
     <button
+      name="btn-slider-left"
+      aria-label="Change content slider to left"
       className={`${styles['btn-chevron']} ${styles['btn-chevron-left']}`}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
@@ -50,6 +52,8 @@ const ButtonRight = ({
 
   return (
     <button
+      name="btn-slider-right"
+      aria-label="Change content slider to right"
       className={`${styles['btn-chevron']} ${styles['btn-chevron-right']}`}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}

@@ -1,7 +1,5 @@
 .container {
-  background-color: var(--ui-kit-neutral-800);
   border-radius: 6px;
-  outline: 6px solid var(--ui-kit-primary-700);
   align-items: center;
   display: flex;
   justify-content: center;
