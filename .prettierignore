@@ -9,3 +9,4 @@ LICENSE
 pnpm-lock.yaml
 pnpm-workspace.yaml
 apps/embee-links/*
+**/.next/**
