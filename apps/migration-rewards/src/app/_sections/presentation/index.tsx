@@ -13,7 +13,7 @@ export function Presentation() {
           height={100}
         />
         <img
-          src="/avatars/embee-worlds-2024.png"
+          src="/avatars/embee-worlds-2024.webp"
           alt="Embeejayz worlds"
           loading="eager"
           height={150}

@@ -7,7 +7,7 @@ export function ExampleBorder() {
       username={'Embeejayz'}
       rank={Rank.Challenger}
       name={'Faker'}
-      avatarUrl={`/avatars/embeejayz.webp`}
+      avatarUrl={`/avatars/embeejayz.avif`}
       url="/images/proplayers/faker/default.png"
     />
   );
