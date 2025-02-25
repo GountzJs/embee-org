@@ -8,14 +8,14 @@ import styles from './rewards-available.module.css';
 export function RewardsAvailable() {
   return (
     <section className={styles.container}>
-      <h3 className={`${montserrat.className} ${styles['title-section']}`}>
+      <h2 className={`${montserrat.className} ${styles['title-section']}`}>
         Recompensas disponibles
-      </h3>
+      </h2>
       <Slider>
         <div className={styles['border-reward']}>
-          <h4 className={`${montserrat.className} ${styles['border-title']}`}>
+          <h3 className={`${montserrat.className} ${styles['border-title']}`}>
             Bordes clasificatorios
-          </h4>
+          </h3>
           <div className={styles['border-container']}>
             <ExampleBorder />
           </div>
