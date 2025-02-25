@@ -11,7 +11,13 @@ interface Props {
 export function Collaborator({ username, url, socialUrl }: Props) {
   return (
     <Tooltip message={username}>
-      <Link href={socialUrl} className={styles.container} target="_blank">
+      <Link
+        href={socialUrl}
+        className={styles.container}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${username} social network`}
+      >
         <img
           className={styles.avatar}
           src={url}
