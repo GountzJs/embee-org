@@ -1,5 +1,6 @@
 import { montserrat } from '@/consts/fonts';
 import { DoubleImage } from '@/shared/components/double-image';
+import Image from 'next/image';
 import styles from './presentation.module.css';
 
 export function Presentation() {
@@ -12,7 +13,7 @@ export function Presentation() {
           width={100}
           height={100}
         />
-        <img
+        <Image
           src="/avatars/embee-worlds-2024.webp"
           alt="Embeejayz worlds"
           loading="eager"
