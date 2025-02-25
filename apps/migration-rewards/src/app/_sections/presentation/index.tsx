@@ -1,5 +1,4 @@
 import { montserrat } from '@/consts/fonts';
-import { staticUrl } from '@/core/client-settings';
 import { DoubleImage } from '@/shared/components/double-image';
 import styles from './presentation.module.css';
 
@@ -14,8 +13,9 @@ export function Presentation() {
           height={100}
         />
         <img
-          src={`${staticUrl}/images/embee/embee-worlds-2024.png`}
+          src="/avatars/embee-worlds-2024.png"
           alt="Embeejayz worlds"
+          loading="eager"
           height={150}
           width={86}
         />

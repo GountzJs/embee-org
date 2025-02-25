@@ -1,4 +1,3 @@
-import { staticUrl } from '@/core/client-settings';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 
 interface Props {
@@ -12,8 +11,8 @@ export function BorderImage({ rank, width = 330, height = 594 }: Props) {
 
   return (
     <img
-      src={`${staticUrl}/images/borders/${bRank}.png`}
-      loading="lazy"
+      src={`/borders/${bRank}.webp`}
+      loading="eager"
       width={width}
       height={height}
       alt={`Rank ${bRank} border`}
