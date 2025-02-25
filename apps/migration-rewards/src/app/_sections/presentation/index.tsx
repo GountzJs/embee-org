@@ -32,8 +32,8 @@ export function Presentation() {
       <p className={styles['description-style']}>
         Agradecemos cada pequeño apoyo al canal. Con esto en mente, creamos esta
         plataforma para que tu ayuda no se quede solo en una alerta y un
-        "gracias". En esta web puedes encontrar coleccionables basados en la
-        escena competitiva de <strong>League of Legends</strong> y en{' '}
+        &quot;gracias&quot;. En esta web puedes encontrar coleccionables basados
+        en la escena competitiva de <strong>League of Legends</strong> y en{' '}
         <strong>Embeejayz</strong>. ¡Esperamos que sigan acompañándonos en cada
         transmisión y que nuestra pasión continúe motivándolos!
       </p>
