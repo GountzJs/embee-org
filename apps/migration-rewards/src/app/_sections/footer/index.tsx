@@ -42,13 +42,13 @@ export function Footer() {
           gracias!
         </p>
       </div>
-      <Link
+      {/* <Link
         href="https://links.embeejayz.com"
         target="_blank"
         className={styles['nav-link']}
       >
-        {/* <EmbeeLogo /> Embeejayz */}
-      </Link>
+        <EmbeeLogo /> Embeejayz
+      </Link> */}
       <div className={styles['collaborators-container']}>
         <p>Colaboradores:</p>
         <div className={styles['collaborators']}>
