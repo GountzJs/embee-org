@@ -1,5 +1,6 @@
 import { SummonerSpell } from '@/borders/models/enums/summoner-spell.enum';
 import { staticUrl } from '@/core/client-settings';
+import Image from 'next/image';
 
 interface Props {
   spell: SummonerSpell;
@@ -9,7 +10,7 @@ interface Props {
 
 export function IconSummonerSpell({ spell, width = 40, height = 40 }: Props) {
   return (
-    <img
+    <Image
       src={`${staticUrl}/summoner-spell/${spell}.jpg`}
       loading="lazy"
       width={width}

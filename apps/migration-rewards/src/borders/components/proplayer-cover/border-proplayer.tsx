@@ -1,4 +1,5 @@
 import { staticUrl } from '@/core/client-settings';
+import Image from 'next/image';
 import styles from './border-proplayer.module.css';
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 
 export function BorderProplayer({ url, width = 100, height = 100 }: Props) {
   return (
-    <img
+    <Image
       className={styles.container}
       src={`${staticUrl}${url}`}
       width={width}

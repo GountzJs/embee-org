@@ -1,5 +1,5 @@
 'use client';
-import { staticUrl } from '@/core/client-settings';
+import { EmbeeLogo } from '@/shared/components/embee-logo';
 import { HomeIcon, RankingIcon } from '@/shared/svgs/icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -63,14 +63,7 @@ export function Navbar() {
   return (
     <nav className={styles['nav-container']}>
       <Link href="/" className={styles['nav-link']}>
-        <img
-          className={styles['avatar']}
-          src={`${staticUrl}/favicon.ico`}
-          loading="eager"
-          width={50}
-          height={50}
-          alt="Embeejayz avatar"
-        />
+        <EmbeeLogo />
         Recompensas
       </Link>
       <HomeLink />

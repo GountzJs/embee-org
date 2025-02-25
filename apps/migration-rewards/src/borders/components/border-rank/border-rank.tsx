@@ -4,6 +4,7 @@ import { SummonerSpell } from '@/borders/models/enums/summoner-spell.enum';
 import { montserrat } from '@/consts/fonts';
 import { Rank } from '@/ranking/models/enums/rank.enum';
 import { Typography } from '@embeeorg/ui-kit';
+import Image from 'next/image';
 import { IconSummonerSpell } from '../icon-spell/icon-spell';
 import styles from './border-rank.module.css';
 
@@ -57,10 +58,12 @@ const BorderChallenger = ({ url, name, username, avatarUrl }: BorderProps) => {
           width={46}
         />
       </div>
-      <img
+      <Image
         className={`${styles.avatar} ${styles['avatar-challenger']}`}
         src={avatarUrl}
         loading="eager"
+        width={70}
+        height={70}
         alt={`Avatar ${username}`}
       />
     </div>

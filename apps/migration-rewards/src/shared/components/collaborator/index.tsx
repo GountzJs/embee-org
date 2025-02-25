@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Tooltip } from '../tooltip';
 import styles from './collaborator.module.css';
@@ -18,7 +19,7 @@ export function Collaborator({ username, url, socialUrl }: Props) {
         rel="noopener noreferrer"
         aria-label={`${username} social network`}
       >
-        <img
+        <Image
           className={styles.avatar}
           src={url}
           loading="lazy"
