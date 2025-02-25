@@ -12,6 +12,8 @@
     "wb-recommend:dev": "nx dev web-rewards",
     "wb-recommend:build": "nx build web-rewards",
     "wb-games:dev": "nx dev web-games",
+    "mr:dev": "nx dev migration-rewards",
+    "mr:build": "nx build migration-rewards",
     "wb-games:build": "nx build web-games",
     "ui-kit:build": "nx build @embeeorg/ui-kit",
     "commit": "commit",

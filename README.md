@@ -41,6 +41,7 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 - Pnpm (package manager)
 - Nx (Build system)
 - React
+- Nextjs
 - Typescript
 - Javascript
 - Vite

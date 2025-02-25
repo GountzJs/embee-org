@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  /* Color Primary */
+  --ui-kit-primary-50: #fff0f3;
+  --ui-kit-primary-100: #ffdde3;
+  --ui-kit-primary-200: #ffc1cc;
+  --ui-kit-primary-300: #ff95a8;
+  --ui-kit-primary-400: #ff5977;
+  --ui-kit-primary-500: #ff264d;
+  --ui-kit-primary-600: #fc0632;
+  --ui-kit-primary-700: #e30029;
+  --ui-kit-primary-800: #af0524;
+  --ui-kit-primary-900: #900c24;
+  --ui-kit-primary-950: #50000e;
+
+  /* Color Secondary */
+  --ui-kit-secondary-50: #faf8f2;
+  --ui-kit-secondary-100: #f4efe0;
+  --ui-kit-secondary-200: #e7ddc1;
+  --ui-kit-secondary-300: #d8c699;
+  --ui-kit-secondary-400: #caae78;
+  --ui-kit-secondary-500: #bb9354;
+  --ui-kit-secondary-600: #ad8049;
+  --ui-kit-secondary-700: #90673e;
+  --ui-kit-secondary-800: #755437;
+  --ui-kit-secondary-900: #5f452f;
+  --ui-kit-secondary-950: #332317;
+
+  /* Color Neutral */
+  --ui-kit-neutral-50: oklch(0.985 0.002 247.839);
+  --ui-kit-neutral-100: oklch(0.967 0.003 264.542);
+  --ui-kit-neutral-200: oklch(0.928 0.006 264.531);
+  --ui-kit-neutral-300: oklch(0.872 0.01 258.338);
+  --ui-kit-neutral-400: oklch(0.707 0.022 261.325);
+  --ui-kit-neutral-500: oklch(0.551 0.027 264.364);
+  --ui-kit-neutral-600: oklch(0.446 0.03 256.802);
+  --ui-kit-neutral-700: oklch(0.373 0.034 259.733);
+  --ui-kit-neutral-800: oklch(0.278 0.033 256.848);
+  --ui-kit-neutral-900: oklch(0.21 0.034 264.665);
+  --ui-kit-neutral-950: oklch(0.13 0.028 261.692);
+
+  /* Color Twitch */
+  --ui-kit-twitch: #9146ff;
+  --ui-kit-twitch-dark: #772ce8;
+
+  /* Font Size */
+  --ui-kit-size-xs: 0.75rem; /* 12px */
+  --ui-kit-size-sm: 0.875rem; /* 14px */
+  --ui-kit-size-base: 1rem; /* 16px */
+  --ui-kit-size-lg: 1.125rem; /* 18px */
+  --ui-kit-size-xl: 1.25rem; /* 20px */
+  --ui-kit-size-2xl: 1.5rem; /* 24px */
+  --ui-kit-size-3xl: 1.875rem; /* 30px */
+  --ui-kit-size-4xl: 2.25rem; /* 36px */
+  --ui-kit-size-5xl: 3rem; /* 48px */
+
+  /* Font Weight */
+  --ui-kit-font-weight-light: 300;
+  --ui-kit-font-weight-normal: 400;
+  --ui-kit-font-weight-regular: 500;
+  --ui-kit-font-weight-semibold: 600;
+  --ui-kit-font-weight-bold: 700;
+  --ui-kit-font-weight-extrabold: 800;
+  --ui-kit-font-weight-black: 900;
+
+  /* Font Family */
+  --font-primary: var(--ui-kit-font-primary);
+  --font-secondary: var(--ui-kit-font-secondary);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  scrollbar-gutter: stable;
+  margin: 0;
+  scrollbar-color: var(--ui-kit-primary-500) var(--ui-kit-neutral-950);
+  scrollbar-width: thin;
+}
+
+html,
+body {
+  background-image: linear-gradient(
+    to bottom,
+    var(--ui-kit-neutral-700) 15%,
+    var(--ui-kit-neutral-800),
+    var(--ui-kit-neutral-900),
+    var(--ui-kit-neutral-950)
+  );
+  background-position: center;
+  background-size: cover;
+  color: var(--ui-kit-neutral-100);
+}

@@ -1,0 +1,9 @@
+.body-container {
+  display: grid;
+  flex: 1;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  width: 100%;
+}

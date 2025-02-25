@@ -1,0 +1,34 @@
+.container {
+  background-color: var(--ui-kit-neutral-700);
+  border-radius: 6px;
+  outline: 6px solid var(--ui-kit-primary-700);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 15px 60px;
+  position: relative;
+}
+
+.slide {
+  padding: 10px;
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+}
+
+.btn-chevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-chevron-left {
+  left: 0;
+}
+
+.btn-chevron-right {
+  right: 0;
+}
