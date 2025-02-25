@@ -6,6 +6,8 @@ export const getPlayerSprite = (username: string) => {
       return 'aurora';
     case 'gountzjs':
       return 'kalista';
+    case 'QLuuA':
+      return 'galio';
     default:
       return 'shaco';
   }

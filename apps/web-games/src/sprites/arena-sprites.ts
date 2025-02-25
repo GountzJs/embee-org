@@ -22,4 +22,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('galio', 'sprites/galio/galio.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

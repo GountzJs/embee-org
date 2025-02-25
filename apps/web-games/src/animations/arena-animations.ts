@@ -43,4 +43,15 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 6,
   });
+
+  anims.create({
+    key: 'galio-walk',
+    frames: [
+      { key: 'galio', frame: 0 },
+      { key: 'galio', frame: 1 },
+      { key: 'galio', frame: 2 },
+    ],
+    repeat: -1,
+    frameRate: 4,
+  });
 }
