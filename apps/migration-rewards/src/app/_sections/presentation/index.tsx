@@ -8,8 +8,8 @@ export function Presentation() {
     <section className={styles.container}>
       <div className={styles['logos-container']}>
         <DoubleImage
-          urlFront={`${staticUrl}/logos/skt-t1.png`}
-          urlBack={`/skt-t1-worlds.jpeg`}
+          urlFront={`/logos/skt-t1.webp`}
+          urlBack={`/images/skt-t1-worlds.jpeg`}
           width={100}
           height={100}
         />
@@ -20,8 +20,8 @@ export function Presentation() {
           width={86}
         />
         <DoubleImage
-          urlFront={`${staticUrl}/logos/t1.png`}
-          urlBack={`/t1-worlds.jpg`}
+          urlFront={`/logos/t1.webp`}
+          urlBack={`/images/t1-worlds.jpg`}
           width={100}
           height={100}
         />

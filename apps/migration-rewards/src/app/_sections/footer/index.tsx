@@ -55,12 +55,12 @@ export function Footer() {
           <Collaborator
             username="GountzJs"
             socialUrl="https://github.com/GountzJs"
-            url="/gountz.png"
+            url="/avatars/gountz.png"
           />
           <Collaborator
             username="Su1zide"
             socialUrl="https://www.instagram.com/su1zide/"
-            url="/su1zide.png"
+            url="/avatars/su1zide.jpg"
           />
         </div>
       </div>
