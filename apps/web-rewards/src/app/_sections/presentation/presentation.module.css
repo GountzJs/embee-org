@@ -2,3 +2,17 @@
   width: 800px;
   max-width: 90%;
 }
+
+.title-disclaimer {
+  font-family: var(--ui-kit-font-primary);
+  font-size: var(--ui-kit-size-2xl);
+  font-weight: var(--ui-kit-font-weight-extrabold);
+  color: var(--ui-kit-primary-600);
+}
+
+.disclaimer {
+  font-family: var(--ui-kit-font-secondary);
+  font-size: var(--ui-kit-size-xl);
+  font-weight: var(--ui-kit-font-weight-regular);
+  color: var(--ui-kit-primary-400);
+}

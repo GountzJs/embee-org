@@ -35,6 +35,17 @@ export function Presentation() {
           acompañándonos en las partidas de T1!
         </Typography>
       </CardEmbee>
+      <p className={styles.disclaimer}>
+        <strong className={styles['title-disclaimer']}>
+          Aviso Importante:
+        </strong>{' '}
+        <br /> Los bordes obtenidos en esta plataforma son recompensas
+        coleccionables y no tienen valor monetario real. No pueden ser
+        comprados, vendidos, intercambiados ni canjeados por dinero, bienes o
+        servicios, ni dentro de esta aplicación ni fuera de ella. Esta
+        plataforma no está afiliada, respaldada ni operada por Riot Games.
+        League of Legends y todos sus activos son propiedad de Riot games, Inc.
+      </p>
     </section>
   );
 }
