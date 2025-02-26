@@ -23,3 +23,14 @@
   gap: 25px;
   justify-content: center;
 }
+
+.disclaimer-container {
+  color: var(--ui-kit-neutral-100);
+  font-family: var(--ui-kit-font-primary);
+  margin: 0;
+  text-align: center;
+  font-weight: semibold;
+  font-size: 16px;
+  width: 100%;
+  max-width: 60dvw;
+}
