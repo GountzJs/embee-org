@@ -1,5 +1,9 @@
 .container {
-  height: 100dvh;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  height: 100%;
   width: 100%;
 }
 
