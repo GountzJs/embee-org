@@ -12,6 +12,8 @@ export const getPlayerSprite = (username: string) => {
       return 'anivia';
     case 't1alastorzz':
       return 'pyke';
+    case 'kinggedox':
+      return 'rell';
     default:
       return 'shaco';
   }

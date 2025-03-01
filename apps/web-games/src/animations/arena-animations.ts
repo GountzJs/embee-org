@@ -78,4 +78,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'rell-walk',
+    frames: [
+      { key: 'rell', frame: 0 },
+      { key: 'rell', frame: 1 },
+      { key: 'rell', frame: 2 },
+      { key: 'rell', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
