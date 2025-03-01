@@ -60,7 +60,7 @@ export class UsersBordersController {
         client,
         userId: id,
         page: isNaN(pageNumber) || 0 ? 1 : pageNumber,
-        pageSize: 8,
+        pageSize: 10,
         filterByName,
         orderBy,
         sort,
