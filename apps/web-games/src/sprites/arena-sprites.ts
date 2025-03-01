@@ -32,4 +32,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('pyke', '/sprites/pyke/pyke.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

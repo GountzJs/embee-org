@@ -66,4 +66,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'pyke-walk',
+    frames: [
+      { key: 'pyke', frame: 0 },
+      { key: 'pyke', frame: 1 },
+      { key: 'pyke', frame: 2 },
+      { key: 'pyke', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
