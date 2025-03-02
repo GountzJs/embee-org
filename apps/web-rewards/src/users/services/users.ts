@@ -22,8 +22,7 @@ export const getUserByUsername = async (
 export const getUserById = async (
   id: string,
 ): Promise<{ user: UserProfileEntity }> => {
-  const url = new URL(`${rewardsApiUrl}/api/users/${id}`);
-  const res = await fetch(url.toString(), {
+  const res = await fetch(`/api/users/${id}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',

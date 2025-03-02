@@ -90,4 +90,15 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'ahri-walk',
+    frames: [
+      { key: 'ahri', frame: 0 },
+      { key: 'ahri', frame: 1 },
+      { key: 'ahri', frame: 2 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
