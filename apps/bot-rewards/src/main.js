@@ -1,5 +1,5 @@
 import { UserBordersActions } from './actions/user-borders.js';
-import { twitchChannel } from './core/settings.js';
+import { twitchChannel, twitchUsername } from './core/settings.js';
 import client from './twitch/tmi-client.js';
 import { sanitizeMessage } from './twitch/utils.js';
 
@@ -23,16 +23,29 @@ const messagesCallbacks = async (channel, tag, msg, self) => {
   const isCreator = tag['display-name'] === channel.replace('#', '');
   const isMod = tag['mod'];
   if (msg.toLowerCase().includes('gwenas')) {
-    client.say(twitchChannel, '🐈 Deja de ser tan furro Suiz1de');
+    client.say(
+      `#${twitchUsername}`,
+      sanitizeMessage(`!message success-🐈 Deja de ser tan furro Suiz1de`),
+    );
   }
   if ((isCreator || isMod) && msg === '!enable-day') {
     isActiveBorderSpecial = true;
-    client.say(twitchChannel, '🤖 Se activó el borde especial del día.');
+    client.say(
+      `#${twitchUsername}`,
+      sanitizeMessage(
+        `!message success-🤖 Se activó el borde especial del día.`,
+      ),
+    );
   }
 
   if (isActiveBorderSpecial && msg === '!disable-day') {
     isActiveBorderSpecial = false;
-    client.say(twitchChannel, '🤖 Se desactivo el borde especial del día.');
+    client.say(
+      `#${twitchUsername}`,
+      sanitizeMessage(
+        `!message success-🤖 Se desactivo el borde especial del día.`,
+      ),
+    );
   }
 
   if (isActiveBorderSpecial && msg.toLowerCase() === '!reward') {
@@ -85,7 +98,10 @@ const messagesCallbacks = async (channel, tag, msg, self) => {
 
 async function main() {
   await client.connect().then((res) => console.log(res));
-  client.say(twitchChannel, '🤖 Un stream nuevo comienza!');
+  client.say(
+    `#${twitchUsername}`,
+    sanitizeMessage(`!message success-🤖 Bot inicializado.`),
+  );
   handleOnProcess();
 
   client.on('message', messagesCallbacks);

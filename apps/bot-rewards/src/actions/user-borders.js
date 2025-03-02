@@ -1,9 +1,5 @@
 import { BorderService } from '../border/border.service.js';
-import {
-  borderSpecial,
-  twitchChannel,
-  twitchUsername,
-} from '../core/settings.js';
+import { borderSpecial, twitchUsername } from '../core/settings.js';
 import client from '../twitch/tmi-client.js';
 import { sanitizeMessage } from '../twitch/utils.js';
 import { UserBordersService } from '../user-border/user-border.service.js';
@@ -27,9 +23,9 @@ export class UserBordersActions {
     } catch (err) {
       console.log(err?.message);
       client.say(
-        twitchChannel,
+        `#${twitchUsername}`,
         sanitizeMessage(
-          `❌ @${username}: No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
+          `!message error-[@${username}] No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
         ),
       );
     }
@@ -55,9 +51,9 @@ export class UserBordersActions {
     } catch (err) {
       console.log(err?.message);
       client.say(
-        twitchChannel,
+        `#${twitchUsername}`,
         sanitizeMessage(
-          `❌ [@${username}]: No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
+          `!message error-[@${username}] No pudimos asignar los bordes. ¿Dónde estarán los MOD cuando se los necesita?`,
         ),
       );
     }
@@ -77,9 +73,9 @@ export class UserBordersActions {
           `🤖 El usuario [@${username}] ya tiene el borde especial asignado.`,
         );
         client.say(
-          twitchChannel,
+          `#${twitchUsername}`,
           sanitizeMessage(
-            `❌ @${username} Ya tiene el borde especial asignado. No se puede canjear dos veces`,
+            `!message error-[@${username}] Ya tiene el borde especial asignado. No se puede canjear dos veces`,
           ),
         );
         return;
@@ -93,9 +89,9 @@ export class UserBordersActions {
     } catch (err) {
       console.log(err?.message);
       client.say(
-        twitchChannel,
+        `#${twitchUsername}`,
         sanitizeMessage(
-          `❌ [@${username}]: No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
+          `!message error-[@${username}] No pudimos asignar el borde. ¿Dónde estarán los MOD cuando se los necesita?`,
         ),
       );
     }
