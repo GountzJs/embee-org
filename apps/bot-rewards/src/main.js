@@ -22,6 +22,9 @@ const messagesCallbacks = async (channel, tag, msg, self) => {
   if (self || !msg?.length) return;
   const isCreator = tag['display-name'] === channel.replace('#', '');
   const isMod = tag['mod'];
+  if (msg.toLowerCase().includes('gwenas')) {
+    client.say(twitchChannel, '🐈 Deja de ser tan furro Suiz1de');
+  }
   if ((isCreator || isMod) && msg === '!enable-day') {
     isActiveBorderSpecial = true;
     client.say(twitchChannel, '🤖 Se activó el borde especial del día.');

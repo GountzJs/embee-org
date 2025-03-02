@@ -1,5 +1,9 @@
 import { BorderService } from '../border/border.service.js';
-import { borderSpecial, twitchChannel } from '../core/settings.js';
+import {
+  borderSpecial,
+  twitchChannel,
+  twitchUsername,
+} from '../core/settings.js';
 import client from '../twitch/tmi-client.js';
 import { sanitizeMessage } from '../twitch/utils.js';
 import { UserBordersService } from '../user-border/user-border.service.js';
@@ -17,8 +21,8 @@ export class UserBordersActions {
         `🤖 Se le ha asignado un borde aletorio al usuario [@${username}].`,
       );
       client.say(
-        twitchChannel,
-        sanitizeMessage(`🤖 @${username} Se ha asignado su borde aletorio.`),
+        `#${twitchUsername}`,
+        sanitizeMessage(`!notification border-1-false-${username}`),
       );
     } catch (err) {
       console.log(err?.message);
@@ -45,10 +49,8 @@ export class UserBordersActions {
         `🤖 Se le ha asignado ${quantity} al usuario [@${username}].`,
       );
       client.say(
-        twitchChannel,
-        sanitizeMessage(
-          `🤖 @${username} Se te han asignado ${quantity} bordes aleatorios.`,
-        ),
+        `#${twitchUsername}`,
+        sanitizeMessage(`!notification border-${quantity}-false-${username}`),
       );
     } catch (err) {
       console.log(err?.message);
@@ -85,10 +87,8 @@ export class UserBordersActions {
       await UserBordersService.create({ userId, borderId: borderSpecial });
       console.log(`🤖 Se le ha asignado un borde al usuario [@${username}].`);
       client.say(
-        twitchChannel,
-        sanitizeMessage(
-          `🤖 @${username} Se ha asignado el borde especial del día.`,
-        ),
+        `#${twitchUsername}`,
+        sanitizeMessage(`!notification border-0-true-${username}`),
       );
     } catch (err) {
       console.log(err?.message);
