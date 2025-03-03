@@ -1,3 +1,0 @@
-# Embee Rewards
-
-## React

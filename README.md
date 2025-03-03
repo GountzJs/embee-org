@@ -24,7 +24,6 @@ We look forward to your involvement and contributions!
 | [`embee-links`](./apps/embee-links) | Embeejayz's Red social links. |
 | [`server-rewards`](./apps/server-rewards) | Server Reward system for Embeejayz's Twitch community. |
 | [`web-games`](./apps/web-games) | Web Arena for Embeejayz's Twitch community. |
-| [`web-rewards`](./apps/web-rewards) | UI Reward system for Embeejayz's Twitch community. |
 
 ## Rules for Contributing
 
