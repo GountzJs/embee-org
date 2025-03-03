@@ -47,4 +47,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('seraphine', '/sprites/seraphine/seraphine.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

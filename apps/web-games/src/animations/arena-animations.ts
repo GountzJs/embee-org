@@ -101,4 +101,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'seraphine-walk',
+    frames: [
+      { key: 'seraphine', frame: 0 },
+      { key: 'seraphine', frame: 1 },
+      { key: 'seraphine', frame: 2 },
+      { key: 'seraphine', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
