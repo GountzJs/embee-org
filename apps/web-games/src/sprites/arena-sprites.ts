@@ -52,4 +52,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('zed', '/sprites/zed/zed.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

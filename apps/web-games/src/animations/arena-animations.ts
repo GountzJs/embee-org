@@ -113,4 +113,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'zed-walk',
+    frames: [
+      { key: 'zed', frame: 0 },
+      { key: 'zed', frame: 1 },
+      { key: 'zed', frame: 2 },
+      { key: 'zed', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
