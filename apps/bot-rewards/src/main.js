@@ -22,6 +22,16 @@ const messagesCallbacks = async (channel, tag, msg, self) => {
   if (self || !msg?.length) return;
   const isCreator = tag['display-name'] === channel.replace('#', '');
   const isMod = tag['mod'];
+
+  if (msg.toLowerCase().startsWith('!normal')) {
+    client.say(
+      `#${twitchUsername}`,
+      sanitizeMessage(
+        `!message success-🤖 Meldrekoski efectivamente, no es normal.`,
+      ),
+    );
+  }
+
   if (msg.toLowerCase().includes('gwenas')) {
     client.say(
       `#${twitchUsername}`,
