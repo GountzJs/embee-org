@@ -18,7 +18,7 @@ export class UsersCardsController {
 
   getLatestCards = async (c: CardsLatestContext) => {
     const { id } = c.req.param();
-    const { quantity } = await c.req.json();
+    const { quantity } = c.req.query();
     const qnt = Number(quantity || 0);
     if (!qnt) return c.json({ message: 'Invalid quantity' }, 400);
     const client = initTursoClient({

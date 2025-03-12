@@ -5,16 +5,17 @@ export class UserCardsRepository {
     const { rows } = await client.execute({
       sql: `
         SELECT
-          pack,
-          category, 
-          name,
-          description,
-          identify,
-          cover,
-          is_special
-        FROM user_cards
-        WHERE user_id = ?
-        ORDER BY created_at DESC
+          c.pack,
+          c.category,
+          c.name,
+          c.description,
+          c.cover,
+          c.identify,
+          c.is_special
+        FROM user_cards uc
+        INNER JOIN cards c ON uc.card_id = c.id
+        WHERE uc.user_id = ?
+        ORDER BY uc.created_at DESC
         LIMIT ?
       `,
       args: [userId, limit],
