@@ -20,7 +20,7 @@ export class UsersCardsController {
     const { id } = c.req.param();
     const { quantity } = c.req.query();
     const qnt = Number(quantity || 0);
-    if (!qnt) return c.json({ message: 'Invalid quantity' }, 400);
+    if (!qnt || qnt > 12) return c.json({ message: 'Invalid quantity' }, 400);
     const client = initTursoClient({
       TURSO_DATABASE_URL: c.env.TURSO_DATABASE_URL,
       TURSO_AUTH_TOKEN: c.env.TURSO_AUTH_TOKEN,
