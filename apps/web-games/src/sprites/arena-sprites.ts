@@ -62,4 +62,13 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet(
+    'god-king-darius',
+    '/sprites/god-king-darius/god-king-darius.png',
+    {
+      frameWidth: 128,
+      frameHeight: 128,
+    },
+  );
 }

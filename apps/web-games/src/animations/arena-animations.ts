@@ -137,4 +137,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'god-king-darius-walk',
+    frames: [
+      { key: 'god-king-darius', frame: 0 },
+      { key: 'god-king-darius', frame: 1 },
+      { key: 'god-king-darius', frame: 2 },
+      { key: 'god-king-darius', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
