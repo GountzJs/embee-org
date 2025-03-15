@@ -57,4 +57,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('nautilus', '/sprites/nautilus/nautilus.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

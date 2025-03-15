@@ -125,4 +125,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'nautilus-walk',
+    frames: [
+      { key: 'nautilus', frame: 0 },
+      { key: 'nautilus', frame: 1 },
+      { key: 'nautilus', frame: 2 },
+      { key: 'nautilus', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }
