@@ -18,6 +18,8 @@ export const getPlayerSprite = (username: string) => {
       return 'zed';
     case 'Mari_yusi':
       return 'seraphine';
+    case 'Meldrekoski':
+      return 'nautilus';
     default:
       return 'shaco';
   }
