@@ -92,7 +92,7 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
   });
 
   anims.create({
-    key: 'rell-star-guardian-yellow',
+    key: 'rell-star-guardian-yellow-walk',
     frames: [
       { key: 'rell-star-guardian-yellow', frame: 0 },
       { key: 'rell-star-guardian-yellow', frame: 1 },
