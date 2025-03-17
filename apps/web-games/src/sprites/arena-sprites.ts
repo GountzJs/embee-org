@@ -43,6 +43,15 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameHeight: 128,
   });
 
+  load.spritesheet(
+    'rell-star-guardian-yellow',
+    '/sprites/rell-star-guardian-yellow/rell-star-guardian-yellow.png',
+    {
+      frameWidth: 128,
+      frameHeight: 128,
+    },
+  );
+
   load.spritesheet('ahri', '/sprites/ahri/ahri.png', {
     frameWidth: 128,
     frameHeight: 128,

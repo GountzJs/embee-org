@@ -92,6 +92,18 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
   });
 
   anims.create({
+    key: 'rell-star-guardian-yellow',
+    frames: [
+      { key: 'rell-star-guardian-yellow', frame: 0 },
+      { key: 'rell-star-guardian-yellow', frame: 1 },
+      { key: 'rell-star-guardian-yellow', frame: 2 },
+      { key: 'rell-star-guardian-yellow', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
+
+  anims.create({
     key: 'ahri-walk',
     frames: [
       { key: 'ahri', frame: 0 },
