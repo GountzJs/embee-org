@@ -161,4 +161,17 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'nautilus-crystalis-indomitus-walk',
+    frames: [
+      { key: 'nautilus-crystalis-indomitus', frame: 0 },
+      { key: 'nautilus-crystalis-indomitus', frame: 1 },
+      { key: 'nautilus-crystalis-indomitus', frame: 2 },
+      { key: 'nautilus-crystalis-indomitus', frame: 3 },
+      { key: 'nautilus-crystalis-indomitus', frame: 4 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }

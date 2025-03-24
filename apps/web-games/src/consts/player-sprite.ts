@@ -19,7 +19,7 @@ export const getPlayerSprite = (username: string) => {
     case 'Mari_yusi':
       return 'seraphine';
     case 'Meldrekoski':
-      return 'nautilus';
+      return 'nautilus-crystalis-indomitus';
     case 'Suiz1de':
       return 'god-king-darius';
     default:
