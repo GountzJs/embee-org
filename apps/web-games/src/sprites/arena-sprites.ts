@@ -74,7 +74,7 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
 
   load.spritesheet(
     'nautilus-crystalis-indomitus',
-    '/sprintes/nautilus-crystalis-indomitus/nautilus-crystalis-indomitus.png',
+    '/sprites/nautilus-crystalis-indomitus/nautilus-crystalis-indomitus.png',
     {
       frameWidth: 128,
       frameHeight: 128,
