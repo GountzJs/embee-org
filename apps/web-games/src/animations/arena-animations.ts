@@ -167,4 +167,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 5,
   });
+
+  anims.create({
+    key: 'anivia-team-spirit-walk',
+    frames: [
+      { key: 'anivia-team-spirit', frame: 0 },
+      { key: 'anivia-team-spirit', frame: 1 },
+      { key: 'anivia-team-spirit', frame: 2 },
+      { key: 'anivia-team-spirit', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 5,
+  });
 }

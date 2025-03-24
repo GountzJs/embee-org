@@ -89,4 +89,13 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
       frameHeight: 128,
     },
   );
+
+  load.spritesheet(
+    'anivia-team-spirit',
+    '/sprites/anivia-team-spirit/anivia-team-spirit.png',
+    {
+      frameWidth: 128,
+      frameHeight: 128,
+    },
+  );
 }
