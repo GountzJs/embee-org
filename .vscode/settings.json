@@ -16,7 +16,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "conventionalCommits.scopes": [
-    "bot-rewards",
     "workspace",
     "ui-kit",
     "embee-links",

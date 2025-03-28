@@ -5,8 +5,6 @@
   "scripts": {
     "links:dev": "nx dev embee-links",
     "links:build": "nx build embee-links",
-    "bot": "nx start bot-rewards",
-    "bot:dev": "nx dev bot-rewards",
     "wb-games:dev": "nx dev web-games",
     "wb-games:build": "nx build web-games",
     "ui-kit:build": "nx build @embeeorg/ui-kit",
