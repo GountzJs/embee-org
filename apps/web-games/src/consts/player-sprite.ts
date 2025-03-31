@@ -22,6 +22,8 @@ export const getPlayerSprite = (username: string) => {
       return 'nautilus-crystalis-indomitus';
     case 'Suiz1de':
       return 'god-king-darius';
+    case 'TrollyXzyle':
+      return 'teemo';
     default:
       return 'shaco';
   }

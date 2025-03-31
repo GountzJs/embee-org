@@ -98,4 +98,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
       frameHeight: 128,
     },
   );
+
+  load.spritesheet('teemo', '/sprites/teemo/teemo.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }
