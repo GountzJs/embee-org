@@ -103,4 +103,13 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet(
+    'zed-galaxy-slayer',
+    '/sprites/zed-galaxy-slayer/zed-galaxy-slayer.png',
+    {
+      frameWidth: 128,
+      frameHeight: 128,
+    },
+  );
 }
