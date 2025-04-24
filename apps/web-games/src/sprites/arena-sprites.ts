@@ -15,7 +15,7 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
   load.spritesheet('shaco-miau', '/sprites/shaco-miau/shaco-miau.png', {
     frameWidth: 128,
     frameHeight: 128,
-  })
+  });
 
   // Aurora
   load.spritesheet('aurora', '/sprites/aurora/aurora.png', {
@@ -117,4 +117,14 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
       frameHeight: 128,
     },
   );
+
+  load.spritesheet('lux', '/sprites/lux/lux.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
+
+  load.spritesheet('xayah', '/sprites/xayah/xayah.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

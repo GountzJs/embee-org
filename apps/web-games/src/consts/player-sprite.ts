@@ -24,6 +24,10 @@ export const getPlayerSprite = (username: string) => {
       return 'god-king-darius';
     case 'TrollyXzyle':
       return 'teemo';
+    case 'scarlettline':
+      return 'lux';
+    case 'cass9_8_':
+      return 'xayah';
     default:
       return 'shaco';
   }
