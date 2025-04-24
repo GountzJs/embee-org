@@ -22,6 +22,17 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     frameRate: 6,
   });
   anims.create({
+    key: 'shaco-miau-wark',
+    frames: [
+      { key: 'shaco-miau', frame: 0 },
+      { key: 'shaco-miau', frame: 1 },
+      { key: 'shaco-miau', frame: 2 },
+      { key: 'shaco-miau', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 6,
+  });
+  anims.create({
     key: 'aurora-walk',
     frames: [
       { key: 'aurora', frame: 0 },

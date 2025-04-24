@@ -1,7 +1,7 @@
 export const getPlayerSprite = (username: string) => {
   switch (username) {
     case 'embeejayz':
-      return 'shaco-pa';
+      return 'shaco-miau';
     case 'LulaKamii_yusi':
       return 'ahri';
     case 'gountzjs':
