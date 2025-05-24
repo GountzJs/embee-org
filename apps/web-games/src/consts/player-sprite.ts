@@ -14,7 +14,7 @@ export const getPlayerSprite = (username: string) => {
       return 'pyke';
     case 'kinggedox':
       return 'rell-star-guardian-yellow';
-    case 'angelwangel1':
+    case 'angelwmilitophia':
       return 'zed-galaxy-slayer';
     case 'Mari_yusi':
       return 'seraphine';
