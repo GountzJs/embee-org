@@ -10,7 +10,7 @@ export const getPlayerSprite = (username: string) => {
       return 'galio';
     case 'matintosh':
       return 'anivia-team-spirit';
-    case 't1alastorzz':
+    case 't1alastors':
       return 'pyke';
     case 'kinggedox':
       return 'rell-star-guardian-yellow';
@@ -28,6 +28,8 @@ export const getPlayerSprite = (username: string) => {
       return 'lux';
     case 'cass9_8_':
       return 'xayah';
+    case 'Skivel1':
+      return 'orianna';
     default:
       return 'shaco';
   }

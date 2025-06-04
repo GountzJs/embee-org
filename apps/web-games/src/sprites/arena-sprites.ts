@@ -127,4 +127,9 @@ export function initArenaSprites(load: Phaser.Loader.LoaderPlugin) {
     frameWidth: 128,
     frameHeight: 128,
   });
+
+  load.spritesheet('orianna', '/sprites/orianna/orianna.png', {
+    frameWidth: 128,
+    frameHeight: 128,
+  });
 }

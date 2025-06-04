@@ -237,4 +237,16 @@ export function initArenaAnimations(anims: Phaser.Animations.AnimationManager) {
     repeat: -1,
     frameRate: 4,
   });
+
+  anims.create({
+    key: 'orianna-walk',
+    frames: [
+      { key: 'orianna', frame: 0 },
+      { key: 'orianna', frame: 1 },
+      { key: 'orianna', frame: 2 },
+      { key: 'orianna', frame: 3 },
+    ],
+    repeat: -1,
+    frameRate: 4,
+  });
 }
